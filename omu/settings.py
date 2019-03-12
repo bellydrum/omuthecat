@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '.omuthecat.com',
-] if not DEBUG else []
+] if not DEBUG else ['*']
 
 
 # Application definition
