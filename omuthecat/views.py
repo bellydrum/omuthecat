@@ -1,21 +1,26 @@
+from django.http import HttpResponse
 from django.shortcuts import render
-
 from os import listdir
 from random import randint
 
 # Create your views here.
 def render_home(request):
 
-    # get random file from images/omu
-    omu_image_folder = 'static/images/omu/'
-    image_filenames = listdir(omu_image_folder)
-    filename = image_filenames[ randint( 0, len(image_filenames) - 1 ) ]
-
-    print('Filenames in {}:'.format(omu_image_folder))
-    print(image_filenames)
+    image_folder = 'omu/'
 
     context = {
-        'filename': filename
+        'filename': get_random_image(image_folder)
     }
 
     return render(request, "home.html", context)
+
+
+def change_picture(request):
+    image_folder = 'omu/'
+    return HttpResponse(get_random_image(image_folder))
+
+
+def get_random_image(image_folder):
+    path = 'static/images/{}'.format(image_folder)
+    filenames = listdir(path)
+    return filenames[ randint( 0, len(filenames) - 1 ) ]

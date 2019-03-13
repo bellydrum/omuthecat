@@ -1,0 +1,23 @@
+{
+  "name": "omu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.26.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bellydrum/omuthecat.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bellydrum/omuthecat/issues"
+  },
+  "homepage": "https://github.com/bellydrum/omuthecat#readme"
+}

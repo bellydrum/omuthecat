@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'omuthecat',
+    'pipeline',
 ]
 
 MIDDLEWARE = [
@@ -137,5 +138,31 @@ STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # automatically take care of compressing static files on deploy
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-WHITENOISE_KEEP_ONLY_HASHED_FILES = True  # does not collect uncompressed files
+
+# whitenoise
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# WHITENOISE_KEEP_ONLY_HASHED_FILES = True  # does not collect uncompressed files
+
+# django-pipeline
+STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'pipeline.finders.PipelineFinder',
+)
+
+PIPELINE = {
+    'COMPILERS': ('pipeline.compilers.es6.ES6Compiler',),
+    'CSS_COMPRESSOR': 'pipeline.compressors.NoopCompressor',
+    'JS_COMPRESSOR': 'pipeline.compressors.NoopCompressor',
+    'BABEL_BINARY': os.path.join(BASE_DIR, 'node_modules/.bin/babel'),
+    'JAVASCRIPT': {
+        'scripts': {
+            'source_filenames': (
+                'js/src/*.es6',
+                'js/scripts.es6',
+            ),
+            'output_filename': 'js/scripts.js',
+        }
+    }
+}

@@ -9,4 +9,7 @@ from .views import *
 urlpatterns = [
     # navigational page rendering
     url('^$', render_home, name='home'),
+
+    # api urls
+    url('^change_picture$', change_picture, name='change_picture'),
 ]

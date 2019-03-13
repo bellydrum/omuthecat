@@ -4,42 +4,50 @@ body {
 }
 
 .page-content {
-    border: 1px dotted red;
+    /*border: 1px dotted red;*/
 }
 
 .picture-container {
-    border: 1px dotted green;
+    /*border: 1px dotted green;*/
     text-align: center;
+    height: 100vh;
     padding: 50px 0px;
 }
 
 .omu-image {
     display: inline-block;
+    max-width: 50%;
 }
 
-/* horizontal devices */
+
+/* ONLY on desktop */
+@media (min-width: 1201px) {
+    .omu-image {
+        max-height: 70%;
+    }
+}
+
+/* horizontal devices AND vertical devices */
 @media (max-width: 1200px) {
 
     /* image container */
     .picture-container {
         padding: 0px;
-        height: 100vh;
-    }
-
-    /* image */
-    .omu-image {
-        max-height: 100vh;
-        height: 100%;
     }
 }
 
-/* vertical devices */
-@media (max-width: 500px) {
+/* ONLY horizontal devices */
+@media (max-width: 1200px) and (min-width: 501px) {
 
-    /* image container */
-    .picture-container {
-
+    /* image */
+    .omu-image {
+        max-height: 100%;
+        max-width: 100%;
     }
+}
+
+/* ONLY vertical devices */
+@media (max-width: 500px) {
 
     /* image */
     .omu-image {
