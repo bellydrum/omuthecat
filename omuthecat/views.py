@@ -9,8 +9,11 @@ def render_home(request):
     image_folder = 'omu/'
 
     context = {
-        'filename': get_random_image(image_folder)
+        'filename': get_random_image(image_folder),
+        'filenames': [ filename for filename in listdir('static/images/{}'.format(image_folder)) ]
     }
+
+    print(context)
 
     return render(request, "home.html", context)
 
