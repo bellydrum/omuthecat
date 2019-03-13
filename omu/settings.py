@@ -160,7 +160,7 @@ PIPELINE = {
         'scripts': {
             'source_filenames': (
                 'js/src/*.es6',
-                'js/scripts.es6',
+                'js/app.es6',
             ),
             'output_filename': 'js/scripts.js',
         }
