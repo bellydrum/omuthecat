@@ -11,6 +11,9 @@ def render_home(request):
     image_filenames = listdir(omu_image_folder)
     filename = image_filenames[ randint( 0, len(image_filenames) - 1 ) ]
 
+    print('Filenames in {}:'.format(omu_image_folder))
+    print(image_filenames)
+
     context = {
         'filename': filename
     }
