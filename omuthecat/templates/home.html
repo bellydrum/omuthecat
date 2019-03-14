@@ -3,6 +3,9 @@
 {% block content %}
 <div class="picture-container">
     <img class="omu-image" id="omu-image" src="{% static 'images/omu/' %}{{ filename }}"/>
+    <div class="high-score-container">
+        <span class="high-score">High score: {{ high_score }}</span>
+    </div>
 </div>
 
 <!-- for easy client-side access! -->
