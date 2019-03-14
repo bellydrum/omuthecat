@@ -1,10 +1,11 @@
+
 /**
  * app.es6
  * ------------------------------------------------------------------------------
  * main script that utilizes above compiled code
  */
 
-$(document).on('ready', () => {
+document.addEventListener("DOMContentLoaded", () => {
 
     const app = {
 
@@ -20,26 +21,24 @@ $(document).on('ready', () => {
             console.log(`There were ${clicks} clicks last session.`)
         },
 
-        changePicture: async (image) => {
-            const newPicture = await ajaxCall('change_picture', 'GET')
-            const newFilepath = `static/images/omu/${newPicture}`
-            $(image).attr('src', newFilepath)
-        },
+        // changePicture: async () => {
+        //     const newPicture = await ajaxCall('change_picture', 'GET')
+        //     const newFilepath = `static/images/omu/${newPicture}`
+        //     document.getElementById('omu-image').setAttribute('src', newFilepath)
+        // },
 
         addListeners: () => {
 
-            // clicking the image adds click to counter and refreshes image
-            $('.omu-image').click((e) => {
+            /** change image on click **/
+            document.getElementById('omu-image').addEventListener('click', (e) => {
 
                 // add click to click counter
                 app.cookie.addObject({ 'clicks': parseInt(app.cookie.getValueByKey('clicks')) + 1 })
 
                 /** STAY AT CLIENT - access stored filenames **/
                 const randomIndex = getRandomIndex( app.image_filenames.length )
-                $(e.target).attr( 'src', `${app.image_filepath}` + `${app.image_filenames[ randomIndex ]}` )
+                e.target.setAttribute('src', `${app.image_filepath}` + `${app.image_filenames[ randomIndex ]}` )
 
-                /** Or, CALL SERVER - make an ajax request **/
-                // app.changePicture(e.target)
             })
 
         },
@@ -53,4 +52,5 @@ $(document).on('ready', () => {
 
     // start the application
     app.init()
+
 })
