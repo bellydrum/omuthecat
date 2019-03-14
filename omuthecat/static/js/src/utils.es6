@@ -7,3 +7,9 @@
 function getRandomIndex(max) {
     return Math.floor(Math.random() * Math.floor(max))
 }
+
+/** detect mobile browser **/
+/** http://detectmobilebrowsers.com/ **/
+function mobileBrowser(navigatorData) {
+    return false
+}

@@ -12,8 +12,9 @@ document.addEventListener("DOMContentLoaded", () => {
         /** initialize constants **/
 
         csrftoken: csrftoken,
-        image_filenames: image_filenames,       // defined in home.html
-        image_filepath: 'static/images/omu/',  // find another way that isn't hardcoding
+        imageFilenames: image_filenames,       // defined in home.html
+        imageFilepath: 'static/images/omu/',  // find another way that isn't hardcoding
+        nextIndex: getRandomIndex( image_filenames.length ),
         cookie: new CookieHelper(),
 
         /** define application functionality **/
@@ -25,8 +26,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     'csrf': app.csrftoken,
                     'clicks': clicks
                 }
-                console.log('Sending data to database.')
-                console.log(data)
                 await ajaxCall( 'log_clicks', 'POST', data, async=false )
             }
 
@@ -36,32 +35,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
             /** change image on click **/
             document.getElementById('omu-image').addEventListener('click', (e) => {
+                e.target.setAttribute('src', `${app.imageFilepath}` + `${app.imageFilenames[ app.nextIndex ]}` )
                 app.cookie.addObject({ 'clicks': parseInt(app.cookie.getValueByKey('clicks')) + 1 })
-                const randomIndex = getRandomIndex( app.image_filenames.length )
-                e.target.setAttribute('src', `${app.image_filepath}` + `${app.image_filenames[ randomIndex ]}` )
-
+                app.nextIndex = getRandomIndex( app.imageFilenames.length )
             })
 
             /** log number of clicks when user leaves page **/
 
-	        /* for desktop */
-            window.addEventListener('beforeunload', () => {
-                console.log('Unloaded image.')
-                app.logClicks( parseInt(app.cookie.getValueByKey( 'clicks' )) )
-            })
+            if (! mobileBrowser(navigator.userAgent||navigator.vendor||window.opera)) {
 
-	        /* for iOS */
-	        window.addEventListener('pagehide', () => {
-		        $('.high-score-container').text('pagehide!')
-		        console.log('pagehide, bitch!!')
-	        })
+                console.log('on desktop!');
+                document.getElementById('high-score').textContent='On desktop!';
+
+                /* for desktop */
+                window.addEventListener('beforeunload', () => {
+                    console.log('Unloaded image.')
+                    app.logClicks(parseInt(app.cookie.getValueByKey('clicks')))
+                })
+
+            } else {
+
+                document.getElementById('high-score').textContent='On mobile!';
+
+                /* for mobile */
+                window.addEventListener('pagehide', () => {
+                    console.log(`${navigator.appVersion}`)
+                })
+
+            }
 
         },
 
         /** start the app */
         init: () => {
 
-            app.cookie.addObject( { 'clicks': 0 } )  // initialize click count
+            app.cookie.addObject( { 'clicks': 0 } )
             app.addListeners()
 
         }
