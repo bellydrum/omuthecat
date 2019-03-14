@@ -25,6 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     'csrf': app.csrftoken,
                     'clicks': clicks
                 }
+                console.log('Sending data to database.')
+                console.log(data)
                 await ajaxCall( 'log_clicks', 'POST', data, async=false )
             }
 
@@ -41,18 +43,26 @@ document.addEventListener("DOMContentLoaded", () => {
             })
 
             /** log number of clicks when user leaves page **/
-            window.onbeforeunload = () => {
+
+	        /* for desktop */
+            window.addEventListener('beforeunload', () => {
+                console.log('Unloaded image.')
                 app.logClicks( parseInt(app.cookie.getValueByKey( 'clicks' )) )
-                const c = new CookieHelper()
+            })
+
+	        /* for iOS */
+	        window.addEventListener('pagehide', () => {
+		        $('.high-score-container').text('pagehide!')
+		        console.log('pagehide, bitch!!')
+	        })
+
+            /** start the app */
+            init: () => {
+
+                app.cookie.addObject( { 'clicks': 0 } )  // initialize click count
+                app.addListeners()
+
             }
-
-        },
-
-        /** start the app */
-        init: () => {
-
-            app.cookie.addObject( { 'clicks': 0 } )  // initialize click count
-            app.addListeners()
 
         }
 
