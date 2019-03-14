@@ -20,6 +20,8 @@ def render_home(request):
 
     # get click high score
     high_score = get_high_score(request)
+    if high_score == 0:
+        high_score = "None yet!"
 
     context = {
         'csrftoken': get_token(request),

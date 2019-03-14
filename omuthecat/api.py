@@ -9,7 +9,11 @@ from .models import ClickLog
 @csrf_protect
 def get_high_score(request):
     if request.method == 'GET':
-        return max( [ int(log.number_of_clicks) for log in ClickLog.objects.all() ] )
+        click_logs = ClickLog.objects.all()
+        if len(click_logs):
+            return max( [ int(log.number_of_clicks) for log in click_logs ] )
+        else:
+            return 0
 
 
 

@@ -23,10 +23,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'zzxkcc&udj83ztpd5#!&z&uaq)45mgr3bz*yenpvs5(r1zl!2%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
-    '.omuthecat.com',
+    '*',
+    '24.171.99.166',
 ] if not DEBUG else ['*']
 
 
