@@ -56,13 +56,13 @@ document.addEventListener("DOMContentLoaded", () => {
 		        console.log('pagehide, bitch!!')
 	        })
 
-            /** start the app */
-            init: () => {
+        },
 
-                app.cookie.addObject( { 'clicks': 0 } )  // initialize click count
-                app.addListeners()
+        /** start the app */
+        init: () => {
 
-            }
+            app.cookie.addObject( { 'clicks': 0 } )  // initialize click count
+            app.addListeners()
 
         }
 
