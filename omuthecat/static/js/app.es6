@@ -15,9 +15,13 @@ document.addEventListener("DOMContentLoaded", () => {
         cookie: new CookieHelper(),
 
         /** define application functionality **/
-        logClicks: () => {
-            const clicks = parseInt(app.cookie.getValueByKey('clicks'))
+        logClicks: async () => {
+            const data = {
+                'clicks': parseInt(app.cookie.getValueByKey('clicks'))
+            }
             // TODO - make ajax call to store this sessions clicks in the db
+            await ajaxCall( 'log_clicks', 'POST', data )
+
             console.log(`There were ${clicks} clicks last session.`)
         },
 

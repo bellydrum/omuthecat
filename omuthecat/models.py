@@ -9,7 +9,7 @@ class ClickLog(models.Model):
     )
     datetime_logged = models.DateTimeField(
         blank=False,
-        null=False
+        null=True
     )
     # custom save() method in lieu of .auto_now()
     # https://stackoverflow.com/a/1737078

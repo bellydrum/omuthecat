@@ -12,4 +12,5 @@ urlpatterns = [
 
     # api urls
     url('^change_picture$', change_picture, name='change_picture'),
+    url('^log_clicks$', log_clicks, name='log_clicks'),
 ]
