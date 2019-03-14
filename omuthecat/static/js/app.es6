@@ -8,11 +8,15 @@ $(document).on('ready', () => {
 
     const app = {
 
+        /** initialize constants **/
+        image_filenames: image_filenames,       // defined in home.html
+        image_filepath: '/static/images/omu/',
         cookie: new CookieHelper(),
 
+        /** define application functionality **/
         logClicks: () => {
             const clicks = parseInt(app.cookie.getValueByKey('clicks'))
-            // make ajax call to store this sessions clicks in the db
+            // TODO - make ajax call to store this sessions clicks in the db
             console.log(`There were ${clicks} clicks last session.`)
         },
 
@@ -26,8 +30,16 @@ $(document).on('ready', () => {
 
             // clicking the image adds click to counter and refreshes image
             $('.omu-image').click((e) => {
+
+                // add click to click counter
                 app.cookie.addObject({ 'clicks': parseInt(app.cookie.getValueByKey('clicks')) + 1 })
-                app.changePicture(e.target)
+
+                /** STAY AT CLIENT - access stored filenames **/
+                const randomIndex = getRandomIndex( app.image_filenames.length )
+                $(e.target).attr( 'src', `${app.image_filepath}` + `${app.image_filenames[ randomIndex ]}` )
+
+                /** Or, CALL SERVER - make an ajax request **/
+                // app.changePicture(e.target)
             })
 
         },
@@ -39,6 +51,6 @@ $(document).on('ready', () => {
         }
     }
 
+    // start the application
     app.init()
-
 })

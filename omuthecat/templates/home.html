@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
-
 {% load static %}
-
 {% block content %}
 <div class="picture-container">
     <img class="omu-image" src="{% static 'images/omu/' %}{{ filename }}"/>
 </div>
+
+<!-- for easy client-side access! -->
+<script>const image_filenames = {{ filenames|safe }}</script>
+
 {% endblock %}

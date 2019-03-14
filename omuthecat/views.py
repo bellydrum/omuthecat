@@ -10,10 +10,8 @@ def render_home(request):
 
     context = {
         'filename': get_random_image(image_folder),
-        'filenames': [ filename for filename in listdir('static/images/{}'.format(image_folder)) ]
+        'filenames': listdir('static/images/{}'.format(image_folder))
     }
-
-    print(context)
 
     return render(request, "home.html", context)
 

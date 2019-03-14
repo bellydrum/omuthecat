@@ -152,6 +152,7 @@ STATICFILES_FINDERS = (
 )
 
 PIPELINE = {
+    'PIPELINE_ENABLED': True,
     'COMPILERS': ('pipeline.compilers.es6.ES6Compiler',),
     'CSS_COMPRESSOR': 'pipeline.compressors.NoopCompressor',
     'JS_COMPRESSOR': 'pipeline.compressors.NoopCompressor',
