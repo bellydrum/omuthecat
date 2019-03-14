@@ -15,21 +15,12 @@ document.addEventListener("DOMContentLoaded", () => {
         cookie: new CookieHelper(),
 
         /** define application functionality **/
-        logClicks: async () => {
-            const data = {
-                'clicks': parseInt(app.cookie.getValueByKey('clicks'))
+        logClicks: async (clicks) => {
+            if (clicks) {
+                const data = { 'clicks': clicks }
+                await ajaxCall( 'log_clicks', 'POST', data )
             }
-            // TODO - make ajax call to store this sessions clicks in the db
-            await ajaxCall( 'log_clicks', 'POST', data )
-
-            console.log(`There were ${clicks} clicks last session.`)
         },
-
-        // changePicture: async () => {
-        //     const newPicture = await ajaxCall('change_picture', 'GET')
-        //     const newFilepath = `static/images/omu/${newPicture}`
-        //     document.getElementById('omu-image').setAttribute('src', newFilepath)
-        // },
 
         addListeners: () => {
 
@@ -48,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
         },
 
         init: () => {
-            app.logClicks()
+            app.logClicks( parseInt(app.cookie.getValueByKey( 'clicks' )) )
             app.cookie.addObject({ 'clicks': 0 })  // initialize click count
             app.addListeners()
         }

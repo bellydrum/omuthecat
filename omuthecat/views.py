@@ -5,7 +5,8 @@ from random import randint
 
 from .models import *
 
-# Create your views here.
+################## page views
+
 def render_home(request):
 
     image_folder = 'omu/'
@@ -18,9 +19,7 @@ def render_home(request):
     return render(request, "home.html", context)
 
 
-def change_picture(request):
-    image_folder = 'omu/'
-    return HttpResponse(get_random_image(image_folder))
+################## utility views
 
 def get_random_image(image_folder):
     path = 'static/images/{}'.format(image_folder)
@@ -29,7 +28,10 @@ def get_random_image(image_folder):
 
 def log_clicks(request):
     if request.method == 'POST':
-        clicks = request.POST['clicks']
+        clicks = int(request.POST['clicks'])
 
-        ClickLog(clicks=clicks).save()
-        print('Saved.')
+        # store log of clicks
+        log = ClickLog(number_of_clicks=clicks)
+        log.save()
+
+        return HttpResponse( { 'status': 'OK' } )
