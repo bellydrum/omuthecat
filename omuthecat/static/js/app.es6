@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         csrftoken: csrftoken,
         image_filenames: image_filenames,       // defined in home.html
-        image_filepath: '/static/images/omu/',  // find another way that isn't hardcoding
+        image_filepath: 'static/images/omu/',  // find another way that isn't hardcoding
         cookie: new CookieHelper(),
 
         /** define application functionality **/
