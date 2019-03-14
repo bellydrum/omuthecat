@@ -10,10 +10,17 @@ from .models import *
 def render_home(request):
 
     image_folder = 'omu/'
+    filename = get_random_image(image_folder)
+    filenames = listdir('static/images/{}'.format(image_folder))
+
+    # TODO - TEMPORARY FIX!! Update production caching of compressed files
+    for i in filenames:
+        if len(i) > 12:
+            filenames.remove(i)
 
     context = {
-        'filename': get_random_image(image_folder),
-        'filenames': listdir('static/images/{}'.format(image_folder))
+        'filename': filename,
+        'filenames': filenames
     }
 
     return render(request, "home.html", context)
