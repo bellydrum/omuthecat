@@ -1,8 +1,9 @@
 from django.conf.urls import include, url
-from .views import *
+from .api import log_clicks
+from .views import render_home
 
 urlpatterns = [
-    # navigational page rendering
+    # view urls
     url('^$', render_home, name='home'),
 
     # api urls
