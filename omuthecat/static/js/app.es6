@@ -44,8 +44,6 @@ document.addEventListener("DOMContentLoaded", () => {
             window.onbeforeunload = () => {
                 app.logClicks( parseInt(app.cookie.getValueByKey( 'clicks' )) )
                 const c = new CookieHelper()
-                console.log('Logged ' + c.getValueByKey('clicks') + ' clicks.')
-                console.log(c.getAsObject())
             }
 
         },
