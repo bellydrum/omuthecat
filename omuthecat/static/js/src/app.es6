@@ -44,24 +44,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
             /** log number of clicks when user leaves page **/
 
-	        /* for desktop */
-            window.addEventListener('beforeunload', () => {
-                console.log('Unloaded image.')
-                app.logClicks( parseInt(app.cookie.getValueByKey( 'clicks' )) )
-            })
-
-	        /* for iOS */
-	        window.addEventListener('pagehide', () => {
-		        $('.high-score-container').text('pagehide!')
-		        console.log('pagehide, bitch!!')
-	        })
+            if (window.mobile) {
+                /* for mobile */
+                window.addEventListener('pagehide', () => {
+                    document.getElementById('high-score').innerText="mobile, bitch!"
+                })
+            } else {
+                /* for desktop */
+                window.addEventListener('beforeunload', () => {
+                    app.logClicks( parseInt(app.cookie.getValueByKey( 'clicks' )) )
+                    document.getElementById('high-score').innerText="desktop, bitch!"
+                })
+            }
 
         },
 
         /** start the app */
         init: () => {
 
-            app.cookie.addObject( { 'clicks': 0 } )  // initialize click count
+            app.cookie.addObject( { 'clicks': 0 } )
             app.addListeners()
 
         }
