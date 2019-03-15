@@ -5,3 +5,4 @@ node_modules/*
 oenv/*
 static/*
 build
+compile
