@@ -9,7 +9,7 @@ else
 fi
 
 # remove existing static files
-rm -rf /static/*
+rm -rf static/*
 
 # compile the source code into the distribution repository
 ./manage.py collectstatic
