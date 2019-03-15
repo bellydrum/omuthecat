@@ -165,12 +165,16 @@ PIPELINE = {
     'JAVASCRIPT': {
         'scripts': {
             'source_filenames': (
-                'js/src/*.es6',
-                'js/app.es6',
+                'js/src/app.es6',
             ),
-            'output_filename': 'js/scripts.js',
+            'output_filename': 'js/app.js',
+        },
+        'helpers': {
+            'source_filenames': (
+                'js/src/*.es6',
+            ),
+            'output_filename': 'js/utils.js'
         }
     }
 }
 
-YUGLIFY_BINARY = os.path.join(BASE_DIR, 'node_modules/yuglify/bin/yuglify')

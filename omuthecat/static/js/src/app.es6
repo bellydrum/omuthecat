@@ -42,26 +42,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
             /** log number of clicks when user leaves page **/
 
-            if (! mobileBrowser(navigator.userAgent||navigator.vendor||window.opera)) {
-
-                console.log('on desktop!');
-                document.getElementById('high-score').textContent='On desktop!';
-
-                /* for desktop */
-                window.addEventListener('beforeunload', () => {
-                    console.log('Unloaded image.')
-                    app.logClicks(parseInt(app.cookie.getValueByKey('clicks')))
-                })
-
-            } else {
-
-                document.getElementById('high-score').textContent='On mobile!';
-
+           if (window.mobile) {
                 /* for mobile */
                 window.addEventListener('pagehide', () => {
-                    console.log(`${navigator.appVersion}`)
+                    document.getElementById('high-score').innerText="mobile, bitch!"
                 })
-
+            } else {
+                /* for desktop */
+                window.addEventListener('beforeunload', () => {
+                    app.logClicks( parseInt(app.cookie.getValueByKey( 'clicks' )) )
+                    document.getElementById('high-score').innerText="desktop, bitch!"
+                })
             }
 
         },
