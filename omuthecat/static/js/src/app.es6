@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         /** initialize constants **/
 
-        csrftoken: csrftoken,
+        csrftoken: window.csrftoken,
         imageFilenames: image_filenames,       // defined in home.html
         imageFilepath: 'static/images/omu/',  // find another way that isn't hardcoding
         nextIndex: getRandomIndex( image_filenames.length ),

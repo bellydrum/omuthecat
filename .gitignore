@@ -4,4 +4,4 @@
 node_modules/*
 oenv/*
 static/*
-start.sh
+build

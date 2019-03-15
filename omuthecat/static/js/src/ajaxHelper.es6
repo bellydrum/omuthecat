@@ -26,7 +26,7 @@ function getCookie(name) {
     }
     return cookieValue;
 }
-let csrftoken = getCookie('csrftoken');
+window.csrftoken = getCookie('csrftoken');
 
 function csrfSafeMethod(method) {
     // these HTTP methods do not require CSRF protection
@@ -35,7 +35,7 @@ function csrfSafeMethod(method) {
 $.ajaxSetup({
     beforeSend: function(xhr, settings) {
         if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            xhr.setRequestHeader("X-CSRFToken", window.csrftoken);
         }
     }
 });
