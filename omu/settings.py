@@ -154,6 +154,8 @@ STATICFILES_FINDERS = (
 
 PIPELINE = {
     'PIPELINE_ENABLED': True,
+    'CSS_COMPRESSOR': 'pipeline.compressors.NoopCompressor',
+    'JS_COMPRESSOR': 'pipeline.compressors.NoopCompressor',
     'COMPILERS': ('pipeline.compilers.es6.ES6Compiler',),
     'BABEL_BINARY': os.path.join(BASE_DIR, 'node_modules/.bin/babel'),
     'JAVASCRIPT': {
@@ -171,4 +173,3 @@ PIPELINE = {
         }
     }
 }
-
