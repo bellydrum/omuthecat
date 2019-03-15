@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'zzxkcc&udj83ztpd5#!&z&uaq)45mgr3bz*yenpvs5(r1zl!2%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     '*',
@@ -149,6 +149,7 @@ STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    # 'npm.finders.NpmFinder',  # unused at the moment -- for including npm modules in /static/
     'pipeline.finders.PipelineFinder',
 )
 
@@ -158,7 +159,23 @@ PIPELINE = {
     'JS_COMPRESSOR': 'pipeline.compressors.NoopCompressor',
     'COMPILERS': ('pipeline.compilers.es6.ES6Compiler',),
     'BABEL_BINARY': os.path.join(BASE_DIR, 'node_modules/.bin/babel'),
+    'STYLESHEETS': {
+        'styles': {
+            'source_filenames': (
+                'css/main.css',
+            ),
+            'output_filename': 'css/main.css',
+        },
+    },
     'JAVASCRIPT': {
+        'crypto-js': {
+            'source_filenames': (
+                'js/lib/crypto-js/crypto-js.es6',
+                'js/lib/crypto-js/aes.es6',
+                'js/lib/crypto-js/sha256.es6',
+            ),
+            'output_filename': 'js/crypto-js.js'
+        },
         'scripts': {
             'source_filenames': (
                 'js/src/*.es6',
@@ -166,5 +183,12 @@ PIPELINE = {
             ),
             'output_filename': 'js/app.js',
         },
-    }
+    },
 }
+
+# configure django-npm (serves node modules as static files)
+# NPM_ROOT_PATH = BASE_DIR
+# NPM_FILE_PATTERNS = {
+#     'module_name': ['filename.js', 'filename2.js'],
+# }
+# NPM_STATIC_FILES_PREFIX = os.path.join('js', 'lib')

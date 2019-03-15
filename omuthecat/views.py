@@ -20,12 +20,15 @@ def render_home(request):
 
     # get click high score
     high_score = get_high_score(request)
-    if high_score == 0:
-        high_score = "None yet!"
+
+    if len(high_score) == 0:
+        clicks = "None yet!"
+    else:
+        clicker_id, clicks = next(iter(high_score.keys())), next(iter(high_score.values()))
 
     context = {
         'csrftoken': get_token(request),
-        'high_score': high_score,
+        'high_score': clicks,
         'filename': filename,
         'filenames': filenames
     }
