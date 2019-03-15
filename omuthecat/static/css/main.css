@@ -24,12 +24,15 @@ body {
     }
 }
 
-/* horizontal devices AND vertical devices */
+/* mobile devices in any orientation */
 @media (max-width: 1200px) {
 
     /* image container */
     .picture-container {
         padding: 0px;
+    }
+    .high-score-container {
+        display: none;
     }
 }
 
