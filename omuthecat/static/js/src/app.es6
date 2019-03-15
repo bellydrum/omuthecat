@@ -45,6 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
            if (mobileBrowser()) {
 
                console.log( mobileBrowser() )
+               document.getElementById('high-score').innerText="mobile!!!"
 
                 /* for mobile */
                 window.addEventListener('pagehide', () => {
