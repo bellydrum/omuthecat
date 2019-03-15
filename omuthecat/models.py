@@ -1,9 +1,37 @@
 from django.db import models
 from django.utils import timezone
 
-# Create your models here.
-class ClickLog(models.Model):
-    number_of_clicks = models.PositiveSmallIntegerField(
+# click storage table for desktop clickers
+class DesktopClickLog(models.Model):
+    clicker_id = models.CharField(
+        max_length=512,
+        blank=False,
+        null=False,
+        default='null'
+    )
+    clicks = models.PositiveSmallIntegerField(
+        blank=False,
+        null=False,
+        default=0
+    )
+    datetime_logged = models.DateTimeField(
+        editable=False
+    )
+    # custom save() method in lieu of .auto_now()
+    # https://stackoverflow.com/a/1737078
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.datetime_logged = timezone.localtime(timezone.now())
+        return super(DesktopClickLog, self).save(*args, **kwargs)
+
+    class Meta:
+        db_table = 'desktop_clicks'
+
+
+# click storate table for mobile clickers
+class MobileClickLog(models.Model):
+    clicker_id = models.CharField(
+        max_length=512,
         blank=False,
         null=False
     )
@@ -13,10 +41,9 @@ class ClickLog(models.Model):
     # custom save() method in lieu of .auto_now()
     # https://stackoverflow.com/a/1737078
     def save(self, *args, **kwargs):
-        ''' on save, add timestamp '''
         if not self.id:
             self.datetime_logged = timezone.localtime(timezone.now())
-        return super(ClickLog, self).save(*args, **kwargs)
+        return super(MobileClickLog, self).save(*args, **kwargs)
 
     class Meta:
-        db_table = 'click_log'
+        db_table = 'mobile_clicks'

@@ -1,4 +1,3 @@
-
 /**
  * app.es6
  * ------------------------------------------------------------------------------
@@ -19,52 +18,94 @@ document.addEventListener("DOMContentLoaded", () => {
 
         /** define application functionality **/
 
-        logClicks: async (clicks) => {
+        /** FOR DESKTOP -- log clicker_id with total number of clicks to DesktopClickLog **/
+        logDesktopClicks: async () => {
 
-            if (clicks) {
-                const data = {
-                    'csrf': app.csrftoken,
-                    'clicks': clicks
-                }
-                await ajaxCall( 'log_clicks', 'POST', data, async=false )
+            /* get clicker_id AND clicks from cookie */
+            const data = {
+                'csrf': app.csrftoken,
+                'clicker_id': app.cookie.getValueByKey('clickerid'),
+                'clicks': parseInt(app.cookie.getValueByKey('clicks'))
             }
+            await ajaxCall( 'log_clicks', 'POST', data, async=false )
 
         },
 
+        /** FOR MOBILE -- log clicker_id with single click to MobileClickLog **/
+        logMobileClicks: debounce(async () => {
+
+            /* get only clicker_id from cookie */
+            const data = {
+                'csrf': app.csrftoken,
+                'clicker_id': app.cookie.getValueByKey('clickerid')
+            }
+
+            await ajaxCall( 'log_clicks', 'POST', data )
+
+        }, 50),
+
         addListeners: () => {
 
-            /** change image on click **/
-            document.getElementById('omu-image').addEventListener('click', (e) => {
-                e.target.setAttribute('src', `${app.imageFilepath}` + `${app.imageFilenames[ app.nextIndex ]}` )
-                app.cookie.addObject({ 'clicks': parseInt(app.cookie.getValueByKey('clicks')) + 1 })
-                app.nextIndex = getRandomIndex( app.imageFilenames.length )
-            })
 
-            /** log number of clicks when user leaves page **/
+            (() => {
 
-           if (mobileBrowser()) {
+                /* determine if user is viewing page from desktop or browser */
+                const onDesktop = !( mobileBrowser() )
 
-                /* for mobile */
-                window.addEventListener('pagehide', () => {
-                    app.logClicks( parseInt(app.cookie.getValueByKey( 'clicks' )) )
+                /** ON IMAGE CLICK -- change image and increment counter **/
+                document.getElementById('omu-image').addEventListener('click', (e) => {
+
+                    /** IF DESKTOP -- increment cookie; do not log **/
+                    if ( onDesktop ) {
+                        app.cookie.addObject({ 'clicks': parseInt(app.cookie.getValueByKey('clicks')) + 1 })
+
+                    /** IF MOBILE -- log individual click to MobileClickLog **/
+                    } else {
+
+                        app.logMobileClicks()
+
+                    }
+
+                    /* change picture and set next picture */
+                    e.target.setAttribute('src', `${app.imageFilepath}` + `${app.imageFilenames[ app.nextIndex ]}` )
+                    app.nextIndex = getRandomIndex( app.imageFilenames.length )
+
                 })
 
-            } else {
+                if ( onDesktop ) {
 
-                /* for desktop */
-                window.addEventListener('beforeunload', () => {
-                    app.logClicks( parseInt(app.cookie.getValueByKey( 'clicks' )) )
-                })
+                    /** ON PAGE UNLOAD -- log clicker_id and clicks to DesktopClickLog **/
+                    window.addEventListener('beforeunload', () => {
 
-            }
+                        const clicks = parseInt(app.cookie.getValueByKey('clicks'))
+
+                        if (clicks) {
+
+                            app.logDesktopClicks(
+                                app.cookie.getValueByKey('clickerid'),
+                                clicks
+                            )
+                        }
+
+                    })
+
+                }
+
+            })()
 
         },
 
         /** start the app */
         init: () => {
 
-            app.cookie.addObject( { 'clicks': 0 } )
-            app.addListeners()
+
+            /** initialize user info in cookie */
+            app.cookie.addObject( {
+                    'clickerid': CryptoJS.AES.encrypt( Date.now().toString(), 'iloveomu' ).toString(),
+                    'clicks': 0,
+            } )
+
+            app.addListeners();
 
         }
 

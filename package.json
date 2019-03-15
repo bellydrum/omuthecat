@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "dependencies": {
-    "yuglify": "^2.0.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "babel-cli": "^6.26.0"
   },
