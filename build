@@ -8,6 +8,9 @@ else
     echo "No process needed to be interrupted."
 fi
 
+# remove existing static files
+rm -rf /static/*
+
 # compile the source code into the distribution repository
 ./manage.py collectstatic
 
