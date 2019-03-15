@@ -154,13 +154,7 @@ STATICFILES_FINDERS = (
 
 PIPELINE = {
     'PIPELINE_ENABLED': True,
-    'COMPILERS': (
-        'pipeline.compilers.es6.ES6Compiler',
-        'pipeline.compilers.coffee.CoffeeScriptCompiler',
-        'pipeline.compilers.stylus.StylusCompiler',
-    ),
-    'CSS_COMPRESSOR': 'pipeline.compressors.yuglify.YuglifyCompressor',
-    'JS_COMPRESSOR': 'pipeline.compressors.yuglify.YuglifyCompressor',
+    'COMPILERS': ('pipeline.compilers.es6.ES6Compiler',),
     'BABEL_BINARY': os.path.join(BASE_DIR, 'node_modules/.bin/babel'),
     'JAVASCRIPT': {
         'scripts': {
