@@ -42,17 +42,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
             /** log number of clicks when user leaves page **/
 
-           if (window.mobile) {
+           if (mobileBrowser()) {
+
+               console.log( mobileBrowser() )
+
                 /* for mobile */
                 window.addEventListener('pagehide', () => {
-                    document.getElementById('high-score').innerText="mobile, bitch!"
+                    app.logClicks( parseInt(app.cookie.getValueByKey( 'clicks' )) )
                 })
+
             } else {
+
                 /* for desktop */
                 window.addEventListener('beforeunload', () => {
                     app.logClicks( parseInt(app.cookie.getValueByKey( 'clicks' )) )
-                    document.getElementById('high-score').innerText="desktop, bitch!"
                 })
+
             }
 
         },

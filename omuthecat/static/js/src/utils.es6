@@ -10,6 +10,6 @@ function getRandomIndex(max) {
 
 /** detect mobile browser **/
 /** http://detectmobilebrowsers.com/ **/
-function mobileBrowser(navigatorData) {
-    return false
+function mobileBrowser() {
+    return (/Android|webOS|iPhone|iPad|BlackBerry|Windows Phone|Mobile/i.test(navigator.userAgent))
 }
