@@ -103,7 +103,6 @@ document.addEventListener("DOMContentLoaded", () => {
         /** start the app */
         init: () => {
 
-
             /** initialize user info in cookie */
             app.cookie.addObject( {
                     'clickerid': CryptoJS.AES.encrypt( Date.now().toString(), 'iloveomu' ).toString(),
