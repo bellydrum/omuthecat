@@ -50,26 +50,33 @@ document.addEventListener("DOMContentLoaded", () => {
             (() => {
 
                 /** ON IMAGE CLICK -- change image and increment counter **/
-                document.getElementById('omu-image').addEventListener('click', (e) => {
+                const imageElements = document.getElementsByClassName('omu-image')
 
-                    /* increment click counter in cookie */
-                    app.cookie.addObject({ 'clicks': parseInt(app.cookie.getValueByKey('clicks')) + 1 })
 
-                    /** IF MOBILE -- log individual click to MobileClickLog **/
-                    if ( !(app.onDesktop) ) {
-                        app.logMobileClicks()
+                /* add event listener to each image */
+                Array.from(imageElements).forEach(function(e) {
+                    e.addEventListener('click', (e) => {
 
-                    }
+                        /** increment click counter in cookie **/
+                        app.cookie.addObject({ 'clicks': parseInt(app.cookie.getValueByKey('clicks')) + 1 })
 
-                    /* change picture and set next picture */
-                    e.target.setAttribute('src', `${app.imageFilepath}` + `${app.imageFilenames[ app.nextIndex ]}` )
-                    app.nextIndex = getRandomIndex( app.imageFilenames.length )
+                        /** IF MOBILE -- log individual click to MobileClickLog **/
+                        if ( !(app.onDesktop) ) {
+                            app.logMobileClicks()
+                        }
 
-                    /* update current score on page */
-                    document.querySelector(
-                        '#current-score'
-                    ).textContent='Your current score: ' + `${ app.cookie.getValueByKey('clicks') }.`
+                        /** update picture on page **/
+                        app.nextIndex = getRandomIndex( app.imageFilenames.length )
+                        e.target.setAttribute('style', 'display: none')
+                        document.querySelector(`img[src='${app.imageFilepath}` + `${app.imageFilenames[app.nextIndex]}']`
+                        ).setAttribute('style', `display: inline-block`)
 
+                        /** update score on page **/
+                        document.querySelector(
+                            '#current-score'
+                        ).textContent='Your current score: ' + `${ app.cookie.getValueByKey('clicks') }.`
+
+                    }, false)
                 })
 
                 /** IF DESKTOP -- ON PAGE UNLOAD -- log clicker_id and clicks to DesktopClickLog **/

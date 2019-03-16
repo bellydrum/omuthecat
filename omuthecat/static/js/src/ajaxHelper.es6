@@ -52,15 +52,18 @@ $.ajaxSetup({
  *
  * @about - standardized wrapper for ajax calls
  */
-async function ajaxCall(url, requestType, data=null) {
+async function ajaxCall(url, requestType, data=null, async=true) {
     try {
         let result = await $.ajax({
             url: url,
             type: requestType,
             data: data,
+            async: async,
             success: result => { return result },
             error: error => { return error }
         })
+        console.log('Async:')
+        console.log(async)
         return result
     } catch(error) {
         throw error
