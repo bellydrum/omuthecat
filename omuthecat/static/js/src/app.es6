@@ -46,7 +46,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         addListeners: () => {
 
-
             (() => {
 
                 /* determine if user is viewing page from desktop or browser */

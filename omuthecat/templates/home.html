@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+
 <div class="picture-container">
     <img class="omu-image" id="omu-image" src="{% static 'images/omu/' %}{{ filename }}"/>
     <div class="high-score-container">
-       <div class="high-score" id="high-score">Omu clicks high score: {{ high_score }}</div>
+        <div class="number-of-entries">{{ number_of_entries }} people have pet Omu!</div>
+        <div class="high-score">Highest score: {{ highest_scoring_entry }}</div>
     </div>
 </div>
 
