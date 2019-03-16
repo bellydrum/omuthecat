@@ -11,10 +11,12 @@ document.addEventListener("DOMContentLoaded", () => {
         /** initialize constants **/
 
         csrftoken: window.csrftoken,
+        onDesktop: !( mobileBrowser() ),
         imageFilenames: image_filenames,       // defined in home.html
         imageFilepath: 'static/images/omu/',  // find another way that isn't hardcoding
         nextIndex: getRandomIndex( image_filenames.length ),
         cookie: new CookieHelper(),
+        mobileClicks: 0,
 
         /** define application functionality **/
 
@@ -48,46 +50,64 @@ document.addEventListener("DOMContentLoaded", () => {
 
             (() => {
 
-                /* determine if user is viewing page from desktop or browser */
-                const onDesktop = !( mobileBrowser() )
-
                 /** ON IMAGE CLICK -- change image and increment counter **/
                 document.getElementById('omu-image').addEventListener('click', (e) => {
 
                     /** IF DESKTOP -- increment cookie; do not log **/
-                    if ( onDesktop ) {
+                    if ( app.onDesktop ) {
                         app.cookie.addObject({ 'clicks': parseInt(app.cookie.getValueByKey('clicks')) + 1 })
 
                     /** IF MOBILE -- log individual click to MobileClickLog **/
                     } else {
-
                         app.logMobileClicks()
-
                     }
 
                     /* change picture and set next picture */
                     e.target.setAttribute('src', `${app.imageFilepath}` + `${app.imageFilenames[ app.nextIndex ]}` )
                     app.nextIndex = getRandomIndex( app.imageFilenames.length )
 
+                    /* update current score on page */
+                    app.mobileClicks += 1
+                    document.querySelector(
+                        '#current-score'
+                    ).textContent='Your current score: ' + `${ app.mobileClicks }.`
+
                 })
 
-                if ( onDesktop ) {
+                /** IF DESKTOP -- ON PAGE UNLOAD -- log clicker_id and clicks to DesktopClickLog **/
+                if ( app.onDesktop ) {
 
-                    /** ON PAGE UNLOAD -- log clicker_id and clicks to DesktopClickLog **/
                     window.addEventListener('beforeunload', () => {
 
+                        /* get current total number of clicks */
                         const clicks = parseInt(app.cookie.getValueByKey('clicks'))
 
+                        /* only log if user has clicked */
                         if (clicks) {
-
-                            app.logDesktopClicks(
-                                app.cookie.getValueByKey('clickerid'),
-                                clicks
-                            )
+                            app.logDesktopClicks( app.cookie.getValueByKey('clickerid'), clicks )
                         }
 
                     })
 
+                }
+
+                /** IF MOBILE -- ON SCREEN RESIZE TO LANDSCAPE -- make body background-color black **/
+                if ( !(app.onDesktop) ) {
+                    let resizeTimeout
+                    const darkenBodyBackground = () => {
+                        document.querySelector('body').setAttribute(
+                            'background-color', '#000'
+                        )
+                    }
+                    const resizeThrottler = () => {
+                        if ( !resizeTimeout ) {
+                            resizeTimeout = setTimeout(() => {
+                                resizeTimeout = null
+                                darkenBodyBackground()
+                            })
+                        }
+                    }
+                    window.addEventListener('resize', resizeThrottler, false)
                 }
 
             })()
@@ -104,7 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     'clicks': 0,
             } )
 
-            app.addListeners();
+            app.addListeners()
 
         }
 

@@ -23,15 +23,18 @@ def render_home(request):
     all_entries = get_all_entries(request)
     highest_scoring_entry = get_highest_scoring_entry(all_entries)
     number_of_entries = get_number_of_entries(all_entries)
+    number_of_clicks = get_number_of_clicks(all_entries)
 
     # replace click score with message if nobody has clicked yet
     if highest_scoring_entry['clicker_id'] == 'null' or highest_scoring_entry['clicks'] == 0:
-        highest_scoring_entry = { 'No' : 'None yet!' }
+        highest_scoring_entry['clicks'] ='Start clicking!'
+        number_of_entries = 'No'
 
     context = {
         'csrftoken': get_token(request),
         'highest_scoring_entry': highest_scoring_entry['clicks'],
         'number_of_entries': number_of_entries,
+        'number_of_clicks': number_of_clicks,
         'filename': filename,
         'filenames': filenames
     }
@@ -74,3 +77,10 @@ def get_number_of_entries(entries):
         return value - number of pairs in entries dictionary
     """
     return len(entries.items())
+
+def get_number_of_clicks(entries):
+    """
+        entries - { clicker_id : clicks, ... }
+        return value - (int) total sum of all clicks from DesktopClickLog and MobileClickLog
+    """
+    return sum( [ entry for entry in entries.values() ] )
