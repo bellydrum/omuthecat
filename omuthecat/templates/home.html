@@ -5,8 +5,12 @@
 <div class="picture-container">
     <img class="omu-image" id="omu-image" src="{% static 'images/omu/' %}{{ filename }}"/>
     <div class="high-score-container">
-        <div class="number-of-entries">{{ number_of_entries }} people have pet Omu!</div>
-        <div class="high-score">Highest score: {{ highest_scoring_entry }}</div>
+        <div class="number-of-entries">{{ number_of_entries }} people have pet Omu.</div>
+        <div class="number-of-clicks">Omu has been pet a total of {{ number_of_clicks }} times.</div>
+        <div id="current-score">Your current score: 0.</div>
+        <div class="high-score">
+            {% if number_of_entries != 0 %}Highest score: {% endif %}{{ highest_scoring_entry }} pets!
+        </div>
     </div>
 </div>
 

@@ -3,7 +3,6 @@ body {
     margin: 0px;
 }
 
-
 .picture-container {
     /*border: 1px dotted green;*/
     text-align: center;
@@ -15,7 +14,6 @@ body {
     display: inline-block;
     max-width: 50%;
 }
-
 
 /* ONLY on desktop */
 @media (min-width: 1201px) {
