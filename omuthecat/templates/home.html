@@ -2,13 +2,13 @@
 {% load static %}
 {% block content %}
 
-<div class="picture-container">
+<div class="image-section">
     {% for file in filenames %}
         <img class="omu-image sizedimg" {% if file != filename %}src="{% static 'images/omu/' %}{{ file }}" style="display: none;"
              {% else %}src="{% static 'images/omu/' %}{{ filename }}"{% endif %}/>
     {% endfor %}
 </div>
-<div class="high-score-container">
+<div class="info-section">
     <div class="number-of-entries">{{ number_of_entries }} people have pet Omu.</div>
     <div class="number-of-clicks">Omu has been pet a total of {{ number_of_clicks }} times.</div>
     <div id="current-score">Your current score: 0.</div>
