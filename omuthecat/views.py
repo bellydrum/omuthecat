@@ -58,12 +58,13 @@ def get_highest_scoring_entry(entries):
         entries - { clicker_id : clicks, ... }
         return value - { clicker_id : clicks } with highest clicks value
     """
-
-    if len(entries) > 1:
+    print(len(entries))
+    if len(entries) >= 1:
         highest_scoring_entry = {
             'clicker_id': max( entries.items(), key=itemgetter(1) )[0],
             'clicks': entries[ max( entries.items(), key=itemgetter( 1 ) )[ 0 ] ]
         }
+        print(highest_scoring_entry)
     else:
         # note - handle case of 0 clicks in rendering view
         highest_scoring_entry = { 'clicker_id': 'null', 'clicks': 0 }

@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
         imageFilenames: image_filenames,       // defined in home.html
         imageFilepath: 'static/images/omu/',  // find another way that isn't hardcoding
         nextIndex: getRandomIndex( image_filenames.length ),
+        currentScore: 0,
         cookie: new CookieHelper(),
 
         /** define application functionality **/
@@ -57,6 +58,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 Array.from(imageElements).forEach(function(e) {
                     e.addEventListener('click', (e) => {
 
+                        app.currentScore += 1
+
                         /** increment click counter in cookie **/
                         app.cookie.addObject({ 'clicks': parseInt(app.cookie.getValueByKey('clicks')) + 1 })
 
@@ -74,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         /** update score on page **/
                         document.querySelector(
                             '#current-score'
-                        ).textContent='Your current score: ' + `${ app.cookie.getValueByKey('clicks') }.`
+                        ).textContent='Your current score: ' + `${ app.currentScore }.`
 
                     }, false)
                 })
@@ -90,6 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         /* only log if user has clicked */
                         if (clicks) {
                             app.logDesktopClicks( app.cookie.getValueByKey('clickerid'), clicks )
+                            app.currentScore += clicks
                         }
 
                     })
@@ -103,10 +107,16 @@ document.addEventListener("DOMContentLoaded", () => {
         /** start the app */
         init: () => {
 
-            /** initialize user info in cookie */
+            /** add new clicker id if one doesn't exist **/
+            if ( !(app.cookie.getValueByKey('clickerid')) ) {
+                app.cookie.addObject({
+                    'clickerid': CryptoJS.AES.encrypt( Date.now().toString(), 'iloveomu' ).toString()
+                })
+            }
+
+            /** initialize clicks in cookie */
             app.cookie.addObject( {
-                    'clickerid': CryptoJS.AES.encrypt( Date.now().toString(), 'iloveomu' ).toString(),
-                    'clicks': 0,
+                'clicks': 0,
             } )
 
             app.addListeners()

@@ -62,8 +62,6 @@ async function ajaxCall(url, requestType, data=null, async=true) {
             success: result => { return result },
             error: error => { return error }
         })
-        console.log('Async:')
-        console.log(async)
         return result
     } catch(error) {
         throw error
