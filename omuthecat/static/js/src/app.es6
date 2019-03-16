@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
         imageFilepath: 'static/images/omu/',  // find another way that isn't hardcoding
         nextIndex: getRandomIndex( image_filenames.length ),
         cookie: new CookieHelper(),
-        mobileClicks: 0,
 
         /** define application functionality **/
 
@@ -53,13 +52,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 /** ON IMAGE CLICK -- change image and increment counter **/
                 document.getElementById('omu-image').addEventListener('click', (e) => {
 
-                    /** IF DESKTOP -- increment cookie; do not log **/
-                    if ( app.onDesktop ) {
-                        app.cookie.addObject({ 'clicks': parseInt(app.cookie.getValueByKey('clicks')) + 1 })
+                    /* increment click counter in cookie */
+                    app.cookie.addObject({ 'clicks': parseInt(app.cookie.getValueByKey('clicks')) + 1 })
 
                     /** IF MOBILE -- log individual click to MobileClickLog **/
-                    } else {
+                    if ( !(app.onDesktop) ) {
                         app.logMobileClicks()
+
                     }
 
                     /* change picture and set next picture */
@@ -67,10 +66,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     app.nextIndex = getRandomIndex( app.imageFilenames.length )
 
                     /* update current score on page */
-                    app.mobileClicks += 1
                     document.querySelector(
                         '#current-score'
-                    ).textContent='Your current score: ' + `${ app.mobileClicks }.`
+                    ).textContent='Your current score: ' + `${ app.cookie.getValueByKey('clicks') }.`
 
                 })
 
@@ -89,25 +87,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     })
 
-                }
-
-                /** IF MOBILE -- ON SCREEN RESIZE TO LANDSCAPE -- make body background-color black **/
-                if ( !(app.onDesktop) ) {
-                    let resizeTimeout
-                    const darkenBodyBackground = () => {
-                        document.querySelector('body').setAttribute(
-                            'background-color', '#000'
-                        )
-                    }
-                    const resizeThrottler = () => {
-                        if ( !resizeTimeout ) {
-                            resizeTimeout = setTimeout(() => {
-                                resizeTimeout = null
-                                darkenBodyBackground()
-                            })
-                        }
-                    }
-                    window.addEventListener('resize', resizeThrottler, false)
                 }
 
             })()
