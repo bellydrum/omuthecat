@@ -4,14 +4,14 @@ body {
 }
 
 div {
-    border: 1px dotted red;
+    /*border: 1px dotted red;*/
 }
 
 .image-section {
     text-align: center;
     height: 70vh;
     max-height: 70vh;
-    background-color: #5b80b2;
+    /*background-color: #5b80b2;*/
 }
 .info-section {
     text-align: center;
@@ -20,10 +20,10 @@ div {
     height: 25%;
     max-height: 25%;
     bottom: 0;
-    background-color: #79aec8;
+    /*background-color: #79aec8;*/
 }
 .text-display {
-    background-color: #999900;
+    /*background-color: #999900;*/
 }
 
 .omu-image {
