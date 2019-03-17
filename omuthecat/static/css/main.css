@@ -22,6 +22,9 @@ div {
     bottom: 0;
     background-color: #79aec8;
 }
+.text-display {
+    background-color: #999900;
+}
 
 .omu-image {
     display: inline-block;
