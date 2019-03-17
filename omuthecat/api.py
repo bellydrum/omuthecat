@@ -43,12 +43,12 @@ def post_clicks(request):
         # log desktop clicks
         if 'clicker_id' in request.POST.keys() and 'clicks' in request.POST.keys():
 
+            print('Starting to log desktop clicks.')
+
             try:
                 existing_user = DesktopClickLog.objects.get(clicker_id=request.POST['clicker_id'])
             except DesktopClickLog.DoesNotExist:
                 existing_user = None
-
-            print(existing_user)
 
             # if the clicker_id already exists in DesktopMobileLog
             if existing_user is not None:
@@ -58,15 +58,16 @@ def post_clicks(request):
                     clicker_id=request.POST['clicker_id'],
                     clicks=request.POST['clicks']
                 )
-            print('User now has {} clicks.'.format(existing_user.clicks))
             existing_user.save()
 
-
+            print('Existing user total clicks: {}'.format(existing_user.clicks))
 
             return HttpResponse( { 'status': 'OK', 'type': 'desktop' } )
 
         # log mobile clicks
         elif 'clicker_id' in request.POST.keys() and 'clicks' not in request.POST.keys():
+
+            print('Starting to log mobile click.')
 
             log = MobileClickLog(
                 clicker_id=request.POST['clicker_id']
