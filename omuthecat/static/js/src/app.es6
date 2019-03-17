@@ -18,10 +18,10 @@ document.addEventListener("DOMContentLoaded", () => {
         currentScore: 0,
         cookie: new CookieHelper(),
 
-        /** define application functionality **/
+        /** APPLICATION FUNCTIONS **/
 
-        /** FOR DESKTOP -- log clicker_id with total number of clicks to DesktopClickLog **/
-        logDesktopClicks: async () => {
+        /** FOR DESKTOP -- post clicker_id with total number of clicks to DesktopClickLog **/
+        postDesktopClicks: async () => {
 
             /* get clicker_id AND clicks from cookie */
             const data = {
@@ -29,12 +29,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 'clicker_id': app.cookie.getValueByKey('clickerid'),
                 'clicks': parseInt(app.cookie.getValueByKey('clicks'))
             }
-            await ajaxCall( 'log_clicks', 'POST', data, async=false )
+            await ajaxCall( 'post_clicks', 'POST', data, async=false )
 
         },
 
-        /** FOR MOBILE -- log clicker_id with single click to MobileClickLog **/
-        logMobileClicks: debounce(async () => {
+        /** FOR MOBILE -- post clicker_id with single click to MobileClickLog **/
+        postMobileClicks: debounce(async () => {
 
             /* get only clicker_id from cookie */
             const data = {
@@ -42,17 +42,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 'clicker_id': app.cookie.getValueByKey('clickerid')
             }
 
-            await ajaxCall( 'log_clicks', 'POST', data )
+            await ajaxCall( 'post_clicks', 'POST', data )
 
         }, 15),
+
+        /** APPLICATION LISTENERS **/
 
         addListeners: () => {
 
             (() => {
 
-                /** ON IMAGE CLICK -- change image and increment counter **/
-                const imageElements = document.getElementsByClassName('omu-image')
-
+                /** ON IMAGE SECTION CLICK -- change image and increment counter **/
                 document.querySelector('.image-section').addEventListener('click', (e) => {
 
                     app.currentScore += 1
@@ -60,9 +60,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     /** increment click counter in cookie **/
                     app.cookie.addObject({ 'clicks': parseInt(app.cookie.getValueByKey('clicks')) + 1 })
 
-                    /** IF MOBILE -- log individual click to MobileClickLog **/
+                    /** IF MOBILE -- post individual click to MobileClickLog **/
                     if ( !(app.onDesktop) ) {
-                        app.logMobileClicks()
+                        app.postMobileClicks()
                     }
 
                     /** determine next image randomly **/
@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 }, false)
 
-                /** IF DESKTOP -- ON PAGE UNLOAD -- log clicker_id and clicks to DesktopClickLog **/
+                /** ON DESKTOP PAGE UNLOAD -- post clicker_id and clicks to DesktopClickLog **/
                 if ( app.onDesktop ) {
 
                     window.addEventListener('beforeunload', () => {
@@ -92,9 +92,9 @@ document.addEventListener("DOMContentLoaded", () => {
                         /* get current total number of clicks */
                         const clicks = parseInt(app.cookie.getValueByKey('clicks'))
 
-                        /* only log if user has clicked */
+                        /* only post if user has clicked */
                         if (clicks) {
-                            app.logDesktopClicks( app.cookie.getValueByKey('clickerid'), clicks )
+                            app.postDesktopClicks( app.cookie.getValueByKey('clickerid'), clicks )
                             app.currentScore += clicks
                         }
 

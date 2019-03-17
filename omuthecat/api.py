@@ -13,34 +13,31 @@ from .models import DesktopClickLog, MobileClickLog
 def get_all_entries(request):
     """ returns dictionary { 'clicker_id' : 'clicks' } of all unique click_ids in DesktopClickLog and MobileClickLog """
 
-    if request.method == 'GET':
+    # gather scores in { clicker_id : clicks } format
+    desktop_entries = [
+        { 'clicker_id': i.clicker_id, 'clicks': i.clicks }
+        for i in DesktopClickLog.objects.annotate(score=Count('clicks'))
+    ]
+    mobile_entries = [
+        {'clicker_id': i[0], 'clicks': i[1] }
+        for i in Counter([i['clicker_id'] for i in MobileClickLog.objects.values('clicker_id')]).items()
+    ]
 
-        # gather scores in { clicker_id : clicks } format
-        desktop_entries = [
-            { 'clicker_id': i.clicker_id, 'clicks': i.clicks }
-            for i in DesktopClickLog.objects.annotate(score=Count('clicks'))
-        ]
-        mobile_entries = [
-            {'clicker_id': i[0], 'clicks': i[1] }
-            for i in Counter([i['clicker_id'] for i in MobileClickLog.objects.values('clicker_id')]).items()
-        ]
+    # put all entries into a single dictionary
+    all_entries = {
+        entry['clicker_id'] : entry['clicks']
+        for entry in [ i for i in ( desktop_entries + mobile_entries ) ]
+    }
 
-        # put all entries into a single dictionary
-        all_entries = {
-            entry['clicker_id'] : entry['clicks']
-            for entry in [ i for i in ( desktop_entries + mobile_entries ) ]
-        }
+    print(all_entries)
 
-        return all_entries
-
-    else:
-        return None
+    return all_entries
 
 
 ################## called by urls.py
 
 @csrf_protect
-def log_clicks(request):
+def post_clicks(request):
     if request.method == 'POST':
 
         # log desktop clicks
@@ -79,5 +76,5 @@ def log_clicks(request):
             return HttpResponse( { 'status': 'OK', 'type': 'mobile' })
 
         else:
-            print('\nERROR: Error with request.POST in api.log_clicks.\n')
-            return HttpResponse( { 'status': 'Error parsing request.POST in api.log_clicks.' } )
+            print('\nERROR: Error with request.POST in api.post_clicks.\n')
+            return HttpResponse( { 'status': 'Error parsing request.POST in api.post_clicks.' } )

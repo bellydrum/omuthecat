@@ -1,5 +1,5 @@
 from django.conf.urls import include, url
-from .api import log_clicks
+from .api import post_clicks
 from .views import render_home
 
 urlpatterns = [
@@ -7,5 +7,5 @@ urlpatterns = [
     url('^$', render_home, name='home'),
 
     # api urls
-    url('^log_clicks$', log_clicks, name='log_clicks'),
+    url('^post_clicks$', post_clicks, name='post_clicks'),
 ]
