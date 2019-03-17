@@ -29,9 +29,8 @@ def get_all_entries(request):
         for entry in [ i for i in ( desktop_entries + mobile_entries ) ]
     }
 
-    print(all_entries)
-
     return all_entries
+
 
 
 ################## called by urls.py
@@ -43,8 +42,7 @@ def post_clicks(request):
         # log desktop clicks
         if 'clicker_id' in request.POST.keys() and 'clicks' in request.POST.keys():
 
-            print('Starting to log desktop clicks.')
-
+            # get or create user
             try:
                 existing_user = DesktopClickLog.objects.get(clicker_id=request.POST['clicker_id'])
             except DesktopClickLog.DoesNotExist:
@@ -60,14 +58,10 @@ def post_clicks(request):
                 )
             existing_user.save()
 
-            print('Existing user total clicks: {}'.format(existing_user.clicks))
-
             return HttpResponse( { 'status': 'OK', 'type': 'desktop' } )
 
         # log mobile clicks
         elif 'clicker_id' in request.POST.keys() and 'clicks' not in request.POST.keys():
-
-            print('Starting to log mobile click.')
 
             log = MobileClickLog(
                 clicker_id=request.POST['clicker_id']

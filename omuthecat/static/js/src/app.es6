@@ -17,10 +17,58 @@ document.addEventListener("DOMContentLoaded", () => {
         nextIndex: getRandomIndex( image_filenames.length ),
         currentSessionScore: 0,
         cookie: new CookieHelper(),
+        timeSinceLastCheck: Date.now(),
+        timeGapsBetweenChecks: [],
+
+        /** APPLICATION LISTENERS **/
+
+        /** changes image and increments counter; called when .image-section is clicked **/
+        imageClickListener: () => {
+            /**
+             * Run these events when user clicks the picture section:
+             *  Step 1. increment the click counters.
+             *  Step 2. if on mobile, POST the click to the database.
+             *  Step 3. determine the next image randomly.
+             *  Step 4. hide the current image from the page.
+             *  Step 5. display the randomly chosen image.
+             *  Step 6. update the current score on the page.
+             */
+
+            /** Step 0. check for bot usage. **/
+            if ( app.userIsBot() ) {
+                app.blockBot()
+                return
+            }
+
+            /** Step 1. increment the click counters. **/
+            app.cookie.addObject({ 'currentTotalClicks': parseInt( app.cookie.getValueByKey('currentTotalClicks') ) + 1 })
+            app.currentSessionScore += 1
+
+            /** Step 2. if on mobile, POST the click to the database. **/
+            if ( !(app.onDesktop) ) { app.postMobileClicks() }
+
+            /** Step 3. determine the next image randomly. **/
+            app.nextIndex = getRandomIndex( app.imageFilenames.length )
+
+            /** Step 4. hide the current image from the page. **/
+            const currentImage = document.querySelector(`img[style='display:inline-block;']`)
+            currentImage.setAttribute('style', 'display:none;')
+
+            /** Step 5. display the randomly chosen image. **/
+            document.querySelector(
+                `img[src='${ app.imageFilepath }` + `${ app.imageFilenames[app.nextIndex] }']`
+            ).setAttribute('style', `display:inline-block;`)
+
+            /** Step 6. update the current score on the page. **/
+            document.querySelector(
+                '#current-score'
+            ).textContent='Your current score: ' + `${ app.cookie.getValueByKey('currentTotalClicks') }.`
+
+        },
 
         /** APPLICATION FUNCTIONS **/
 
-        /** FOR DESKTOP -- post clicker_id with total number of clicks to DesktopClickLog **/
+        /** desktop -- post clicker_id with total number of clicks to DesktopClickLog **/
         postDesktopClicks: async (clickerId, clicks) => {
 
             /* get clicker_id AND clicks from cookie */
@@ -33,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         },
 
-        /** FOR MOBILE -- post clicker_id with single click to MobileClickLog **/
+        /** mobile -- post clicker_id with single click to MobileClickLog **/
         postMobileClicks: debounce(async () => {
 
             /* get only clicker_id from cookie */
@@ -46,8 +94,56 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }, 15),
 
-        /** APPLICATION LISTENERS **/
+        userIsBot: () => {
 
+            /** do a click frequency check every 10 clicks. **/
+            if ( ( app.currentSessionScore > 10 ) && ( app.currentSessionScore % 5 === 0 ) ) {
+
+                /* check state of click frequency */
+                const now = Date.now()
+                const timeGap = now - app.timeSinceLastCheck
+                app.timeSinceLastCheck = now
+                app.timeGapsBetweenChecks.push( timeGap )
+
+                /* determine if state of clicks implies bot usage */
+                if (app.timeGapsBetweenChecks.length > 3) {
+                    const gapsToCheck = app.timeGapsBetweenChecks.slice( -3 )
+                    const averageOfLastThreeChecks = ( parseInt(gapsToCheck.reduce( ( p, c ) => p + c, 0 ) / gapsToCheck.length) )
+                    const userIsBot = ( Math.abs( gapsToCheck[0] - averageOfLastThreeChecks ) < 5 ) &&
+                        ( Math.abs( gapsToCheck[1] - averageOfLastThreeChecks ) < 5 ) &&
+                        ( Math.abs( gapsToCheck[2] - averageOfLastThreeChecks ) < 5 )
+
+                    return userIsBot
+                }
+
+            }
+        },
+
+        /** remove functionality from page if bot is being used **/
+        blockBot: () => {
+
+            /* remove event listener from .image-section */
+            document.querySelector('.image-section').removeEventListener(
+                'click', app.imageClickListener, false
+            )
+
+            /* remove .image-section from page as a safety measure */
+            document.querySelector('.image-section').parentNode.removeChild(
+                document.querySelector('.image-section')
+            )
+
+            /* alert user of bot usage */
+            document.querySelector('#alert').setAttribute(
+                'style', 'font-size: 3em; text-align: center; padding: 30px;'
+            )
+            document.querySelector('#alert').textContent="Omu doesn't like bots :3"
+
+            /* destroy current click data */
+            app.currentSessionScore = 0
+            app.cookie.flush()
+        },
+
+        /** add listeners to document elements **/
         addListeners: () => {
 
             (() => {
@@ -63,42 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
                  **/
 
                 /** ON IMAGE SECTION CLICK -- change image and increment counter **/
-                document.querySelector('.image-section').addEventListener('click', (e) => {
-                    /**
-                     * Run these events when user clicks the picture section:
-                     *  Step 1. increment the click counters.
-                     *  Step 2. if on mobile, POST the click to the database.
-                     *  Step 3. determine the next image randomly.
-                     *  Step 4. hide the current image from the page.
-                     *  Step 5. display the randomly chosen image.
-                     *  Step 6. update the current score on the page.
-                     */
-
-                    /** Step 1. increment the click counters. **/
-                    app.cookie.addObject({ 'currentTotalClicks': parseInt(app.cookie.getValueByKey('currentTotalClicks')) + 1 })
-                    app.currentSessionScore += 1
-
-                    /** Step 2. if on mobile, POST the click to the database. **/
-                    if ( !(app.onDesktop) ) { app.postMobileClicks() }
-
-                    /** Step 3. determine the next image randomly. **/
-                    app.nextIndex = getRandomIndex( app.imageFilenames.length )
-
-                    /** Step 4. hide the current image from the page. **/
-                    const currentImage = document.querySelector(`img[style='display:inline-block;']`)
-                    currentImage.setAttribute('style', 'display:none;')
-
-                    /** Step 5. display the randomly chosen image. **/
-                    document.querySelector(
-                        `img[src='${app.imageFilepath}` + `${app.imageFilenames[app.nextIndex]}']`
-                    ).setAttribute('style', `display:inline-block;`)
-
-                    /** Step 6. update the current score on the page. **/
-                    document.querySelector(
-                        '#current-score'
-                    ).textContent='Your current score: ' + `${ app.cookie.getValueByKey('currentTotalClicks') }.`
-
-                }, false)
+                document.querySelector('.image-section').addEventListener('click', app.imageClickListener, false)
 
                 /** ON DESKTOP PAGE UNLOAD -- post clicker_id and clicks to DesktopClickLog **/
                 if ( app.onDesktop ) {

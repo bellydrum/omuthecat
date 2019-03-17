@@ -24,6 +24,12 @@ div {
     max-height: 70vh;
     /*background-color: #5b80b2;*/
 }
+.alert {
+    font-size: 3em;
+    text-align: center;
+    padding: 30px;
+
+}
 .info-section {
     max-height: 30vh;
     height: 30vh;

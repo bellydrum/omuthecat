@@ -85,3 +85,10 @@ def get_number_of_clicks(entries):
         return value - (int) total sum of all clicks from DesktopClickLog and MobileClickLog
     """
     return sum( [ entry for entry in entries.values() ] )
+
+
+def determine_if_bot(entries):
+    """
+        entries - { clicker_id : clicks, ... }
+        return value - (int) total sum of all clicks from DesktopClickLog and MobileClickLog
+    """
