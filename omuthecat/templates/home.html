@@ -4,18 +4,24 @@
 
 <div class="image-section">
     {% for file in filenames %}
-        <img class="omu-image sizedimg" {% if file != filename %}src="{% static 'images/omu/' %}{{ file }}" style="display:none;"
+        <img class="omu-image unselectable" {% if file != filename %}src="{% static 'images/omu/' %}{{ file }}" style="display:none;"
              {% else %}src="{% static 'images/omu/' %}{{ filename }}" style="display:inline-block;"{% endif %}/>
     {% endfor %}
 </div>
 <div class="info-section">
 
     <div class="text-display">
-        <div class="number-of-entries">{{ number_of_entries }} people have pet Omu.</div>
-        <div class="number-of-clicks">Omu has been pet a total of {{ number_of_clicks }} times.</div>
-        <div id="current-score">Your current score: 0.</div>
-        <div class="high-score">
-            Highest score: {{ highest_scoring_entry }}{% if number_of_entries > 0 %} pets!{% endif %}
+        <div class="info-text number-of-entries">
+            <span>{{ number_of_entries }} people have pet Omu.</span>
+        </div>
+        <div class="info-text number-of-clicks">
+            <span>Omu has been pet a total of {{ number_of_clicks }} times.</span>
+        </div>
+        <div class="info-text" id="current-score">
+            <span>Your current score: 0.</span>
+        </div>
+        <div class="info-text high-score">
+            <span>Highest score: {{ highest_scoring_entry }}{% if number_of_entries > 0 %} pets!{% endif %}</span>
         </div>
     </div>
 
