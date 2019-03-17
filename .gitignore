@@ -6,4 +6,5 @@ oenv/*
 static/*
 build
 compile
+node_modules
 omu/settings.py
