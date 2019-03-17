@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             await ajaxCall( 'log_clicks', 'POST', data )
 
-        }, 50),
+        }, 15),
 
         addListeners: () => {
 
