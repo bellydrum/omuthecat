@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
         /** APPLICATION LISTENERS **/
 
         /** changes image and increments counter; called when .image-section is clicked **/
-        imageClickListener: () => {
+        imageClickListener: (e) => {
             /**
              * Run these events when user clicks the picture section:
              *  Step 1. increment the click counters.
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
              */
 
             /** Step 0. check for bot usage. **/
-            if ( app.userIsBot() ) {
+            if ( app.userIsBot(e) ) {
                 app.blockBot()
                 return
             }
@@ -94,7 +94,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }, 15),
 
-        userIsBot: () => {
+        userIsBot: (e) => {
+
+            /** check if click event isTrusted **/
+            if ( !(e.isTrusted) ) {
+                return true
+            }
 
             /** do a click frequency check every 10 clicks. **/
             if ( ( app.currentSessionScore > 10 ) && ( app.currentSessionScore % 5 === 0 ) ) {
