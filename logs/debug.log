@@ -1,0 +1,2089 @@
+(0.003) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.005) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.002) SELECT "desktop_clicks"."id", "desktop_clicks"."clicker_id", "desktop_clicks"."clicks", "desktop_clicks"."datetime_logged", COUNT("desktop_clicks"."clicks") AS "score" FROM "desktop_clicks" GROUP BY "desktop_clicks"."id"; args=()
+(0.000) SELECT "mobile_clicks"."clicker_id" FROM "mobile_clicks"; args=()
+"GET / HTTP/1.1" 200 8967
+"GET /static/css/main.min.css HTTP/1.1" 200 1119
+"GET /static/images/omu/omu_15.jpg HTTP/1.1" 200 105944
+"GET /static/js/app.min.js HTTP/1.1" 200 5686
+"GET /static/images/omu/omu_29.jpg HTTP/1.1" 200 107484
+"GET /static/js/crypto-js.js HTTP/1.1" 200 161782
+"GET /static/images/omu/omu_5.jpg HTTP/1.1" 200 93808
+"GET /static/images/omu/omu_4.jpg HTTP/1.1" 200 85385
+"GET /static/images/omu/omu_28.jpg HTTP/1.1" 200 79485
+"GET /static/images/omu/omu_14.jpg HTTP/1.1" 200 115791
+"GET /static/images/omu/omu_16.jpg HTTP/1.1" 200 74870
+"GET /static/images/omu/omu_3.jpg HTTP/1.1" 200 35429
+"GET /static/images/omu/omu_17.jpg HTTP/1.1" 200 67205
+"GET /static/images/omu/omu_13.jpg HTTP/1.1" 200 90289
+"GET /static/images/omu/omu_6.jpg HTTP/1.1" 200 109462
+"GET /static/images/omu/omu_7.jpg HTTP/1.1" 200 135276
+"GET /static/images/omu/omu_12.jpg HTTP/1.1" 200 61696
+"GET /static/images/omu/omu_1.jpg HTTP/1.1" 200 59238
+"GET /static/images/omu/omu_38.jpg HTTP/1.1" 200 91153
+"GET /static/images/omu/omu_0.jpg HTTP/1.1" 200 72489
+"GET /static/images/omu/omu_2.jpg HTTP/1.1" 200 108256
+"GET /static/images/omu/omu_10.jpg HTTP/1.1" 200 292360
+"GET /static/images/omu/omu_11.jpg HTTP/1.1" 200 121722
+"GET /static/images/omu/omu_39.jpg HTTP/1.1" 200 129377
+"GET /static/images/omu/omu_43.jpg HTTP/1.1" 200 109957
+"GET /static/images/omu/omu_48.jpg HTTP/1.1" 200 106198
+"GET /static/images/omu/omu_49.jpg HTTP/1.1" 200 111921
+"GET /static/images/omu/omu_42.jpg HTTP/1.1" 200 333044
+"GET /static/images/omu/omu_40.jpg HTTP/1.1" 200 59763
+"GET /static/images/omu/omu_41.jpg HTTP/1.1" 200 113327
+"GET /static/images/omu/omu_44.jpg HTTP/1.1" 200 75624
+"GET /static/images/omu/omu_45.jpg HTTP/1.1" 200 124306
+"GET /static/images/omu/omu_47.jpg HTTP/1.1" 200 135172
+"GET /static/images/omu/omu_46.jpg HTTP/1.1" 200 118148
+"GET /static/images/omu/omu_20.jpg HTTP/1.1" 200 135226
+"GET /static/images/omu/omu_34.jpg HTTP/1.1" 200 74680
+"GET /static/images/omu/omu_35.jpg HTTP/1.1" 200 65500
+"GET /static/images/omu/omu_37.jpg HTTP/1.1" 200 75012
+"GET /static/images/omu/omu_23.jpg HTTP/1.1" 200 61835
+"GET /static/images/omu/omu_21.jpg HTTP/1.1" 200 76308
+"GET /static/images/omu/omu_36.jpg HTTP/1.1" 200 78835
+"GET /static/images/omu/omu_22.jpg HTTP/1.1" 200 107833
+"GET /static/images/omu/omu_33.jpg HTTP/1.1" 200 61010
+"GET /static/images/omu/omu_26.jpg HTTP/1.1" 200 72240
+"GET /static/images/omu/omu_19.jpg HTTP/1.1" 200 73020
+"GET /static/images/omu/omu_31.jpg HTTP/1.1" 200 74847
+"GET /static/images/omu/omu_32.jpg HTTP/1.1" 200 87114
+"GET /static/images/omu/omu_27.jpg HTTP/1.1" 200 129446
+"GET /static/images/omu/omu_30.jpg HTTP/1.1" 200 78529
+"GET /static/images/omu/omu_24.jpg HTTP/1.1" 200 52094
+"GET /static/images/omu/omu_18.jpg HTTP/1.1" 200 76374
+"GET /static/images/omu/omu_8.jpg HTTP/1.1" 200 83125
+"GET /static/images/omu/omu_9.jpg HTTP/1.1" 200 247106
+"GET /static/images/omu/omu_25.jpg HTTP/1.1" 200 1354863
+"GET /static/images/favicon/favicon-32x32.png HTTP/1.1" 200 2856
+(0.002) SELECT "desktop_clicks"."id", "desktop_clicks"."clicker_id", "desktop_clicks"."clicks", "desktop_clicks"."datetime_logged" FROM "desktop_clicks" WHERE "desktop_clicks"."clicker_id" = 'U2FsdGVkX1+V3IgIxlohDzUa3lQdW24Un93TJi1XIMQ'; args=('U2FsdGVkX1+V3IgIxlohDzUa3lQdW24Un93TJi1XIMQ',)
+(0.001) UPDATE "desktop_clicks" SET "clicker_id" = 'U2FsdGVkX1+V3IgIxlohDzUa3lQdW24Un93TJi1XIMQ', "clicks" = 69, "datetime_logged" = '2019-03-18T02:57:53.049993+00:00'::timestamptz WHERE "desktop_clicks"."id" = 172; args=('U2FsdGVkX1+V3IgIxlohDzUa3lQdW24Un93TJi1XIMQ', 69, datetime.datetime(2019, 3, 18, 2, 57, 53, 49993, tzinfo=<UTC>), 172)
+"POST /post_clicks HTTP/1.1" 200 10
+(0.001) SELECT "desktop_clicks"."id", "desktop_clicks"."clicker_id", "desktop_clicks"."clicks", "desktop_clicks"."datetime_logged", COUNT("desktop_clicks"."clicks") AS "score" FROM "desktop_clicks" GROUP BY "desktop_clicks"."id"; args=()
+(0.000) SELECT "mobile_clicks"."clicker_id" FROM "mobile_clicks"; args=()
+"GET / HTTP/1.1" 200 8968
+"GET /static/css/main.min.css HTTP/1.1" 200 1119
+"GET /static/js/app.min.js HTTP/1.1" 200 5686
+"GET /static/images/omu/omu_15.jpg HTTP/1.1" 200 105944
+"GET /static/images/omu/omu_29.jpg HTTP/1.1" 200 107484
+"GET /static/js/crypto-js.js HTTP/1.1" 200 161782
+"GET /static/images/omu/omu_5.jpg HTTP/1.1" 200 93808
+"GET /static/images/omu/omu_4.jpg HTTP/1.1" 200 85385
+"GET /static/images/omu/omu_28.jpg HTTP/1.1" 200 79485
+"GET /static/images/omu/omu_14.jpg HTTP/1.1" 200 115791
+"GET /static/images/omu/omu_3.jpg HTTP/1.1" 200 35429
+"GET /static/images/omu/omu_17.jpg HTTP/1.1" 200 67205
+"GET /static/images/omu/omu_16.jpg HTTP/1.1" 200 74870
+"GET /static/images/omu/omu_13.jpg HTTP/1.1" 200 90289
+"GET /static/images/omu/omu_7.jpg HTTP/1.1" 200 135276
+"GET /static/images/omu/omu_6.jpg HTTP/1.1" 200 109462
+"GET /static/images/omu/omu_12.jpg HTTP/1.1" 200 61696
+"GET /static/images/omu/omu_0.jpg HTTP/1.1" 200 72489
+"GET /static/images/omu/omu_1.jpg HTTP/1.1" 200 59238
+"GET /static/images/omu/omu_38.jpg HTTP/1.1" 200 91153
+"GET /static/images/omu/omu_2.jpg HTTP/1.1" 200 108256
+"GET /static/images/omu/omu_10.jpg HTTP/1.1" 200 292360
+"GET /static/images/omu/omu_11.jpg HTTP/1.1" 200 121722
+"GET /static/images/omu/omu_48.jpg HTTP/1.1" 200 106198
+"GET /static/images/omu/omu_43.jpg HTTP/1.1" 200 109957
+"GET /static/images/omu/omu_39.jpg HTTP/1.1" 200 129377
+"GET /static/images/omu/omu_49.jpg HTTP/1.1" 200 111921
+"GET /static/images/omu/omu_42.jpg HTTP/1.1" 200 333044
+"GET /static/images/omu/omu_22.jpg HTTP/1.1" 200 107833
+"GET /static/images/omu/omu_40.jpg HTTP/1.1" 200 59763
+"GET /static/images/omu/omu_44.jpg HTTP/1.1" 200 75624
+"GET /static/images/omu/omu_41.jpg HTTP/1.1" 200 113327
+"GET /static/images/omu/omu_46.jpg HTTP/1.1" 200 118148
+"GET /static/images/omu/omu_45.jpg HTTP/1.1" 200 124306
+"GET /static/images/omu/omu_47.jpg HTTP/1.1" 200 135172
+"GET /static/images/omu/omu_23.jpg HTTP/1.1" 200 61835
+"GET /static/images/omu/omu_35.jpg HTTP/1.1" 200 65500
+"GET /static/images/omu/omu_37.jpg HTTP/1.1" 200 75012
+"GET /static/images/omu/omu_21.jpg HTTP/1.1" 200 76308
+"GET /static/images/omu/omu_34.jpg HTTP/1.1" 200 74680
+"GET /static/images/omu/omu_20.jpg HTTP/1.1" 200 135226
+"GET /static/images/omu/omu_36.jpg HTTP/1.1" 200 78835
+"GET /static/images/omu/omu_32.jpg HTTP/1.1" 200 87114
+"GET /static/images/omu/omu_33.jpg HTTP/1.1" 200 61010
+"GET /static/images/omu/omu_26.jpg HTTP/1.1" 200 72240
+"GET /static/images/omu/omu_19.jpg HTTP/1.1" 200 73020
+"GET /static/images/omu/omu_27.jpg HTTP/1.1" 200 129446
+"GET /static/images/omu/omu_24.jpg HTTP/1.1" 200 52094
+"GET /static/images/omu/omu_31.jpg HTTP/1.1" 200 74847
+"GET /static/images/omu/omu_30.jpg HTTP/1.1" 200 78529
+"GET /static/images/omu/omu_8.jpg HTTP/1.1" 200 83125
+"GET /static/images/omu/omu_9.jpg HTTP/1.1" 200 247106
+"GET /static/images/omu/omu_18.jpg HTTP/1.1" 200 76374
+"GET /static/images/omu/omu_25.jpg HTTP/1.1" 200 1354863
+"GET /static/images/favicon/favicon-32x32.png HTTP/1.1" 200 2856
+(0.002) SELECT "desktop_clicks"."id", "desktop_clicks"."clicker_id", "desktop_clicks"."clicks", "desktop_clicks"."datetime_logged", COUNT("desktop_clicks"."clicks") AS "score" FROM "desktop_clicks" GROUP BY "desktop_clicks"."id"; args=()
+(0.000) SELECT "mobile_clicks"."clicker_id" FROM "mobile_clicks"; args=()
+"GET / HTTP/1.1" 200 8968
+"GET /static/css/main.min.css HTTP/1.1" 200 1119
+"GET /static/js/app.min.js HTTP/1.1" 200 5686
+"GET /static/images/omu/omu_29.jpg HTTP/1.1" 200 107484
+"GET /static/images/omu/omu_15.jpg HTTP/1.1" 200 105944
+"GET /static/js/crypto-js.js HTTP/1.1" 200 161782
+"GET /static/images/omu/omu_5.jpg HTTP/1.1" 200 93808
+"GET /static/images/omu/omu_4.jpg HTTP/1.1" 200 85385
+"GET /static/images/omu/omu_28.jpg HTTP/1.1" 200 79485
+"GET /static/images/omu/omu_14.jpg HTTP/1.1" 200 115791
+"GET /static/images/omu/omu_3.jpg HTTP/1.1" 200 35429
+"GET /static/images/omu/omu_17.jpg HTTP/1.1" 200 67205
+"GET /static/images/omu/omu_16.jpg HTTP/1.1" 200 74870
+"GET /static/images/omu/omu_13.jpg HTTP/1.1" 200 90289
+"GET /static/images/omu/omu_7.jpg HTTP/1.1" 200 135276
+"GET /static/images/omu/omu_6.jpg HTTP/1.1" 200 109462
+"GET /static/images/omu/omu_12.jpg HTTP/1.1" 200 61696
+"GET /static/images/omu/omu_2.jpg HTTP/1.1" 200 108256
+"GET /static/images/omu/omu_1.jpg HTTP/1.1" 200 59238
+"GET /static/images/omu/omu_0.jpg HTTP/1.1" 200 72489
+"GET /static/images/omu/omu_38.jpg HTTP/1.1" 200 91153
+"GET /static/images/omu/omu_10.jpg HTTP/1.1" 200 292360
+"GET /static/images/omu/omu_39.jpg HTTP/1.1" 200 129377
+"GET /static/images/omu/omu_48.jpg HTTP/1.1" 200 106198
+"GET /static/images/omu/omu_49.jpg HTTP/1.1" 200 111921
+"GET /static/images/omu/omu_43.jpg HTTP/1.1" 200 109957
+"GET /static/images/omu/omu_11.jpg HTTP/1.1" 200 121722
+"GET /static/images/omu/omu_42.jpg HTTP/1.1" 200 333044
+"GET /static/images/omu/omu_44.jpg HTTP/1.1" 200 75624
+"GET /static/images/omu/omu_40.jpg HTTP/1.1" 200 59763
+"GET /static/images/omu/omu_47.jpg HTTP/1.1" 200 135172
+"GET /static/images/omu/omu_41.jpg HTTP/1.1" 200 113327
+"GET /static/images/omu/omu_45.jpg HTTP/1.1" 200 124306
+"GET /static/images/omu/omu_46.jpg HTTP/1.1" 200 118148
+"GET /static/images/omu/omu_34.jpg HTTP/1.1" 200 74680
+"GET /static/images/omu/omu_35.jpg HTTP/1.1" 200 65500
+"GET /static/images/omu/omu_21.jpg HTTP/1.1" 200 76308
+"GET /static/images/omu/omu_23.jpg HTTP/1.1" 200 61835
+"GET /static/images/omu/omu_37.jpg HTTP/1.1" 200 75012
+"GET /static/images/omu/omu_20.jpg HTTP/1.1" 200 135226
+"GET /static/images/omu/omu_33.jpg HTTP/1.1" 200 61010
+"GET /static/images/omu/omu_26.jpg HTTP/1.1" 200 72240
+"GET /static/images/omu/omu_32.jpg HTTP/1.1" 200 87114
+"GET /static/images/omu/omu_36.jpg HTTP/1.1" 200 78835
+"GET /static/images/omu/omu_22.jpg HTTP/1.1" 200 107833
+"GET /static/images/omu/omu_27.jpg HTTP/1.1" 200 129446
+"GET /static/images/omu/omu_19.jpg HTTP/1.1" 200 73020
+"GET /static/images/omu/omu_31.jpg HTTP/1.1" 200 74847
+"GET /static/images/omu/omu_8.jpg HTTP/1.1" 200 83125
+"GET /static/images/omu/omu_24.jpg HTTP/1.1" 200 52094
+"GET /static/images/omu/omu_9.jpg HTTP/1.1" 200 247106
+"GET /static/images/omu/omu_18.jpg HTTP/1.1" 200 76374
+"GET /static/images/omu/omu_30.jpg HTTP/1.1" 200 78529
+"GET /static/images/omu/omu_25.jpg HTTP/1.1" 200 1354863
+"GET /static/images/favicon/favicon-32x32.png HTTP/1.1" 200 2856
+(0.002) SELECT "desktop_clicks"."id", "desktop_clicks"."clicker_id", "desktop_clicks"."clicks", "desktop_clicks"."datetime_logged", COUNT("desktop_clicks"."clicks") AS "score" FROM "desktop_clicks" GROUP BY "desktop_clicks"."id"; args=()
+(0.000) SELECT "mobile_clicks"."clicker_id" FROM "mobile_clicks"; args=()
+"GET / HTTP/1.1" 200 8968
+"GET /static/css/main.min.css HTTP/1.1" 200 1119
+"GET /static/js/crypto-js.js HTTP/1.1" 200 161782
+"GET /static/images/omu/omu_15.jpg HTTP/1.1" 200 105944
+"GET /static/js/app.min.js HTTP/1.1" 200 5686
+"GET /static/images/omu/omu_29.jpg HTTP/1.1" 200 107484
+"GET /static/images/omu/omu_5.jpg HTTP/1.1" 200 93808
+"GET /static/images/omu/omu_4.jpg HTTP/1.1" 200 85385
+"GET /static/images/omu/omu_28.jpg HTTP/1.1" 200 79485
+"GET /static/images/omu/omu_14.jpg HTTP/1.1" 200 115791
+"GET /static/images/omu/omu_3.jpg HTTP/1.1" 200 35429
+"GET /static/images/omu/omu_6.jpg HTTP/1.1" 200 109462
+"GET /static/images/omu/omu_16.jpg HTTP/1.1" 200 74870
+"GET /static/images/omu/omu_7.jpg HTTP/1.1" 200 135276
+"GET /static/images/omu/omu_17.jpg HTTP/1.1" 200 67205
+"GET /static/images/omu/omu_13.jpg HTTP/1.1" 200 90289
+"GET /static/images/omu/omu_12.jpg HTTP/1.1" 200 61696
+"GET /static/images/omu/omu_1.jpg HTTP/1.1" 200 59238
+"GET /static/images/omu/omu_2.jpg HTTP/1.1" 200 108256
+"GET /static/images/omu/omu_38.jpg HTTP/1.1" 200 91153
+"GET /static/images/omu/omu_0.jpg HTTP/1.1" 200 72489
+"GET /static/images/omu/omu_10.jpg HTTP/1.1" 200 292360
+"GET /static/images/omu/omu_11.jpg HTTP/1.1" 200 121722
+"GET /static/images/omu/omu_48.jpg HTTP/1.1" 200 106198
+"GET /static/images/omu/omu_39.jpg HTTP/1.1" 200 129377
+"GET /static/images/omu/omu_43.jpg HTTP/1.1" 200 109957
+"GET /static/images/omu/omu_49.jpg HTTP/1.1" 200 111921
+"GET /static/images/omu/omu_42.jpg HTTP/1.1" 200 333044
+"GET /static/images/omu/omu_40.jpg HTTP/1.1" 200 59763
+"GET /static/images/omu/omu_44.jpg HTTP/1.1" 200 75624
+"GET /static/images/omu/omu_41.jpg HTTP/1.1" 200 113327
+"GET /static/images/omu/omu_46.jpg HTTP/1.1" 200 118148
+"GET /static/images/omu/omu_45.jpg HTTP/1.1" 200 124306
+"GET /static/images/omu/omu_47.jpg HTTP/1.1" 200 135172
+"GET /static/images/omu/omu_31.jpg HTTP/1.1" 200 74847
+"GET /static/images/omu/omu_23.jpg HTTP/1.1" 200 61835
+"GET /static/images/omu/omu_21.jpg HTTP/1.1" 200 76308
+"GET /static/images/omu/omu_37.jpg HTTP/1.1" 200 75012
+"GET /static/images/omu/omu_34.jpg HTTP/1.1" 200 74680
+"GET /static/images/omu/omu_35.jpg HTTP/1.1" 200 65500
+"GET /static/images/omu/omu_20.jpg HTTP/1.1" 200 135226
+"GET /static/images/omu/omu_36.jpg HTTP/1.1" 200 78835
+"GET /static/images/omu/omu_33.jpg HTTP/1.1" 200 61010
+"GET /static/images/omu/omu_26.jpg HTTP/1.1" 200 72240
+"GET /static/images/omu/omu_32.jpg HTTP/1.1" 200 87114
+"GET /static/images/omu/omu_22.jpg HTTP/1.1" 200 107833
+"GET /static/images/omu/omu_27.jpg HTTP/1.1" 200 129446
+"GET /static/images/omu/omu_24.jpg HTTP/1.1" 200 52094
+"GET /static/images/omu/omu_19.jpg HTTP/1.1" 200 73020
+"GET /static/images/omu/omu_8.jpg HTTP/1.1" 200 83125
+"GET /static/images/omu/omu_30.jpg HTTP/1.1" 200 78529
+"GET /static/images/omu/omu_9.jpg HTTP/1.1" 200 247106
+"GET /static/images/omu/omu_25.jpg HTTP/1.1" 200 1354863
+"GET /static/images/omu/omu_18.jpg HTTP/1.1" 200 76374
+"GET /static/images/favicon/favicon-32x32.png HTTP/1.1" 200 2856
+(0.002) SELECT "desktop_clicks"."id", "desktop_clicks"."clicker_id", "desktop_clicks"."clicks", "desktop_clicks"."datetime_logged", COUNT("desktop_clicks"."clicks") AS "score" FROM "desktop_clicks" GROUP BY "desktop_clicks"."id"; args=()
+(0.000) SELECT "mobile_clicks"."clicker_id" FROM "mobile_clicks"; args=()
+"GET / HTTP/1.1" 200 8968
+"GET /static/css/main.min.css HTTP/1.1" 200 1119
+"GET /static/js/crypto-js.js HTTP/1.1" 200 161782
+"GET /static/js/app.min.js HTTP/1.1" 200 5686
+"GET /static/images/omu/omu_15.jpg HTTP/1.1" 200 105944
+"GET /static/images/omu/omu_29.jpg HTTP/1.1" 200 107484
+"GET /static/images/omu/omu_4.jpg HTTP/1.1" 200 85385
+"GET /static/images/omu/omu_5.jpg HTTP/1.1" 200 93808
+"GET /static/images/omu/omu_14.jpg HTTP/1.1" 200 115791
+"GET /static/images/omu/omu_28.jpg HTTP/1.1" 200 79485
+"GET /static/images/omu/omu_17.jpg HTTP/1.1" 200 67205
+"GET /static/images/omu/omu_3.jpg HTTP/1.1" 200 35429
+"GET /static/images/omu/omu_16.jpg HTTP/1.1" 200 74870
+"GET /static/images/omu/omu_13.jpg HTTP/1.1" 200 90289
+"GET /static/images/omu/omu_6.jpg HTTP/1.1" 200 109462
+"GET /static/images/omu/omu_7.jpg HTTP/1.1" 200 135276
+"GET /static/images/omu/omu_0.jpg HTTP/1.1" 200 72489
+"GET /static/images/omu/omu_38.jpg HTTP/1.1" 200 91153
+"GET /static/images/omu/omu_12.jpg HTTP/1.1" 200 61696
+"GET /static/images/omu/omu_1.jpg HTTP/1.1" 200 59238
+"GET /static/images/omu/omu_2.jpg HTTP/1.1" 200 108256
+"GET /static/images/omu/omu_10.jpg HTTP/1.1" 200 292360
+"GET /static/images/omu/omu_43.jpg HTTP/1.1" 200 109957
+"GET /static/images/omu/omu_49.jpg HTTP/1.1" 200 111921
+"GET /static/images/omu/omu_41.jpg HTTP/1.1" 200 113327
+"GET /static/images/omu/omu_11.jpg HTTP/1.1" 200 121722
+"GET /static/images/omu/omu_48.jpg HTTP/1.1" 200 106198
+"GET /static/images/omu/omu_39.jpg HTTP/1.1" 200 129377
+"GET /static/images/omu/omu_44.jpg HTTP/1.1" 200 75624
+"GET /static/images/omu/omu_40.jpg HTTP/1.1" 200 59763
+"GET /static/images/omu/omu_47.jpg HTTP/1.1" 200 135172
+"GET /static/images/omu/omu_46.jpg HTTP/1.1" 200 118148
+"GET /static/images/omu/omu_45.jpg HTTP/1.1" 200 124306
+"GET /static/images/omu/omu_42.jpg HTTP/1.1" 200 333044
+"GET /static/images/omu/omu_35.jpg HTTP/1.1" 200 65500
+"GET /static/images/omu/omu_23.jpg HTTP/1.1" 200 61835
+"GET /static/images/omu/omu_21.jpg HTTP/1.1" 200 76308
+"GET /static/images/omu/omu_34.jpg HTTP/1.1" 200 74680
+"GET /static/images/omu/omu_37.jpg HTTP/1.1" 200 75012
+"GET /static/images/omu/omu_20.jpg HTTP/1.1" 200 135226
+"GET /static/images/omu/omu_36.jpg HTTP/1.1" 200 78835
+"GET /static/images/omu/omu_26.jpg HTTP/1.1" 200 72240
+"GET /static/images/omu/omu_27.jpg HTTP/1.1" 200 129446
+"GET /static/images/omu/omu_33.jpg HTTP/1.1" 200 61010
+"GET /static/images/omu/omu_22.jpg HTTP/1.1" 200 107833
+"GET /static/images/omu/omu_32.jpg HTTP/1.1" 200 87114
+"GET /static/images/omu/omu_8.jpg HTTP/1.1" 200 83125
+"GET /static/images/omu/omu_24.jpg HTTP/1.1" 200 52094
+"GET /static/images/omu/omu_19.jpg HTTP/1.1" 200 73020
+"GET /static/images/omu/omu_31.jpg HTTP/1.1" 200 74847
+"GET /static/images/omu/omu_9.jpg HTTP/1.1" 200 247106
+"GET /static/images/omu/omu_30.jpg HTTP/1.1" 200 78529
+"GET /static/images/omu/omu_18.jpg HTTP/1.1" 200 76374
+"GET /static/images/omu/omu_25.jpg HTTP/1.1" 200 1354863
+"GET /static/images/favicon/favicon-32x32.png HTTP/1.1" 200 2856
+(0.005) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.004) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.002) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.003) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.002) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.004) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.003) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.009) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.003) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.003) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.002) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.005) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.003) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.003) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.002) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.003) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.002) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.002) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.003) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.020) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.012) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.002) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.003) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.003) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.002) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.003) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.002) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.005) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.005) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.002) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.004) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.007) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.007) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.002) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.004) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.005) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.004) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.046) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.005) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.006) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.003) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.002) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.001) SELECT "desktop_clicks"."id", "desktop_clicks"."clicker_id", "desktop_clicks"."clicks", "desktop_clicks"."datetime_logged", COUNT("desktop_clicks"."clicks") AS "score" FROM "desktop_clicks" GROUP BY "desktop_clicks"."id"; args=()
+(0.000) SELECT "mobile_clicks"."clicker_id" FROM "mobile_clicks"; args=()
+"GET / HTTP/1.1" 200 8968
+"GET /static/css/main.min.css HTTP/1.1" 200 1119
+"GET /static/js/app.min.js HTTP/1.1" 200 5686
+"GET /static/js/crypto-js.js HTTP/1.1" 200 161782
+"GET /static/images/omu/omu_15.jpg HTTP/1.1" 200 105944
+"GET /static/images/omu/omu_29.jpg HTTP/1.1" 200 107484
+"GET /static/images/omu/omu_5.jpg HTTP/1.1" 200 93808
+"GET /static/images/omu/omu_28.jpg HTTP/1.1" 200 79485
+"GET /static/images/omu/omu_4.jpg HTTP/1.1" 200 85385
+"GET /static/images/omu/omu_14.jpg HTTP/1.1" 200 115791
+"GET /static/images/omu/omu_3.jpg HTTP/1.1" 200 35429
+"GET /static/images/omu/omu_16.jpg HTTP/1.1" 200 74870
+"GET /static/images/omu/omu_17.jpg HTTP/1.1" 200 67205
+"GET /static/images/omu/omu_6.jpg HTTP/1.1" 200 109462
+"GET /static/images/omu/omu_13.jpg HTTP/1.1" 200 90289
+"GET /static/images/omu/omu_12.jpg HTTP/1.1" 200 61696
+"GET /static/images/omu/omu_0.jpg HTTP/1.1" 200 72489
+"GET /static/images/omu/omu_2.jpg HTTP/1.1" 200 108256
+"GET /static/images/omu/omu_38.jpg HTTP/1.1" 200 91153
+"GET /static/images/omu/omu_10.jpg HTTP/1.1" 200 292360
+"GET /static/images/omu/omu_1.jpg HTTP/1.1" 200 59238
+"GET /static/images/omu/omu_49.jpg HTTP/1.1" 200 111921
+"GET /static/images/omu/omu_48.jpg HTTP/1.1" 200 106198
+"GET /static/images/omu/omu_39.jpg HTTP/1.1" 200 129377
+"GET /static/images/omu/omu_11.jpg HTTP/1.1" 200 121722
+"GET /static/images/omu/omu_7.jpg HTTP/1.1" 200 135276
+"GET /static/images/omu/omu_40.jpg HTTP/1.1" 200 59763
+"GET /static/images/omu/omu_45.jpg HTTP/1.1" 200 124306
+"GET /static/images/omu/omu_41.jpg HTTP/1.1" 200 113327
+"GET /static/images/omu/omu_42.jpg HTTP/1.1" 200 333044
+"GET /static/images/omu/omu_34.jpg HTTP/1.1" 200 74680
+"GET /static/images/omu/omu_44.jpg HTTP/1.1" 200 75624
+"GET /static/images/omu/omu_46.jpg HTTP/1.1" 200 118148
+"GET /static/images/omu/omu_47.jpg HTTP/1.1" 200 135172
+"GET /static/images/omu/omu_20.jpg HTTP/1.1" 200 135226
+"GET /static/images/omu/omu_43.jpg HTTP/1.1" 200 109957
+"GET /static/images/omu/omu_21.jpg HTTP/1.1" 200 76308
+"GET /static/images/omu/omu_35.jpg HTTP/1.1" 200 65500
+"GET /static/images/omu/omu_36.jpg HTTP/1.1" 200 78835
+"GET /static/images/omu/omu_37.jpg HTTP/1.1" 200 75012
+"GET /static/images/omu/omu_23.jpg HTTP/1.1" 200 61835
+"GET /static/images/omu/omu_26.jpg HTTP/1.1" 200 72240
+"GET /static/images/omu/omu_33.jpg HTTP/1.1" 200 61010
+"GET /static/images/omu/omu_22.jpg HTTP/1.1" 200 107833
+"GET /static/images/omu/omu_32.jpg HTTP/1.1" 200 87114
+"GET /static/images/omu/omu_27.jpg HTTP/1.1" 200 129446
+"GET /static/images/omu/omu_19.jpg HTTP/1.1" 200 73020
+"GET /static/images/omu/omu_31.jpg HTTP/1.1" 200 74847
+"GET /static/images/omu/omu_24.jpg HTTP/1.1" 200 52094
+"GET /static/images/omu/omu_8.jpg HTTP/1.1" 200 83125
+"GET /static/images/omu/omu_30.jpg HTTP/1.1" 200 78529
+"GET /static/images/omu/omu_9.jpg HTTP/1.1" 200 247106
+"GET /static/images/omu/omu_18.jpg HTTP/1.1" 200 76374
+"GET /static/images/omu/omu_25.jpg HTTP/1.1" 200 1354863
+"GET /static/images/favicon/favicon-32x32.png HTTP/1.1" 200 2856
+(0.002) SELECT "desktop_clicks"."id", "desktop_clicks"."clicker_id", "desktop_clicks"."clicks", "desktop_clicks"."datetime_logged", COUNT("desktop_clicks"."clicks") AS "score" FROM "desktop_clicks" GROUP BY "desktop_clicks"."id"; args=()
+(0.000) SELECT "mobile_clicks"."clicker_id" FROM "mobile_clicks"; args=()
+"GET / HTTP/1.1" 200 9312
+"GET /static/css/main.min.css HTTP/1.1" 200 1119
+"GET /static/js/app.min.js HTTP/1.1" 200 5686
+"GET /static/js/crypto-js.js HTTP/1.1" 200 161782
+"GET /static/images/omu/omu_15.jpg HTTP/1.1" 200 105944
+"GET /static/images/omu/omu_29.jpg HTTP/1.1" 200 107484
+"GET /static/images/omu/omu_4.jpg HTTP/1.1" 200 85385
+"GET /static/images/omu/omu_5.jpg HTTP/1.1" 200 93808
+"GET /static/images/omu/omu_28.jpg HTTP/1.1" 200 79485
+"GET /static/images/omu/omu_14.jpg HTTP/1.1" 200 115791
+"GET /static/images/omu/omu_16.jpg HTTP/1.1" 200 74870
+"GET /static/images/omu/omu_6.jpg HTTP/1.1" 200 109462
+"GET /static/images/omu/omu_3.jpg HTTP/1.1" 200 35429
+"GET /static/images/omu/omu_17.jpg HTTP/1.1" 200 67205
+"GET /static/images/omu/omu_2.jpg HTTP/1.1" 200 108256
+"GET /static/images/omu/omu_13.jpg HTTP/1.1" 200 90289
+"GET /static/images/omu/omu_12.jpg HTTP/1.1" 200 61696
+"GET /static/images/omu/omu_7.jpg HTTP/1.1" 200 135276
+"GET /static/images/omu/omu_0.jpg HTTP/1.1" 200 72489
+"GET /static/images/omu/omu_1.jpg HTTP/1.1" 200 59238
+"GET /static/images/omu/omu_11.jpg HTTP/1.1" 200 121722
+"GET /static/images/omu/omu_38.jpg HTTP/1.1" 200 91153
+"GET /static/images/omu/omu_39.jpg HTTP/1.1" 200 129377
+"GET /static/images/omu/omu_10.jpg HTTP/1.1" 200 292360
+"GET /static/images/omu/omu_40.jpg HTTP/1.1" 200 59763
+"GET /static/images/omu/omu_48.jpg HTTP/1.1" 200 106198
+"GET /static/images/omu/omu_41.jpg HTTP/1.1" 200 113327
+"GET /static/images/omu/omu_49.jpg HTTP/1.1" 200 111921
+"GET /static/images/omu/omu_43.jpg HTTP/1.1" 200 109957
+"GET /static/images/omu/omu_42.jpg HTTP/1.1" 200 333044
+"GET /static/images/omu/omu_20.jpg HTTP/1.1" 200 135226
+"GET /static/images/omu/omu_21.jpg HTTP/1.1" 200 76308
+"GET /static/images/omu/omu_44.jpg HTTP/1.1" 200 75624
+"GET /static/images/omu/omu_46.jpg HTTP/1.1" 200 118148
+"GET /static/images/omu/omu_34.jpg HTTP/1.1" 200 74680
+"GET /static/images/omu/omu_45.jpg HTTP/1.1" 200 124306
+"GET /static/images/omu/omu_47.jpg HTTP/1.1" 200 135172
+"GET /static/images/omu/omu_23.jpg HTTP/1.1" 200 61835
+"GET /static/images/omu/omu_35.jpg HTTP/1.1" 200 65500
+"GET /static/images/omu/omu_26.jpg HTTP/1.1" 200 72240
+"GET /static/images/omu/omu_36.jpg HTTP/1.1" 200 78835
+"GET /static/images/omu/omu_37.jpg HTTP/1.1" 200 75012
+"GET /static/images/omu/omu_22.jpg HTTP/1.1" 200 107833
+"GET /static/images/omu/omu_32.jpg HTTP/1.1" 200 87114
+"GET /static/images/omu/omu_33.jpg HTTP/1.1" 200 61010
+"GET /static/images/omu/omu_19.jpg HTTP/1.1" 200 73020
+"GET /static/images/omu/omu_31.jpg HTTP/1.1" 200 74847
+"GET /static/images/omu/omu_27.jpg HTTP/1.1" 200 129446
+"GET /static/images/omu/omu_8.jpg HTTP/1.1" 200 83125
+"GET /static/images/omu/omu_9.jpg HTTP/1.1" 200 247106
+"GET /static/images/omu/omu_24.jpg HTTP/1.1" 200 52094
+"GET /static/images/omu/omu_18.jpg HTTP/1.1" 200 76374
+"GET /static/images/omu/omu_30.jpg HTTP/1.1" 200 78529
+"GET /static/images/omu/omu_25.jpg HTTP/1.1" 200 1354863
+"GET /static/images/favicon/favicon-32x32.png HTTP/1.1" 200 2856
+(0.001) SELECT "desktop_clicks"."id", "desktop_clicks"."clicker_id", "desktop_clicks"."clicks", "desktop_clicks"."datetime_logged" FROM "desktop_clicks" WHERE "desktop_clicks"."clicker_id" = 'U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4'; args=('U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4',)
+(0.002) INSERT INTO "desktop_clicks" ("clicker_id", "clicks", "datetime_logged") VALUES ('U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4', 7, '2019-03-18T03:41:47.461653+00:00'::timestamptz) RETURNING "desktop_clicks"."id"; args=('U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4', 7, datetime.datetime(2019, 3, 18, 3, 41, 47, 461653, tzinfo=<UTC>))
+"POST /post_clicks HTTP/1.1" 200 10
+(0.002) SELECT "desktop_clicks"."id", "desktop_clicks"."clicker_id", "desktop_clicks"."clicks", "desktop_clicks"."datetime_logged", COUNT("desktop_clicks"."clicks") AS "score" FROM "desktop_clicks" GROUP BY "desktop_clicks"."id"; args=()
+(0.000) SELECT "mobile_clicks"."clicker_id" FROM "mobile_clicks"; args=()
+"GET / HTTP/1.1" 200 9335
+"GET /static/css/main.min.css HTTP/1.1" 200 1119
+"GET /static/js/app.min.js HTTP/1.1" 200 5686
+"GET /static/js/crypto-js.js HTTP/1.1" 200 161782
+"GET /static/images/omu/omu_29.jpg HTTP/1.1" 200 107484
+"GET /static/images/omu/omu_15.jpg HTTP/1.1" 200 105944
+"GET /static/images/omu/omu_5.jpg HTTP/1.1" 200 93808
+"GET /static/images/omu/omu_4.jpg HTTP/1.1" 200 85385
+"GET /static/images/omu/omu_28.jpg HTTP/1.1" 200 79485
+"GET /static/images/omu/omu_14.jpg HTTP/1.1" 200 115791
+"GET /static/images/omu/omu_16.jpg HTTP/1.1" 200 74870
+"GET /static/images/omu/omu_3.jpg HTTP/1.1" 200 35429
+"GET /static/images/omu/omu_17.jpg HTTP/1.1" 200 67205
+"GET /static/images/omu/omu_2.jpg HTTP/1.1" 200 108256
+"GET /static/images/omu/omu_13.jpg HTTP/1.1" 200 90289
+"GET /static/images/omu/omu_6.jpg HTTP/1.1" 200 109462
+"GET /static/images/omu/omu_7.jpg HTTP/1.1" 200 135276
+"GET /static/images/omu/omu_1.jpg HTTP/1.1" 200 59238
+"GET /static/images/omu/omu_0.jpg HTTP/1.1" 200 72489
+"GET /static/images/omu/omu_12.jpg HTTP/1.1" 200 61696
+"GET /static/images/omu/omu_38.jpg HTTP/1.1" 200 91153
+"GET /static/images/omu/omu_11.jpg HTTP/1.1" 200 121722
+"GET /static/images/omu/omu_10.jpg HTTP/1.1" 200 292360
+"GET /static/images/omu/omu_48.jpg HTTP/1.1" 200 106198
+"GET /static/images/omu/omu_49.jpg HTTP/1.1" 200 111921
+"GET /static/images/omu/omu_33.jpg HTTP/1.1" 200 61010
+"GET /static/images/omu/omu_43.jpg HTTP/1.1" 200 109957
+"GET /static/images/omu/omu_39.jpg HTTP/1.1" 200 129377
+"GET /static/images/omu/omu_42.jpg HTTP/1.1" 200 333044
+"GET /static/images/omu/omu_40.jpg HTTP/1.1" 200 59763
+"GET /static/images/omu/omu_41.jpg HTTP/1.1" 200 113327
+"GET /static/images/omu/omu_45.jpg HTTP/1.1" 200 124306
+"GET /static/images/omu/omu_46.jpg HTTP/1.1" 200 118148
+"GET /static/images/omu/omu_47.jpg HTTP/1.1" 200 135172
+"GET /static/images/omu/omu_34.jpg HTTP/1.1" 200 74680
+"GET /static/images/omu/omu_44.jpg HTTP/1.1" 200 75624
+"GET /static/images/omu/omu_21.jpg HTTP/1.1" 200 76308
+"GET /static/images/omu/omu_20.jpg HTTP/1.1" 200 135226
+"GET /static/images/omu/omu_35.jpg HTTP/1.1" 200 65500
+"GET /static/images/omu/omu_37.jpg HTTP/1.1" 200 75012
+"GET /static/images/omu/omu_36.jpg HTTP/1.1" 200 78835
+"GET /static/images/omu/omu_23.jpg HTTP/1.1" 200 61835
+"GET /static/images/omu/omu_26.jpg HTTP/1.1" 200 72240
+"GET /static/images/omu/omu_32.jpg HTTP/1.1" 200 87114
+"GET /static/images/omu/omu_19.jpg HTTP/1.1" 200 73020
+"GET /static/images/omu/omu_27.jpg HTTP/1.1" 200 129446
+"GET /static/images/omu/omu_31.jpg HTTP/1.1" 200 74847
+"GET /static/images/omu/omu_22.jpg HTTP/1.1" 200 107833
+"GET /static/images/omu/omu_9.jpg HTTP/1.1" 200 247106
+"GET /static/images/omu/omu_24.jpg HTTP/1.1" 200 52094
+"GET /static/images/omu/omu_18.jpg HTTP/1.1" 200 76374
+"GET /static/images/omu/omu_30.jpg HTTP/1.1" 200 78529
+"GET /static/images/omu/omu_8.jpg HTTP/1.1" 200 83125
+"GET /static/images/omu/omu_25.jpg HTTP/1.1" 200 1354863
+"GET /static/images/favicon/favicon-32x32.png HTTP/1.1" 200 2856
+(0.003) SELECT "desktop_clicks"."id", "desktop_clicks"."clicker_id", "desktop_clicks"."clicks", "desktop_clicks"."datetime_logged", COUNT("desktop_clicks"."clicks") AS "score" FROM "desktop_clicks" GROUP BY "desktop_clicks"."id"; args=()
+(0.000) SELECT "mobile_clicks"."clicker_id" FROM "mobile_clicks"; args=()
+"GET / HTTP/1.1" 200 9580
+"GET /static/css/main.min.css HTTP/1.1" 200 1119
+"GET /static/js/app.min.js HTTP/1.1" 200 5686
+"GET /static/images/omu/omu_29.jpg HTTP/1.1" 200 107484
+"GET /static/images/omu/omu_15.jpg HTTP/1.1" 200 105944
+"GET /static/js/crypto-js.js HTTP/1.1" 200 161782
+"GET /static/images/omu/omu_5.jpg HTTP/1.1" 200 93808
+"GET /static/images/omu/omu_4.jpg HTTP/1.1" 200 85385
+"GET /static/images/omu/omu_28.jpg HTTP/1.1" 200 79485
+"GET /static/images/omu/omu_14.jpg HTTP/1.1" 200 115791
+"GET /static/images/omu/omu_17.jpg HTTP/1.1" 200 67205
+"GET /static/images/omu/omu_3.jpg HTTP/1.1" 200 35429
+"GET /static/images/omu/omu_16.jpg HTTP/1.1" 200 74870
+"GET /static/images/omu/omu_13.jpg HTTP/1.1" 200 90289
+"GET /static/images/omu/omu_7.jpg HTTP/1.1" 200 135276
+"GET /static/images/omu/omu_6.jpg HTTP/1.1" 200 109462
+"GET /static/images/omu/omu_0.jpg HTTP/1.1" 200 72489
+"GET /static/images/omu/omu_38.jpg HTTP/1.1" 200 91153
+"GET /static/images/omu/omu_12.jpg HTTP/1.1" 200 61696
+"GET /static/images/omu/omu_1.jpg HTTP/1.1" 200 59238
+"GET /static/images/omu/omu_2.jpg HTTP/1.1" 200 108256
+"GET /static/images/omu/omu_10.jpg HTTP/1.1" 200 292360
+"GET /static/images/omu/omu_43.jpg HTTP/1.1" 200 109957
+"GET /static/images/omu/omu_48.jpg HTTP/1.1" 200 106198
+"GET /static/images/omu/omu_49.jpg HTTP/1.1" 200 111921
+"GET /static/images/omu/omu_39.jpg HTTP/1.1" 200 129377
+"GET /static/images/omu/omu_11.jpg HTTP/1.1" 200 121722
+"GET /static/images/omu/omu_42.jpg HTTP/1.1" 200 333044
+"GET /static/images/omu/omu_40.jpg HTTP/1.1" 200 59763
+"GET /static/images/omu/omu_44.jpg HTTP/1.1" 200 75624
+"GET /static/images/omu/omu_46.jpg HTTP/1.1" 200 118148
+"GET /static/images/omu/omu_45.jpg HTTP/1.1" 200 124306
+"GET /static/images/omu/omu_41.jpg HTTP/1.1" 200 113327
+"GET /static/images/omu/omu_47.jpg HTTP/1.1" 200 135172
+"GET /static/images/omu/omu_23.jpg HTTP/1.1" 200 61835
+"GET /static/images/omu/omu_35.jpg HTTP/1.1" 200 65500
+"GET /static/images/omu/omu_21.jpg HTTP/1.1" 200 76308
+"GET /static/images/omu/omu_34.jpg HTTP/1.1" 200 74680
+"GET /static/images/omu/omu_37.jpg HTTP/1.1" 200 75012
+"GET /static/images/omu/omu_20.jpg HTTP/1.1" 200 135226
+"GET /static/images/omu/omu_33.jpg HTTP/1.1" 200 61010
+"GET /static/images/omu/omu_36.jpg HTTP/1.1" 200 78835
+"GET /static/images/omu/omu_26.jpg HTTP/1.1" 200 72240
+"GET /static/images/omu/omu_22.jpg HTTP/1.1" 200 107833
+"GET /static/images/omu/omu_32.jpg HTTP/1.1" 200 87114
+"GET /static/images/omu/omu_27.jpg HTTP/1.1" 200 129446
+"GET /static/images/omu/omu_19.jpg HTTP/1.1" 200 73020
+"GET /static/images/omu/omu_31.jpg HTTP/1.1" 200 74847
+"GET /static/images/omu/omu_8.jpg HTTP/1.1" 200 83125
+"GET /static/images/omu/omu_24.jpg HTTP/1.1" 200 52094
+"GET /static/images/omu/omu_9.jpg HTTP/1.1" 200 247106
+"GET /static/images/omu/omu_30.jpg HTTP/1.1" 200 78529
+"GET /static/images/omu/omu_18.jpg HTTP/1.1" 200 76374
+"GET /static/images/omu/omu_25.jpg HTTP/1.1" 200 1354863
+"GET /static/images/favicon/favicon-32x32.png HTTP/1.1" 200 2856
+(0.003) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.002) SELECT "desktop_clicks"."id", "desktop_clicks"."clicker_id", "desktop_clicks"."clicks", "desktop_clicks"."datetime_logged" FROM "desktop_clicks" WHERE "desktop_clicks"."clicker_id" = 'U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4'; args=('U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4',)
+(0.001) UPDATE "desktop_clicks" SET "clicker_id" = 'U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4', "clicks" = 8, "datetime_logged" = '2019-03-18T03:41:47.461653+00:00'::timestamptz WHERE "desktop_clicks"."id" = 173; args=('U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4', 8, datetime.datetime(2019, 3, 18, 3, 41, 47, 461653, tzinfo=<UTC>), 173)
+"POST /post_clicks HTTP/1.1" 200 10
+(0.001) SELECT "desktop_clicks"."id", "desktop_clicks"."clicker_id", "desktop_clicks"."clicks", "desktop_clicks"."datetime_logged", COUNT("desktop_clicks"."clicks") AS "score" FROM "desktop_clicks" GROUP BY "desktop_clicks"."id"; args=()
+(0.001) SELECT "mobile_clicks"."clicker_id" FROM "mobile_clicks"; args=()
+"GET / HTTP/1.1" 200 9580
+"GET /static/css/main.min.css HTTP/1.1" 200 1140
+"GET /static/images/omu/omu_15.jpg HTTP/1.1" 200 105944
+"GET /static/images/omu/omu_29.jpg HTTP/1.1" 200 107484
+"GET /static/js/crypto-js.js HTTP/1.1" 200 161782
+"GET /static/js/app.min.js HTTP/1.1" 200 5686
+"GET /static/images/omu/omu_5.jpg HTTP/1.1" 200 93808
+"GET /static/images/omu/omu_4.jpg HTTP/1.1" 200 85385
+"GET /static/images/omu/omu_28.jpg HTTP/1.1" 200 79485
+"GET /static/images/omu/omu_14.jpg HTTP/1.1" 200 115791
+"GET /static/images/omu/omu_17.jpg HTTP/1.1" 200 67205
+"GET /static/images/omu/omu_3.jpg HTTP/1.1" 200 35429
+"GET /static/images/omu/omu_7.jpg HTTP/1.1" 200 135276
+"GET /static/images/omu/omu_6.jpg HTTP/1.1" 200 109462
+"GET /static/images/omu/omu_13.jpg HTTP/1.1" 200 90289
+"GET /static/images/omu/omu_16.jpg HTTP/1.1" 200 74870
+"GET /static/images/omu/omu_0.jpg HTTP/1.1" 200 72489
+"GET /static/images/omu/omu_12.jpg HTTP/1.1" 200 61696
+"GET /static/images/omu/omu_1.jpg HTTP/1.1" 200 59238
+"GET /static/images/omu/omu_38.jpg HTTP/1.1" 200 91153
+"GET /static/images/omu/omu_2.jpg HTTP/1.1" 200 108256
+"GET /static/images/omu/omu_10.jpg HTTP/1.1" 200 292360
+"GET /static/images/omu/omu_45.jpg HTTP/1.1" 200 124306
+"GET /static/images/omu/omu_48.jpg HTTP/1.1" 200 106198
+"GET /static/images/omu/omu_49.jpg HTTP/1.1" 200 111921
+"GET /static/images/omu/omu_43.jpg HTTP/1.1" 200 109957
+"GET /static/images/omu/omu_11.jpg HTTP/1.1" 200 121722
+"GET /static/images/omu/omu_39.jpg HTTP/1.1" 200 129377
+"GET /static/images/omu/omu_40.jpg HTTP/1.1" 200 59763
+"GET /static/images/omu/omu_47.jpg HTTP/1.1" 200 135172
+"GET /static/images/omu/omu_44.jpg HTTP/1.1" 200 75624
+"GET /static/images/omu/omu_41.jpg HTTP/1.1" 200 113327
+"GET /static/images/omu/omu_46.jpg HTTP/1.1" 200 118148
+"GET /static/images/omu/omu_42.jpg HTTP/1.1" 200 333044
+"GET /static/images/omu/omu_23.jpg HTTP/1.1" 200 61835
+"GET /static/images/omu/omu_35.jpg HTTP/1.1" 200 65500
+"GET /static/images/omu/omu_21.jpg HTTP/1.1" 200 76308
+"GET /static/images/omu/omu_34.jpg HTTP/1.1" 200 74680
+"GET /static/images/omu/omu_37.jpg HTTP/1.1" 200 75012
+"GET /static/images/omu/omu_20.jpg HTTP/1.1" 200 135226
+"GET /static/images/omu/omu_33.jpg HTTP/1.1" 200 61010
+"GET /static/images/omu/omu_36.jpg HTTP/1.1" 200 78835
+"GET /static/images/omu/omu_32.jpg HTTP/1.1" 200 87114
+"GET /static/images/omu/omu_22.jpg HTTP/1.1" 200 107833
+"GET /static/images/omu/omu_26.jpg HTTP/1.1" 200 72240
+"GET /static/images/omu/omu_27.jpg HTTP/1.1" 200 129446
+"GET /static/images/omu/omu_24.jpg HTTP/1.1" 200 52094
+"GET /static/images/omu/omu_8.jpg HTTP/1.1" 200 83125
+"GET /static/images/omu/omu_19.jpg HTTP/1.1" 200 73020
+"GET /static/images/omu/omu_31.jpg HTTP/1.1" 200 74847
+"GET /static/images/omu/omu_9.jpg HTTP/1.1" 200 247106
+"GET /static/images/omu/omu_18.jpg HTTP/1.1" 200 76374
+"GET /static/images/omu/omu_30.jpg HTTP/1.1" 200 78529
+"GET /static/images/omu/omu_25.jpg HTTP/1.1" 200 1354863
+"GET /static/images/favicon/favicon-32x32.png HTTP/1.1" 200 2856
+(0.003) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.019) SELECT "desktop_clicks"."id", "desktop_clicks"."clicker_id", "desktop_clicks"."clicks", "desktop_clicks"."datetime_logged" FROM "desktop_clicks" WHERE "desktop_clicks"."clicker_id" = 'U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4'; args=('U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4',)
+(0.009) UPDATE "desktop_clicks" SET "clicker_id" = 'U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4', "clicks" = 9, "datetime_logged" = '2019-03-18T03:41:47.461653+00:00'::timestamptz WHERE "desktop_clicks"."id" = 173; args=('U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4', 9, datetime.datetime(2019, 3, 18, 3, 41, 47, 461653, tzinfo=<UTC>), 173)
+"POST /post_clicks HTTP/1.1" 200 10
+(0.003) SELECT "desktop_clicks"."id", "desktop_clicks"."clicker_id", "desktop_clicks"."clicks", "desktop_clicks"."datetime_logged", COUNT("desktop_clicks"."clicks") AS "score" FROM "desktop_clicks" GROUP BY "desktop_clicks"."id"; args=()
+(0.001) SELECT "mobile_clicks"."clicker_id" FROM "mobile_clicks"; args=()
+"GET / HTTP/1.1" 200 9580
+"GET /static/js/app.min.js HTTP/1.1" 200 5686
+"GET /static/images/omu/omu_15.jpg HTTP/1.1" 200 105944
+"GET /static/images/omu/omu_29.jpg HTTP/1.1" 200 107484
+"GET /static/js/crypto-js.js HTTP/1.1" 200 161782
+"GET /static/css/main.min.css HTTP/1.1" 200 1161
+"GET /static/images/omu/omu_4.jpg HTTP/1.1" 200 85385
+"GET /static/images/omu/omu_5.jpg HTTP/1.1" 200 93808
+"GET /static/images/omu/omu_14.jpg HTTP/1.1" 200 115791
+"GET /static/images/omu/omu_28.jpg HTTP/1.1" 200 79485
+"GET /static/images/omu/omu_3.jpg HTTP/1.1" 200 35429
+"GET /static/images/omu/omu_6.jpg HTTP/1.1" 200 109462
+"GET /static/images/omu/omu_17.jpg HTTP/1.1" 200 67205
+"GET /static/images/omu/omu_13.jpg HTTP/1.1" 200 90289
+"GET /static/images/omu/omu_7.jpg HTTP/1.1" 200 135276
+"GET /static/images/omu/omu_16.jpg HTTP/1.1" 200 74870
+"GET /static/images/omu/omu_1.jpg HTTP/1.1" 200 59238
+"GET /static/images/omu/omu_0.jpg HTTP/1.1" 200 72489
+"GET /static/images/omu/omu_38.jpg HTTP/1.1" 200 91153
+"GET /static/images/omu/omu_2.jpg HTTP/1.1" 200 108256
+"GET /static/images/omu/omu_10.jpg HTTP/1.1" 200 292360
+"GET /static/images/omu/omu_12.jpg HTTP/1.1" 200 61696
+"GET /static/images/omu/omu_48.jpg HTTP/1.1" 200 106198
+"GET /static/images/omu/omu_42.jpg HTTP/1.1" 200 333044
+"GET /static/images/omu/omu_49.jpg HTTP/1.1" 200 111921
+"GET /static/images/omu/omu_43.jpg HTTP/1.1" 200 109957
+"GET /static/images/omu/omu_39.jpg HTTP/1.1" 200 129377
+"GET /static/images/omu/omu_11.jpg HTTP/1.1" 200 121722
+"GET /static/images/omu/omu_40.jpg HTTP/1.1" 200 59763
+"GET /static/images/omu/omu_41.jpg HTTP/1.1" 200 113327
+"GET /static/images/omu/omu_46.jpg HTTP/1.1" 200 118148
+"GET /static/images/omu/omu_45.jpg HTTP/1.1" 200 124306
+"GET /static/images/omu/omu_47.jpg HTTP/1.1" 200 135172
+"GET /static/images/omu/omu_44.jpg HTTP/1.1" 200 75624
+"GET /static/images/omu/omu_35.jpg HTTP/1.1" 200 65500
+"GET /static/images/omu/omu_34.jpg HTTP/1.1" 200 74680
+"GET /static/images/omu/omu_23.jpg HTTP/1.1" 200 61835
+"GET /static/images/omu/omu_21.jpg HTTP/1.1" 200 76308
+"GET /static/images/omu/omu_20.jpg HTTP/1.1" 200 135226
+"GET /static/images/omu/omu_37.jpg HTTP/1.1" 200 75012
+"GET /static/images/omu/omu_22.jpg HTTP/1.1" 200 107833
+"GET /static/images/omu/omu_36.jpg HTTP/1.1" 200 78835
+"GET /static/images/omu/omu_32.jpg HTTP/1.1" 200 87114
+"GET /static/images/omu/omu_33.jpg HTTP/1.1" 200 61010
+"GET /static/images/omu/omu_31.jpg HTTP/1.1" 200 74847
+"GET /static/images/omu/omu_19.jpg HTTP/1.1" 200 73020
+"GET /static/images/omu/omu_26.jpg HTTP/1.1" 200 72240
+"GET /static/images/omu/omu_27.jpg HTTP/1.1" 200 129446
+"GET /static/images/omu/omu_8.jpg HTTP/1.1" 200 83125
+"GET /static/images/omu/omu_30.jpg HTTP/1.1" 200 78529
+"GET /static/images/omu/omu_18.jpg HTTP/1.1" 200 76374
+"GET /static/images/omu/omu_24.jpg HTTP/1.1" 200 52094
+"GET /static/images/omu/omu_9.jpg HTTP/1.1" 200 247106
+"GET /static/images/omu/omu_25.jpg HTTP/1.1" 200 1354863
+"GET /static/images/favicon/favicon-32x32.png HTTP/1.1" 200 2856
+(0.002) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.002) SELECT "desktop_clicks"."id", "desktop_clicks"."clicker_id", "desktop_clicks"."clicks", "desktop_clicks"."datetime_logged" FROM "desktop_clicks" WHERE "desktop_clicks"."clicker_id" = 'U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4'; args=('U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4',)
+(0.001) UPDATE "desktop_clicks" SET "clicker_id" = 'U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4', "clicks" = 19, "datetime_logged" = '2019-03-18T03:41:47.461653+00:00'::timestamptz WHERE "desktop_clicks"."id" = 173; args=('U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4', 19, datetime.datetime(2019, 3, 18, 3, 41, 47, 461653, tzinfo=<UTC>), 173)
+"POST /post_clicks HTTP/1.1" 200 10
+(0.002) SELECT "desktop_clicks"."id", "desktop_clicks"."clicker_id", "desktop_clicks"."clicks", "desktop_clicks"."datetime_logged", COUNT("desktop_clicks"."clicks") AS "score" FROM "desktop_clicks" GROUP BY "desktop_clicks"."id"; args=()
+(0.001) SELECT "mobile_clicks"."clicker_id" FROM "mobile_clicks"; args=()
+"GET / HTTP/1.1" 200 9657
+"GET /static/js/app.min.js HTTP/1.1" 200 5686
+"GET /static/images/omu/omu_15.jpg HTTP/1.1" 200 105944
+"GET /static/images/omu/omu_29.jpg HTTP/1.1" 200 107484
+"GET /static/js/crypto-js.js HTTP/1.1" 200 161782
+"GET /static/css/main.min.css HTTP/1.1" 200 1196
+"GET /static/images/omu/omu_5.jpg HTTP/1.1" 200 93808
+"GET /static/images/omu/omu_4.jpg HTTP/1.1" 200 85385
+"GET /static/images/omu/omu_28.jpg HTTP/1.1" 200 79485
+"GET /static/images/omu/omu_14.jpg HTTP/1.1" 200 115791
+"GET /static/images/omu/omu_16.jpg HTTP/1.1" 200 74870
+"GET /static/images/omu/omu_6.jpg HTTP/1.1" 200 109462
+"GET /static/images/omu/omu_17.jpg HTTP/1.1" 200 67205
+"GET /static/images/omu/omu_13.jpg HTTP/1.1" 200 90289
+"GET /static/images/omu/omu_3.jpg HTTP/1.1" 200 35429
+"GET /static/images/omu/omu_2.jpg HTTP/1.1" 200 108256
+"GET /static/images/omu/omu_7.jpg HTTP/1.1" 200 135276
+"GET /static/images/omu/omu_0.jpg HTTP/1.1" 200 72489
+"GET /static/images/omu/omu_38.jpg HTTP/1.1" 200 91153
+"GET /static/images/omu/omu_1.jpg HTTP/1.1" 200 59238
+"GET /static/images/omu/omu_11.jpg HTTP/1.1" 200 121722
+"GET /static/images/omu/omu_10.jpg HTTP/1.1" 200 292360
+"GET /static/images/omu/omu_12.jpg HTTP/1.1" 200 61696
+"GET /static/images/omu/omu_43.jpg HTTP/1.1" 200 109957
+"GET /static/images/omu/omu_48.jpg HTTP/1.1" 200 106198
+"GET /static/images/omu/omu_39.jpg HTTP/1.1" 200 129377
+"GET /static/images/omu/omu_49.jpg HTTP/1.1" 200 111921
+"GET /static/images/omu/omu_42.jpg HTTP/1.1" 200 333044
+"GET /static/images/omu/omu_40.jpg HTTP/1.1" 200 59763
+"GET /static/images/omu/omu_41.jpg HTTP/1.1" 200 113327
+"GET /static/images/omu/omu_44.jpg HTTP/1.1" 200 75624
+"GET /static/images/omu/omu_46.jpg HTTP/1.1" 200 118148
+"GET /static/images/omu/omu_34.jpg HTTP/1.1" 200 74680
+"GET /static/images/omu/omu_47.jpg HTTP/1.1" 200 135172
+"GET /static/images/omu/omu_45.jpg HTTP/1.1" 200 124306
+"GET /static/images/omu/omu_35.jpg HTTP/1.1" 200 65500
+"GET /static/images/omu/omu_21.jpg HTTP/1.1" 200 76308
+"GET /static/images/omu/omu_20.jpg HTTP/1.1" 200 135226
+"GET /static/images/omu/omu_23.jpg HTTP/1.1" 200 61835
+"GET /static/images/omu/omu_37.jpg HTTP/1.1" 200 75012
+"GET /static/images/omu/omu_36.jpg HTTP/1.1" 200 78835
+"GET /static/images/omu/omu_26.jpg HTTP/1.1" 200 72240
+"GET /static/images/omu/omu_32.jpg HTTP/1.1" 200 87114
+"GET /static/images/omu/omu_33.jpg HTTP/1.1" 200 61010
+"GET /static/images/omu/omu_19.jpg HTTP/1.1" 200 73020
+"GET /static/images/omu/omu_22.jpg HTTP/1.1" 200 107833
+"GET /static/images/omu/omu_27.jpg HTTP/1.1" 200 129446
+"GET /static/images/omu/omu_31.jpg HTTP/1.1" 200 74847
+"GET /static/images/omu/omu_30.jpg HTTP/1.1" 200 78529
+"GET /static/images/omu/omu_24.jpg HTTP/1.1" 200 52094
+"GET /static/images/omu/omu_18.jpg HTTP/1.1" 200 76374
+"GET /static/images/omu/omu_9.jpg HTTP/1.1" 200 247106
+"GET /static/images/omu/omu_8.jpg HTTP/1.1" 200 83125
+"GET /static/images/omu/omu_25.jpg HTTP/1.1" 200 1354863
+"GET /static/images/favicon/favicon-32x32.png HTTP/1.1" 200 2856
+(0.004) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.002) SELECT "desktop_clicks"."id", "desktop_clicks"."clicker_id", "desktop_clicks"."clicks", "desktop_clicks"."datetime_logged" FROM "desktop_clicks" WHERE "desktop_clicks"."clicker_id" = 'U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4'; args=('U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4',)
+(0.001) UPDATE "desktop_clicks" SET "clicker_id" = 'U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4', "clicks" = 21, "datetime_logged" = '2019-03-18T03:41:47.461653+00:00'::timestamptz WHERE "desktop_clicks"."id" = 173; args=('U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4', 21, datetime.datetime(2019, 3, 18, 3, 41, 47, 461653, tzinfo=<UTC>), 173)
+"POST /post_clicks HTTP/1.1" 200 10
+(0.002) SELECT "desktop_clicks"."id", "desktop_clicks"."clicker_id", "desktop_clicks"."clicks", "desktop_clicks"."datetime_logged", COUNT("desktop_clicks"."clicks") AS "score" FROM "desktop_clicks" GROUP BY "desktop_clicks"."id"; args=()
+(0.001) SELECT "mobile_clicks"."clicker_id" FROM "mobile_clicks"; args=()
+"GET / HTTP/1.1" 200 9657
+"GET /static/css/main.min.css HTTP/1.1" 200 1187
+"GET /static/images/omu/omu_15.jpg HTTP/1.1" 200 105944
+"GET /static/images/omu/omu_29.jpg HTTP/1.1" 200 107484
+"GET /static/js/crypto-js.js HTTP/1.1" 200 161782
+"GET /static/js/app.min.js HTTP/1.1" 200 5686
+"GET /static/images/omu/omu_4.jpg HTTP/1.1" 200 85385
+"GET /static/images/omu/omu_5.jpg HTTP/1.1" 200 93808
+"GET /static/images/omu/omu_28.jpg HTTP/1.1" 200 79485
+"GET /static/images/omu/omu_14.jpg HTTP/1.1" 200 115791
+"GET /static/images/omu/omu_16.jpg HTTP/1.1" 200 74870
+"GET /static/images/omu/omu_6.jpg HTTP/1.1" 200 109462
+"GET /static/images/omu/omu_17.jpg HTTP/1.1" 200 67205
+"GET /static/images/omu/omu_7.jpg HTTP/1.1" 200 135276
+"GET /static/images/omu/omu_12.jpg HTTP/1.1" 200 61696
+"GET /static/images/omu/omu_2.jpg HTTP/1.1" 200 108256
+"GET /static/images/omu/omu_38.jpg HTTP/1.1" 200 91153
+"GET /static/images/omu/omu_10.jpg HTTP/1.1" 200 292360
+"GET /static/images/omu/omu_3.jpg HTTP/1.1" 200 35429
+"GET /static/images/omu/omu_13.jpg HTTP/1.1" 200 90289
+"GET /static/images/omu/omu_0.jpg HTTP/1.1" 200 72489
+"GET /static/images/omu/omu_1.jpg HTTP/1.1" 200 59238
+"GET /static/images/omu/omu_11.jpg HTTP/1.1" 200 121722
+"GET /static/images/omu/omu_48.jpg HTTP/1.1" 200 106198
+"GET /static/images/omu/omu_39.jpg HTTP/1.1" 200 129377
+"GET /static/images/omu/omu_49.jpg HTTP/1.1" 200 111921
+"GET /static/images/omu/omu_40.jpg HTTP/1.1" 200 59763
+"GET /static/images/omu/omu_43.jpg HTTP/1.1" 200 109957
+"GET /static/images/omu/omu_41.jpg HTTP/1.1" 200 113327
+"GET /static/images/omu/omu_42.jpg HTTP/1.1" 200 333044
+"GET /static/images/omu/omu_44.jpg HTTP/1.1" 200 75624
+"GET /static/images/omu/omu_45.jpg HTTP/1.1" 200 124306
+"GET /static/images/omu/omu_46.jpg HTTP/1.1" 200 118148
+"GET /static/images/omu/omu_35.jpg HTTP/1.1" 200 65500
+"GET /static/images/omu/omu_21.jpg HTTP/1.1" 200 76308
+"GET /static/images/omu/omu_47.jpg HTTP/1.1" 200 135172
+"GET /static/images/omu/omu_20.jpg HTTP/1.1" 200 135226
+"GET /static/images/omu/omu_34.jpg HTTP/1.1" 200 74680
+"GET /static/images/omu/omu_23.jpg HTTP/1.1" 200 61835
+"GET /static/images/omu/omu_26.jpg HTTP/1.1" 200 72240
+"GET /static/images/omu/omu_37.jpg HTTP/1.1" 200 75012
+"GET /static/images/omu/omu_33.jpg HTTP/1.1" 200 61010
+"GET /static/images/omu/omu_36.jpg HTTP/1.1" 200 78835
+"GET /static/images/omu/omu_32.jpg HTTP/1.1" 200 87114
+"GET /static/images/omu/omu_22.jpg HTTP/1.1" 200 107833
+"GET /static/images/omu/omu_27.jpg HTTP/1.1" 200 129446
+"GET /static/images/omu/omu_19.jpg HTTP/1.1" 200 73020
+"GET /static/images/omu/omu_31.jpg HTTP/1.1" 200 74847
+"GET /static/images/omu/omu_9.jpg HTTP/1.1" 200 247106
+"GET /static/images/omu/omu_8.jpg HTTP/1.1" 200 83125
+"GET /static/images/omu/omu_24.jpg HTTP/1.1" 200 52094
+"GET /static/images/omu/omu_30.jpg HTTP/1.1" 200 78529
+"GET /static/images/omu/omu_18.jpg HTTP/1.1" 200 76374
+"GET /static/images/omu/omu_25.jpg HTTP/1.1" 200 1354863
+"GET /static/images/favicon/favicon-32x32.png HTTP/1.1" 200 2856
+(0.002) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.005) SELECT "desktop_clicks"."id", "desktop_clicks"."clicker_id", "desktop_clicks"."clicks", "desktop_clicks"."datetime_logged" FROM "desktop_clicks" WHERE "desktop_clicks"."clicker_id" = 'U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4'; args=('U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4',)
+(0.014) UPDATE "desktop_clicks" SET "clicker_id" = 'U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4', "clicks" = 22, "datetime_logged" = '2019-03-18T03:41:47.461653+00:00'::timestamptz WHERE "desktop_clicks"."id" = 173; args=('U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4', 22, datetime.datetime(2019, 3, 18, 3, 41, 47, 461653, tzinfo=<UTC>), 173)
+"POST /post_clicks HTTP/1.1" 200 10
+(0.007) SELECT "desktop_clicks"."id", "desktop_clicks"."clicker_id", "desktop_clicks"."clicks", "desktop_clicks"."datetime_logged", COUNT("desktop_clicks"."clicks") AS "score" FROM "desktop_clicks" GROUP BY "desktop_clicks"."id"; args=()
+(0.000) SELECT "mobile_clicks"."clicker_id" FROM "mobile_clicks"; args=()
+"GET / HTTP/1.1" 200 9580
+"GET /static/js/app.min.js HTTP/1.1" 200 5686
+"GET /static/images/omu/omu_15.jpg HTTP/1.1" 200 105944
+"GET /static/images/omu/omu_29.jpg HTTP/1.1" 200 107484
+"GET /static/js/crypto-js.js HTTP/1.1" 200 161782
+"GET /static/css/main.min.css HTTP/1.1" 200 1169
+"GET /static/images/omu/omu_5.jpg HTTP/1.1" 200 93808
+"GET /static/images/omu/omu_4.jpg HTTP/1.1" 200 85385
+"GET /static/images/omu/omu_28.jpg HTTP/1.1" 200 79485
+"GET /static/images/omu/omu_14.jpg HTTP/1.1" 200 115791
+"GET /static/images/omu/omu_16.jpg HTTP/1.1" 200 74870
+"GET /static/images/omu/omu_6.jpg HTTP/1.1" 200 109462
+"GET /static/images/omu/omu_7.jpg HTTP/1.1" 200 135276
+"GET /static/images/omu/omu_3.jpg HTTP/1.1" 200 35429
+"GET /static/images/omu/omu_12.jpg HTTP/1.1" 200 61696
+"GET /static/images/omu/omu_13.jpg HTTP/1.1" 200 90289
+"GET /static/images/omu/omu_38.jpg HTTP/1.1" 200 91153
+"GET /static/images/omu/omu_2.jpg HTTP/1.1" 200 108256
+"GET /static/images/omu/omu_17.jpg HTTP/1.1" 200 67205
+"GET /static/images/omu/omu_0.jpg HTTP/1.1" 200 72489
+"GET /static/images/omu/omu_1.jpg HTTP/1.1" 200 59238
+"GET /static/images/omu/omu_11.jpg HTTP/1.1" 200 121722
+"GET /static/images/omu/omu_49.jpg HTTP/1.1" 200 111921
+"GET /static/images/omu/omu_39.jpg HTTP/1.1" 200 129377
+"GET /static/images/omu/omu_48.jpg HTTP/1.1" 200 106198
+"GET /static/images/omu/omu_10.jpg HTTP/1.1" 200 292360
+"GET /static/images/omu/omu_40.jpg HTTP/1.1" 200 59763
+"GET /static/images/omu/omu_41.jpg HTTP/1.1" 200 113327
+"GET /static/images/omu/omu_45.jpg HTTP/1.1" 200 124306
+"GET /static/images/omu/omu_43.jpg HTTP/1.1" 200 109957
+"GET /static/images/omu/omu_42.jpg HTTP/1.1" 200 333044
+"GET /static/images/omu/omu_44.jpg HTTP/1.1" 200 75624
+"GET /static/images/omu/omu_46.jpg HTTP/1.1" 200 118148
+"GET /static/images/omu/omu_34.jpg HTTP/1.1" 200 74680
+"GET /static/images/omu/omu_21.jpg HTTP/1.1" 200 76308
+"GET /static/images/omu/omu_35.jpg HTTP/1.1" 200 65500
+"GET /static/images/omu/omu_20.jpg HTTP/1.1" 200 135226
+"GET /static/images/omu/omu_47.jpg HTTP/1.1" 200 135172
+"GET /static/images/omu/omu_23.jpg HTTP/1.1" 200 61835
+"GET /static/images/omu/omu_36.jpg HTTP/1.1" 200 78835
+"GET /static/images/omu/omu_26.jpg HTTP/1.1" 200 72240
+"GET /static/images/omu/omu_37.jpg HTTP/1.1" 200 75012
+"GET /static/images/omu/omu_22.jpg HTTP/1.1" 200 107833
+"GET /static/images/omu/omu_32.jpg HTTP/1.1" 200 87114
+"GET /static/images/omu/omu_19.jpg HTTP/1.1" 200 73020
+"GET /static/images/omu/omu_31.jpg HTTP/1.1" 200 74847
+"GET /static/images/omu/omu_27.jpg HTTP/1.1" 200 129446
+"GET /static/images/omu/omu_33.jpg HTTP/1.1" 200 61010
+"GET /static/images/omu/omu_9.jpg HTTP/1.1" 200 247106
+"GET /static/images/omu/omu_18.jpg HTTP/1.1" 200 76374
+"GET /static/images/omu/omu_30.jpg HTTP/1.1" 200 78529
+"GET /static/images/omu/omu_8.jpg HTTP/1.1" 200 83125
+"GET /static/images/omu/omu_24.jpg HTTP/1.1" 200 52094
+"GET /static/images/omu/omu_25.jpg HTTP/1.1" 200 1354863
+"GET /static/images/favicon/favicon-32x32.png HTTP/1.1" 200 2856
+(0.002) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.002) SELECT "desktop_clicks"."id", "desktop_clicks"."clicker_id", "desktop_clicks"."clicks", "desktop_clicks"."datetime_logged", COUNT("desktop_clicks"."clicks") AS "score" FROM "desktop_clicks" GROUP BY "desktop_clicks"."id"; args=()
+(0.000) SELECT "mobile_clicks"."clicker_id" FROM "mobile_clicks"; args=()
+"GET / HTTP/1.1" 200 9580
+"GET /static/js/app.min.js HTTP/1.1" 200 5686
+"GET /static/images/omu/omu_15.jpg HTTP/1.1" 200 105944
+"GET /static/images/omu/omu_29.jpg HTTP/1.1" 200 107484
+"GET /static/js/crypto-js.js HTTP/1.1" 200 161782
+"GET /static/css/main.min.css HTTP/1.1" 200 1151
+"GET /static/images/omu/omu_4.jpg HTTP/1.1" 200 85385
+"GET /static/images/omu/omu_5.jpg HTTP/1.1" 200 93808
+"GET /static/images/omu/omu_28.jpg HTTP/1.1" 200 79485
+"GET /static/images/omu/omu_14.jpg HTTP/1.1" 200 115791
+"GET /static/images/omu/omu_16.jpg HTTP/1.1" 200 74870
+"GET /static/images/omu/omu_6.jpg HTTP/1.1" 200 109462
+"GET /static/images/omu/omu_7.jpg HTTP/1.1" 200 135276
+"GET /static/images/omu/omu_17.jpg HTTP/1.1" 200 67205
+"GET /static/images/omu/omu_12.jpg HTTP/1.1" 200 61696
+"GET /static/images/omu/omu_3.jpg HTTP/1.1" 200 35429
+"GET /static/images/omu/omu_2.jpg HTTP/1.1" 200 108256
+"GET /static/images/omu/omu_13.jpg HTTP/1.1" 200 90289
+"GET /static/images/omu/omu_1.jpg HTTP/1.1" 200 59238
+"GET /static/images/omu/omu_0.jpg HTTP/1.1" 200 72489
+"GET /static/images/omu/omu_38.jpg HTTP/1.1" 200 91153
+"GET /static/images/omu/omu_39.jpg HTTP/1.1" 200 129377
+"GET /static/images/omu/omu_11.jpg HTTP/1.1" 200 121722
+"GET /static/images/omu/omu_10.jpg HTTP/1.1" 200 292360
+"GET /static/images/omu/omu_43.jpg HTTP/1.1" 200 109957
+"GET /static/images/omu/omu_48.jpg HTTP/1.1" 200 106198
+"GET /static/images/omu/omu_49.jpg HTTP/1.1" 200 111921
+"GET /static/images/omu/omu_40.jpg HTTP/1.1" 200 59763
+"GET /static/images/omu/omu_41.jpg HTTP/1.1" 200 113327
+"GET /static/images/omu/omu_42.jpg HTTP/1.1" 200 333044
+"GET /static/images/omu/omu_47.jpg HTTP/1.1" 200 135172
+"GET /static/images/omu/omu_44.jpg HTTP/1.1" 200 75624
+"GET /static/images/omu/omu_45.jpg HTTP/1.1" 200 124306
+"GET /static/images/omu/omu_20.jpg HTTP/1.1" 200 135226
+"GET /static/images/omu/omu_34.jpg HTTP/1.1" 200 74680
+"GET /static/images/omu/omu_46.jpg HTTP/1.1" 200 118148
+"GET /static/images/omu/omu_23.jpg HTTP/1.1" 200 61835
+"GET /static/images/omu/omu_35.jpg HTTP/1.1" 200 65500
+"GET /static/images/omu/omu_21.jpg HTTP/1.1" 200 76308
+"GET /static/images/omu/omu_22.jpg HTTP/1.1" 200 107833
+"GET /static/images/omu/omu_36.jpg HTTP/1.1" 200 78835
+"GET /static/images/omu/omu_37.jpg HTTP/1.1" 200 75012
+"GET /static/images/omu/omu_33.jpg HTTP/1.1" 200 61010
+"GET /static/images/omu/omu_32.jpg HTTP/1.1" 200 87114
+"GET /static/images/omu/omu_26.jpg HTTP/1.1" 200 72240
+"GET /static/images/omu/omu_31.jpg HTTP/1.1" 200 74847
+"GET /static/images/omu/omu_27.jpg HTTP/1.1" 200 129446
+"GET /static/images/omu/omu_9.jpg HTTP/1.1" 200 247106
+"GET /static/images/omu/omu_19.jpg HTTP/1.1" 200 73020
+"GET /static/images/omu/omu_24.jpg HTTP/1.1" 200 52094
+"GET /static/images/omu/omu_8.jpg HTTP/1.1" 200 83125
+"GET /static/images/omu/omu_30.jpg HTTP/1.1" 200 78529
+"GET /static/images/omu/omu_18.jpg HTTP/1.1" 200 76374
+"GET /static/images/omu/omu_25.jpg HTTP/1.1" 200 1354863
+"GET /static/images/favicon/favicon-32x32.png HTTP/1.1" 200 2856
+(0.003) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.002) SELECT "desktop_clicks"."id", "desktop_clicks"."clicker_id", "desktop_clicks"."clicks", "desktop_clicks"."datetime_logged", COUNT("desktop_clicks"."clicks") AS "score" FROM "desktop_clicks" GROUP BY "desktop_clicks"."id"; args=()
+(0.000) SELECT "mobile_clicks"."clicker_id" FROM "mobile_clicks"; args=()
+"GET / HTTP/1.1" 200 9580
+"GET /static/images/omu/omu_15.jpg HTTP/1.1" 200 105944
+"GET /static/js/crypto-js.js HTTP/1.1" 200 161782
+"GET /static/js/app.min.js HTTP/1.1" 200 5686
+"GET /static/images/omu/omu_29.jpg HTTP/1.1" 200 107484
+"GET /static/css/main.min.css HTTP/1.1" 200 1167
+"GET /static/images/omu/omu_4.jpg HTTP/1.1" 200 85385
+"GET /static/images/omu/omu_5.jpg HTTP/1.1" 200 93808
+"GET /static/images/omu/omu_28.jpg HTTP/1.1" 200 79485
+"GET /static/images/omu/omu_14.jpg HTTP/1.1" 200 115791
+"GET /static/images/omu/omu_16.jpg HTTP/1.1" 200 74870
+"GET /static/images/omu/omu_6.jpg HTTP/1.1" 200 109462
+"GET /static/images/omu/omu_3.jpg HTTP/1.1" 200 35429
+"GET /static/images/omu/omu_17.jpg HTTP/1.1" 200 67205
+"GET /static/images/omu/omu_12.jpg HTTP/1.1" 200 61696
+"GET /static/images/omu/omu_13.jpg HTTP/1.1" 200 90289
+"GET /static/images/omu/omu_2.jpg HTTP/1.1" 200 108256
+"GET /static/images/omu/omu_7.jpg HTTP/1.1" 200 135276
+"GET /static/images/omu/omu_0.jpg HTTP/1.1" 200 72489
+"GET /static/images/omu/omu_1.jpg HTTP/1.1" 200 59238
+"GET /static/images/omu/omu_11.jpg HTTP/1.1" 200 121722
+"GET /static/images/omu/omu_38.jpg HTTP/1.1" 200 91153
+"GET /static/images/omu/omu_39.jpg HTTP/1.1" 200 129377
+"GET /static/images/omu/omu_10.jpg HTTP/1.1" 200 292360
+"GET /static/images/omu/omu_49.jpg HTTP/1.1" 200 111921
+"GET /static/images/omu/omu_48.jpg HTTP/1.1" 200 106198
+"GET /static/images/omu/omu_40.jpg HTTP/1.1" 200 59763
+"GET /static/images/omu/omu_43.jpg HTTP/1.1" 200 109957
+"GET /static/images/omu/omu_41.jpg HTTP/1.1" 200 113327
+"GET /static/images/omu/omu_42.jpg HTTP/1.1" 200 333044
+"GET /static/images/omu/omu_47.jpg HTTP/1.1" 200 135172
+"GET /static/images/omu/omu_44.jpg HTTP/1.1" 200 75624
+"GET /static/images/omu/omu_34.jpg HTTP/1.1" 200 74680
+"GET /static/images/omu/omu_45.jpg HTTP/1.1" 200 124306
+"GET /static/images/omu/omu_46.jpg HTTP/1.1" 200 118148
+"GET /static/images/omu/omu_20.jpg HTTP/1.1" 200 135226
+"GET /static/images/omu/omu_23.jpg HTTP/1.1" 200 61835
+"GET /static/images/omu/omu_21.jpg HTTP/1.1" 200 76308
+"GET /static/images/omu/omu_36.jpg HTTP/1.1" 200 78835
+"GET /static/images/omu/omu_35.jpg HTTP/1.1" 200 65500
+"GET /static/images/omu/omu_37.jpg HTTP/1.1" 200 75012
+"GET /static/images/omu/omu_22.jpg HTTP/1.1" 200 107833
+"GET /static/images/omu/omu_19.jpg HTTP/1.1" 200 73020
+"GET /static/images/omu/omu_33.jpg HTTP/1.1" 200 61010
+"GET /static/images/omu/omu_26.jpg HTTP/1.1" 200 72240
+"GET /static/images/omu/omu_32.jpg HTTP/1.1" 200 87114
+"GET /static/images/omu/omu_31.jpg HTTP/1.1" 200 74847
+"GET /static/images/omu/omu_27.jpg HTTP/1.1" 200 129446
+"GET /static/images/omu/omu_9.jpg HTTP/1.1" 200 247106
+"GET /static/images/omu/omu_8.jpg HTTP/1.1" 200 83125
+"GET /static/images/omu/omu_18.jpg HTTP/1.1" 200 76374
+"GET /static/images/omu/omu_24.jpg HTTP/1.1" 200 52094
+"GET /static/images/omu/omu_30.jpg HTTP/1.1" 200 78529
+"GET /static/images/omu/omu_25.jpg HTTP/1.1" 200 1354863
+"GET /static/images/favicon/favicon-32x32.png HTTP/1.1" 200 2856
+(0.003) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.006) SELECT "desktop_clicks"."id", "desktop_clicks"."clicker_id", "desktop_clicks"."clicks", "desktop_clicks"."datetime_logged" FROM "desktop_clicks" WHERE "desktop_clicks"."clicker_id" = 'U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4'; args=('U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4',)
+(0.001) UPDATE "desktop_clicks" SET "clicker_id" = 'U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4', "clicks" = 24, "datetime_logged" = '2019-03-18T03:41:47.461653+00:00'::timestamptz WHERE "desktop_clicks"."id" = 173; args=('U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4', 24, datetime.datetime(2019, 3, 18, 3, 41, 47, 461653, tzinfo=<UTC>), 173)
+"POST /post_clicks HTTP/1.1" 200 10
+(0.002) SELECT "desktop_clicks"."id", "desktop_clicks"."clicker_id", "desktop_clicks"."clicks", "desktop_clicks"."datetime_logged", COUNT("desktop_clicks"."clicks") AS "score" FROM "desktop_clicks" GROUP BY "desktop_clicks"."id"; args=()
+(0.001) SELECT "mobile_clicks"."clicker_id" FROM "mobile_clicks"; args=()
+"GET / HTTP/1.1" 200 9580
+"GET /static/css/main.min.css HTTP/1.1" 200 1167
+"GET /static/js/app.min.js HTTP/1.1" 200 5686
+"GET /static/js/crypto-js.js HTTP/1.1" 200 161782
+"GET /static/images/omu/omu_15.jpg HTTP/1.1" 200 105944
+"GET /static/images/omu/omu_29.jpg HTTP/1.1" 200 107484
+"GET /static/images/omu/omu_4.jpg HTTP/1.1" 200 85385
+"GET /static/images/omu/omu_5.jpg HTTP/1.1" 200 93808
+"GET /static/images/omu/omu_28.jpg HTTP/1.1" 200 79485
+"GET /static/images/omu/omu_14.jpg HTTP/1.1" 200 115791
+"GET /static/images/omu/omu_16.jpg HTTP/1.1" 200 74870
+"GET /static/images/omu/omu_6.jpg HTTP/1.1" 200 109462
+"GET /static/images/omu/omu_3.jpg HTTP/1.1" 200 35429
+"GET /static/images/omu/omu_17.jpg HTTP/1.1" 200 67205
+"GET /static/images/omu/omu_12.jpg HTTP/1.1" 200 61696
+"GET /static/images/omu/omu_13.jpg HTTP/1.1" 200 90289
+"GET /static/images/omu/omu_2.jpg HTTP/1.1" 200 108256
+"GET /static/images/omu/omu_7.jpg HTTP/1.1" 200 135276
+"GET /static/images/omu/omu_0.jpg HTTP/1.1" 200 72489
+"GET /static/images/omu/omu_1.jpg HTTP/1.1" 200 59238
+"GET /static/images/omu/omu_38.jpg HTTP/1.1" 200 91153
+"GET /static/images/omu/omu_11.jpg HTTP/1.1" 200 121722
+"GET /static/images/omu/omu_39.jpg HTTP/1.1" 200 129377
+"GET /static/images/omu/omu_10.jpg HTTP/1.1" 200 292360
+"GET /static/images/omu/omu_40.jpg HTTP/1.1" 200 59763
+"GET /static/images/omu/omu_48.jpg HTTP/1.1" 200 106198
+"GET /static/images/omu/omu_43.jpg HTTP/1.1" 200 109957
+"GET /static/images/omu/omu_49.jpg HTTP/1.1" 200 111921
+"GET /static/images/omu/omu_41.jpg HTTP/1.1" 200 113327
+"GET /static/images/omu/omu_42.jpg HTTP/1.1" 200 333044
+"GET /static/images/omu/omu_34.jpg HTTP/1.1" 200 74680
+"GET /static/images/omu/omu_46.jpg HTTP/1.1" 200 118148
+"GET /static/images/omu/omu_44.jpg HTTP/1.1" 200 75624
+"GET /static/images/omu/omu_45.jpg HTTP/1.1" 200 124306
+"GET /static/images/omu/omu_47.jpg HTTP/1.1" 200 135172
+"GET /static/images/omu/omu_20.jpg HTTP/1.1" 200 135226
+"GET /static/images/omu/omu_37.jpg HTTP/1.1" 200 75012
+"GET /static/images/omu/omu_23.jpg HTTP/1.1" 200 61835
+"GET /static/images/omu/omu_21.jpg HTTP/1.1" 200 76308
+"GET /static/images/omu/omu_36.jpg HTTP/1.1" 200 78835
+"GET /static/images/omu/omu_22.jpg HTTP/1.1" 200 107833
+"GET /static/images/omu/omu_35.jpg HTTP/1.1" 200 65500
+"GET /static/images/omu/omu_26.jpg HTTP/1.1" 200 72240
+"GET /static/images/omu/omu_19.jpg HTTP/1.1" 200 73020
+"GET /static/images/omu/omu_27.jpg HTTP/1.1" 200 129446
+"GET /static/images/omu/omu_33.jpg HTTP/1.1" 200 61010
+"GET /static/images/omu/omu_31.jpg HTTP/1.1" 200 74847
+"GET /static/images/omu/omu_32.jpg HTTP/1.1" 200 87114
+"GET /static/images/omu/omu_30.jpg HTTP/1.1" 200 78529
+"GET /static/images/omu/omu_24.jpg HTTP/1.1" 200 52094
+"GET /static/images/omu/omu_18.jpg HTTP/1.1" 200 76374
+"GET /static/images/omu/omu_8.jpg HTTP/1.1" 200 83125
+"GET /static/images/omu/omu_9.jpg HTTP/1.1" 200 247106
+"GET /static/images/omu/omu_25.jpg HTTP/1.1" 200 1354863
+"GET /static/images/favicon/favicon-32x32.png HTTP/1.1" 200 2856
+(0.003) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.002) SELECT "desktop_clicks"."id", "desktop_clicks"."clicker_id", "desktop_clicks"."clicks", "desktop_clicks"."datetime_logged", COUNT("desktop_clicks"."clicks") AS "score" FROM "desktop_clicks" GROUP BY "desktop_clicks"."id"; args=()
+(0.001) SELECT "mobile_clicks"."clicker_id" FROM "mobile_clicks"; args=()
+"GET / HTTP/1.1" 200 9580
+"GET /static/css/main.min.css HTTP/1.1" 200 1155
+"GET /static/images/omu/omu_15.jpg HTTP/1.1" 200 105944
+"GET /static/images/omu/omu_29.jpg HTTP/1.1" 200 107484
+"GET /static/js/app.min.js HTTP/1.1" 200 5686
+"GET /static/js/crypto-js.js HTTP/1.1" 200 161782
+"GET /static/images/omu/omu_4.jpg HTTP/1.1" 200 85385
+"GET /static/images/omu/omu_5.jpg HTTP/1.1" 200 93808
+"GET /static/images/omu/omu_28.jpg HTTP/1.1" 200 79485
+"GET /static/images/omu/omu_14.jpg HTTP/1.1" 200 115791
+"GET /static/images/omu/omu_16.jpg HTTP/1.1" 200 74870
+"GET /static/images/omu/omu_6.jpg HTTP/1.1" 200 109462
+"GET /static/images/omu/omu_3.jpg HTTP/1.1" 200 35429
+"GET /static/images/omu/omu_17.jpg HTTP/1.1" 200 67205
+"GET /static/images/omu/omu_13.jpg HTTP/1.1" 200 90289
+"GET /static/images/omu/omu_12.jpg HTTP/1.1" 200 61696
+"GET /static/images/omu/omu_2.jpg HTTP/1.1" 200 108256
+"GET /static/images/omu/omu_33.jpg HTTP/1.1" 200 61010
+"GET /static/images/omu/omu_7.jpg HTTP/1.1" 200 135276
+"GET /static/images/omu/omu_38.jpg HTTP/1.1" 200 91153
+"GET /static/images/omu/omu_0.jpg HTTP/1.1" 200 72489
+"GET /static/images/omu/omu_11.jpg HTTP/1.1" 200 121722
+"GET /static/images/omu/omu_1.jpg HTTP/1.1" 200 59238
+"GET /static/images/omu/omu_39.jpg HTTP/1.1" 200 129377
+"GET /static/images/omu/omu_49.jpg HTTP/1.1" 200 111921
+"GET /static/images/omu/omu_10.jpg HTTP/1.1" 200 292360
+"GET /static/images/omu/omu_40.jpg HTTP/1.1" 200 59763
+"GET /static/images/omu/omu_48.jpg HTTP/1.1" 200 106198
+"GET /static/images/omu/omu_43.jpg HTTP/1.1" 200 109957
+"GET /static/images/omu/omu_41.jpg HTTP/1.1" 200 113327
+"GET /static/images/omu/omu_42.jpg HTTP/1.1" 200 333044
+"GET /static/images/omu/omu_45.jpg HTTP/1.1" 200 124306
+"GET /static/images/omu/omu_21.jpg HTTP/1.1" 200 76308
+"GET /static/images/omu/omu_47.jpg HTTP/1.1" 200 135172
+"GET /static/images/omu/omu_46.jpg HTTP/1.1" 200 118148
+"GET /static/images/omu/omu_34.jpg HTTP/1.1" 200 74680
+"GET /static/images/omu/omu_20.jpg HTTP/1.1" 200 135226
+"GET /static/images/omu/omu_44.jpg HTTP/1.1" 200 75624
+"GET /static/images/omu/omu_35.jpg HTTP/1.1" 200 65500
+"GET /static/images/omu/omu_23.jpg HTTP/1.1" 200 61835
+"GET /static/images/omu/omu_26.jpg HTTP/1.1" 200 72240
+"GET /static/images/omu/omu_22.jpg HTTP/1.1" 200 107833
+"GET /static/images/omu/omu_37.jpg HTTP/1.1" 200 75012
+"GET /static/images/omu/omu_32.jpg HTTP/1.1" 200 87114
+"GET /static/images/omu/omu_36.jpg HTTP/1.1" 200 78835
+"GET /static/images/omu/omu_27.jpg HTTP/1.1" 200 129446
+"GET /static/images/omu/omu_19.jpg HTTP/1.1" 200 73020
+"GET /static/images/omu/omu_31.jpg HTTP/1.1" 200 74847
+"GET /static/images/omu/omu_9.jpg HTTP/1.1" 200 247106
+"GET /static/images/omu/omu_8.jpg HTTP/1.1" 200 83125
+"GET /static/images/omu/omu_24.jpg HTTP/1.1" 200 52094
+"GET /static/images/omu/omu_18.jpg HTTP/1.1" 200 76374
+"GET /static/images/omu/omu_30.jpg HTTP/1.1" 200 78529
+"GET /static/images/omu/omu_25.jpg HTTP/1.1" 200 1354863
+"GET /static/images/favicon/favicon-32x32.png HTTP/1.1" 200 2856
+(0.003) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.004) INSERT INTO "mobile_clicks" ("clicker_id", "datetime_logged") VALUES ('U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4', '2019-03-18T03:48:30.454626+00:00'::timestamptz) RETURNING "mobile_clicks"."id"; args=('U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4', datetime.datetime(2019, 3, 18, 3, 48, 30, 454626, tzinfo=<UTC>))
+"POST /post_clicks HTTP/1.1" 200 10
+(0.011) SELECT "desktop_clicks"."id", "desktop_clicks"."clicker_id", "desktop_clicks"."clicks", "desktop_clicks"."datetime_logged", COUNT("desktop_clicks"."clicks") AS "score" FROM "desktop_clicks" GROUP BY "desktop_clicks"."id"; args=()
+(0.001) SELECT "mobile_clicks"."clicker_id" FROM "mobile_clicks"; args=()
+"GET / HTTP/1.1" 200 9580
+"GET /static/js/app.min.js HTTP/1.1" 200 5686
+"GET /static/js/crypto-js.js HTTP/1.1" 200 161782
+"GET /static/images/omu/omu_15.jpg HTTP/1.1" 200 105944
+"GET /static/images/omu/omu_29.jpg HTTP/1.1" 200 107484
+"GET /static/css/main.min.css HTTP/1.1" 200 1155
+"GET /static/images/omu/omu_5.jpg HTTP/1.1" 200 93808
+"GET /static/images/omu/omu_4.jpg HTTP/1.1" 200 85385
+"GET /static/images/omu/omu_28.jpg HTTP/1.1" 200 79485
+"GET /static/images/omu/omu_14.jpg HTTP/1.1" 200 115791
+"GET /static/images/omu/omu_16.jpg HTTP/1.1" 200 74870
+"GET /static/images/omu/omu_6.jpg HTTP/1.1" 200 109462
+"GET /static/images/omu/omu_7.jpg HTTP/1.1" 200 135276
+"GET /static/images/omu/omu_3.jpg HTTP/1.1" 200 35429
+"GET /static/images/omu/omu_17.jpg HTTP/1.1" 200 67205
+"GET /static/images/omu/omu_12.jpg HTTP/1.1" 200 61696
+"GET /static/images/omu/omu_13.jpg HTTP/1.1" 200 90289
+"GET /static/images/omu/omu_38.jpg HTTP/1.1" 200 91153
+"GET /static/images/omu/omu_2.jpg HTTP/1.1" 200 108256
+"GET /static/images/omu/omu_1.jpg HTTP/1.1" 200 59238
+"GET /static/images/omu/omu_0.jpg HTTP/1.1" 200 72489
+"GET /static/images/omu/omu_26.jpg HTTP/1.1" 200 72240
+"GET /static/images/omu/omu_11.jpg HTTP/1.1" 200 121722
+"GET /static/images/omu/omu_39.jpg HTTP/1.1" 200 129377
+"GET /static/images/omu/omu_10.jpg HTTP/1.1" 200 292360
+"GET /static/images/omu/omu_40.jpg HTTP/1.1" 200 59763
+"GET /static/images/omu/omu_43.jpg HTTP/1.1" 200 109957
+"GET /static/images/omu/omu_48.jpg HTTP/1.1" 200 106198
+"GET /static/images/omu/omu_42.jpg HTTP/1.1" 200 333044
+"GET /static/images/omu/omu_41.jpg HTTP/1.1" 200 113327
+"GET /static/images/omu/omu_49.jpg HTTP/1.1" 200 111921
+"GET /static/images/omu/omu_34.jpg HTTP/1.1" 200 74680
+"GET /static/images/omu/omu_46.jpg HTTP/1.1" 200 118148
+"GET /static/images/omu/omu_20.jpg HTTP/1.1" 200 135226
+"GET /static/images/omu/omu_47.jpg HTTP/1.1" 200 135172
+"GET /static/images/omu/omu_44.jpg HTTP/1.1" 200 75624
+"GET /static/images/omu/omu_45.jpg HTTP/1.1" 200 124306
+"GET /static/images/omu/omu_21.jpg HTTP/1.1" 200 76308
+"GET /static/images/omu/omu_23.jpg HTTP/1.1" 200 61835
+"GET /static/images/omu/omu_37.jpg HTTP/1.1" 200 75012
+"GET /static/images/omu/omu_36.jpg HTTP/1.1" 200 78835
+"GET /static/images/omu/omu_32.jpg HTTP/1.1" 200 87114
+"GET /static/images/omu/omu_35.jpg HTTP/1.1" 200 65500
+"GET /static/images/omu/omu_22.jpg HTTP/1.1" 200 107833
+"GET /static/images/omu/omu_33.jpg HTTP/1.1" 200 61010
+"GET /static/images/omu/omu_27.jpg HTTP/1.1" 200 129446
+"GET /static/images/omu/omu_8.jpg HTTP/1.1" 200 83125
+"GET /static/images/omu/omu_9.jpg HTTP/1.1" 200 247106
+"GET /static/images/omu/omu_31.jpg HTTP/1.1" 200 74847
+"GET /static/images/omu/omu_19.jpg HTTP/1.1" 200 73020
+"GET /static/images/omu/omu_24.jpg HTTP/1.1" 200 52094
+"GET /static/images/omu/omu_30.jpg HTTP/1.1" 200 78529
+"GET /static/images/omu/omu_18.jpg HTTP/1.1" 200 76374
+"GET /static/images/omu/omu_25.jpg HTTP/1.1" 200 1354863
+"GET /static/images/favicon/favicon-32x32.png HTTP/1.1" 200 2856
+(0.002) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.015) INSERT INTO "mobile_clicks" ("clicker_id", "datetime_logged") VALUES ('U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4', '2019-03-18T03:48:51.560873+00:00'::timestamptz) RETURNING "mobile_clicks"."id"; args=('U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4', datetime.datetime(2019, 3, 18, 3, 48, 51, 560873, tzinfo=<UTC>))
+(0.002) SELECT "desktop_clicks"."id", "desktop_clicks"."clicker_id", "desktop_clicks"."clicks", "desktop_clicks"."datetime_logged", COUNT("desktop_clicks"."clicks") AS "score" FROM "desktop_clicks" GROUP BY "desktop_clicks"."id"; args=()
+(0.001) SELECT "mobile_clicks"."clicker_id" FROM "mobile_clicks"; args=()
+"POST /post_clicks HTTP/1.1" 200 10
+"GET / HTTP/1.1" 200 9580
+"GET /static/css/main.min.css HTTP/1.1" 200 1155
+"GET /static/images/omu/omu_15.jpg HTTP/1.1" 200 105944
+"GET /static/js/app.min.js HTTP/1.1" 200 5686
+"GET /static/images/omu/omu_29.jpg HTTP/1.1" 200 107484
+"GET /static/js/crypto-js.js HTTP/1.1" 200 161782
+"GET /static/images/omu/omu_5.jpg HTTP/1.1" 200 93808
+"GET /static/images/omu/omu_4.jpg HTTP/1.1" 200 85385
+"GET /static/images/omu/omu_28.jpg HTTP/1.1" 200 79485
+"GET /static/images/omu/omu_14.jpg HTTP/1.1" 200 115791
+"GET /static/images/omu/omu_16.jpg HTTP/1.1" 200 74870
+"GET /static/images/omu/omu_6.jpg HTTP/1.1" 200 109462
+"GET /static/images/omu/omu_7.jpg HTTP/1.1" 200 135276
+"GET /static/images/omu/omu_3.jpg HTTP/1.1" 200 35429
+"GET /static/images/omu/omu_17.jpg HTTP/1.1" 200 67205
+"GET /static/images/omu/omu_12.jpg HTTP/1.1" 200 61696
+"GET /static/images/omu/omu_13.jpg HTTP/1.1" 200 90289
+"GET /static/images/omu/omu_2.jpg HTTP/1.1" 200 108256
+"GET /static/images/omu/omu_38.jpg HTTP/1.1" 200 91153
+"GET /static/images/omu/omu_10.jpg HTTP/1.1" 200 292360
+"GET /static/images/omu/omu_39.jpg HTTP/1.1" 200 129377
+"GET /static/images/omu/omu_1.jpg HTTP/1.1" 200 59238
+"GET /static/images/omu/omu_49.jpg HTTP/1.1" 200 111921
+"GET /static/images/omu/omu_48.jpg HTTP/1.1" 200 106198
+"GET /static/images/omu/omu_0.jpg HTTP/1.1" 200 72489
+"GET /static/images/omu/omu_11.jpg HTTP/1.1" 200 121722
+"GET /static/images/omu/omu_44.jpg HTTP/1.1" 200 75624
+"GET /static/images/omu/omu_40.jpg HTTP/1.1" 200 59763
+"GET /static/images/omu/omu_45.jpg HTTP/1.1" 200 124306
+"GET /static/images/omu/omu_42.jpg HTTP/1.1" 200 333044
+"GET /static/images/omu/omu_41.jpg HTTP/1.1" 200 113327
+"GET /static/images/omu/omu_43.jpg HTTP/1.1" 200 109957
+"GET /static/images/omu/omu_35.jpg HTTP/1.1" 200 65500
+"GET /static/images/omu/omu_21.jpg HTTP/1.1" 200 76308
+"GET /static/images/omu/omu_20.jpg HTTP/1.1" 200 135226
+"GET /static/images/omu/omu_34.jpg HTTP/1.1" 200 74680
+"GET /static/images/omu/omu_46.jpg HTTP/1.1" 200 118148
+"GET /static/images/omu/omu_47.jpg HTTP/1.1" 200 135172
+"GET /static/images/omu/omu_37.jpg HTTP/1.1" 200 75012
+"GET /static/images/omu/omu_23.jpg HTTP/1.1" 200 61835
+"GET /static/images/omu/omu_32.jpg HTTP/1.1" 200 87114
+"GET /static/images/omu/omu_22.jpg HTTP/1.1" 200 107833
+"GET /static/images/omu/omu_26.jpg HTTP/1.1" 200 72240
+"GET /static/images/omu/omu_36.jpg HTTP/1.1" 200 78835
+"GET /static/images/omu/omu_33.jpg HTTP/1.1" 200 61010
+"GET /static/images/omu/omu_27.jpg HTTP/1.1" 200 129446
+"GET /static/images/omu/omu_19.jpg HTTP/1.1" 200 73020
+"GET /static/images/omu/omu_31.jpg HTTP/1.1" 200 74847
+"GET /static/images/omu/omu_24.jpg HTTP/1.1" 200 52094
+"GET /static/images/omu/omu_8.jpg HTTP/1.1" 200 83125
+"GET /static/images/omu/omu_30.jpg HTTP/1.1" 200 78529
+"GET /static/images/omu/omu_18.jpg HTTP/1.1" 200 76374
+"GET /static/images/omu/omu_9.jpg HTTP/1.1" 200 247106
+"GET /static/images/omu/omu_25.jpg HTTP/1.1" 200 1354863
+"GET /static/images/favicon/favicon-32x32.png HTTP/1.1" 200 2856
+(0.002) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.001) SELECT "desktop_clicks"."id", "desktop_clicks"."clicker_id", "desktop_clicks"."clicks", "desktop_clicks"."datetime_logged" FROM "desktop_clicks" WHERE "desktop_clicks"."clicker_id" = 'U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4'; args=('U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4',)
+(0.004) UPDATE "desktop_clicks" SET "clicker_id" = 'U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4', "clicks" = 25, "datetime_logged" = '2019-03-18T03:41:47.461653+00:00'::timestamptz WHERE "desktop_clicks"."id" = 173; args=('U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4', 25, datetime.datetime(2019, 3, 18, 3, 41, 47, 461653, tzinfo=<UTC>), 173)
+"POST /post_clicks HTTP/1.1" 200 10
+(0.003) SELECT "desktop_clicks"."id", "desktop_clicks"."clicker_id", "desktop_clicks"."clicks", "desktop_clicks"."datetime_logged", COUNT("desktop_clicks"."clicks") AS "score" FROM "desktop_clicks" GROUP BY "desktop_clicks"."id"; args=()
+(0.005) SELECT "mobile_clicks"."clicker_id" FROM "mobile_clicks"; args=()
+"GET / HTTP/1.1" 200 9582
+"GET /static/css/main.min.css HTTP/1.1" 200 1155
+"GET /static/js/crypto-js.js HTTP/1.1" 200 161782
+"GET /static/js/app.min.js HTTP/1.1" 200 5686
+"GET /static/images/omu/omu_29.jpg HTTP/1.1" 200 107484
+"GET /static/images/omu/omu_15.jpg HTTP/1.1" 200 105944
+"GET /static/images/omu/omu_5.jpg HTTP/1.1" 200 93808
+"GET /static/images/omu/omu_4.jpg HTTP/1.1" 200 85385
+"GET /static/images/omu/omu_28.jpg HTTP/1.1" 200 79485
+"GET /static/images/omu/omu_14.jpg HTTP/1.1" 200 115791
+"GET /static/images/omu/omu_6.jpg HTTP/1.1" 200 109462
+"GET /static/images/omu/omu_16.jpg HTTP/1.1" 200 74870
+"GET /static/images/omu/omu_17.jpg HTTP/1.1" 200 67205
+"GET /static/images/omu/omu_7.jpg HTTP/1.1" 200 135276
+"GET /static/images/omu/omu_13.jpg HTTP/1.1" 200 90289
+"GET /static/images/omu/omu_3.jpg HTTP/1.1" 200 35429
+"GET /static/images/omu/omu_1.jpg HTTP/1.1" 200 59238
+"GET /static/images/omu/omu_12.jpg HTTP/1.1" 200 61696
+"GET /static/images/omu/omu_38.jpg HTTP/1.1" 200 91153
+"GET /static/images/omu/omu_0.jpg HTTP/1.1" 200 72489
+"GET /static/images/omu/omu_2.jpg HTTP/1.1" 200 108256
+"GET /static/images/omu/omu_10.jpg HTTP/1.1" 200 292360
+"GET /static/images/omu/omu_11.jpg HTTP/1.1" 200 121722
+"GET /static/images/omu/omu_43.jpg HTTP/1.1" 200 109957
+"GET /static/images/omu/omu_49.jpg HTTP/1.1" 200 111921
+"GET /static/images/omu/omu_39.jpg HTTP/1.1" 200 129377
+"GET /static/images/omu/omu_48.jpg HTTP/1.1" 200 106198
+"GET /static/images/omu/omu_42.jpg HTTP/1.1" 200 333044
+"GET /static/images/omu/omu_41.jpg HTTP/1.1" 200 113327
+"GET /static/images/omu/omu_46.jpg HTTP/1.1" 200 118148
+"GET /static/images/omu/omu_47.jpg HTTP/1.1" 200 135172
+"GET /static/images/omu/omu_45.jpg HTTP/1.1" 200 124306
+"GET /static/images/omu/omu_40.jpg HTTP/1.1" 200 59763
+"GET /static/images/omu/omu_44.jpg HTTP/1.1" 200 75624
+"GET /static/images/omu/omu_23.jpg HTTP/1.1" 200 61835
+"GET /static/images/omu/omu_35.jpg HTTP/1.1" 200 65500
+"GET /static/images/omu/omu_37.jpg HTTP/1.1" 200 75012
+"GET /static/images/omu/omu_21.jpg HTTP/1.1" 200 76308
+"GET /static/images/omu/omu_20.jpg HTTP/1.1" 200 135226
+"GET /static/images/omu/omu_34.jpg HTTP/1.1" 200 74680
+"GET /static/images/omu/omu_36.jpg HTTP/1.1" 200 78835
+"GET /static/images/omu/omu_26.jpg HTTP/1.1" 200 72240
+"GET /static/images/omu/omu_22.jpg HTTP/1.1" 200 107833
+"GET /static/images/omu/omu_32.jpg HTTP/1.1" 200 87114
+"GET /static/images/omu/omu_27.jpg HTTP/1.1" 200 129446
+"GET /static/images/omu/omu_33.jpg HTTP/1.1" 200 61010
+"GET /static/images/omu/omu_19.jpg HTTP/1.1" 200 73020
+"GET /static/images/omu/omu_24.jpg HTTP/1.1" 200 52094
+"GET /static/images/omu/omu_8.jpg HTTP/1.1" 200 83125
+"GET /static/images/omu/omu_9.jpg HTTP/1.1" 200 247106
+"GET /static/images/omu/omu_31.jpg HTTP/1.1" 200 74847
+"GET /static/images/omu/omu_18.jpg HTTP/1.1" 200 76374
+"GET /static/images/omu/omu_30.jpg HTTP/1.1" 200 78529
+"GET /static/images/omu/omu_25.jpg HTTP/1.1" 200 1354863
+"GET /static/images/favicon/favicon-32x32.png HTTP/1.1" 200 2856
+(0.003) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.003) SELECT "desktop_clicks"."id", "desktop_clicks"."clicker_id", "desktop_clicks"."clicks", "desktop_clicks"."datetime_logged", COUNT("desktop_clicks"."clicks") AS "score" FROM "desktop_clicks" GROUP BY "desktop_clicks"."id"; args=()
+(0.000) SELECT "mobile_clicks"."clicker_id" FROM "mobile_clicks"; args=()
+"GET / HTTP/1.1" 200 9578
+"GET /static/js/app.min.js HTTP/1.1" 200 5686
+"GET /static/images/omu/omu_29.jpg HTTP/1.1" 200 107484
+"GET /static/images/omu/omu_15.jpg HTTP/1.1" 200 105944
+"GET /static/js/crypto-js.js HTTP/1.1" 200 161782
+"GET /static/css/main.min.css HTTP/1.1" 200 1155
+"GET /static/images/omu/omu_5.jpg HTTP/1.1" 200 93808
+"GET /static/images/omu/omu_4.jpg HTTP/1.1" 200 85385
+"GET /static/images/omu/omu_28.jpg HTTP/1.1" 200 79485
+"GET /static/images/omu/omu_14.jpg HTTP/1.1" 200 115791
+"GET /static/images/omu/omu_16.jpg HTTP/1.1" 200 74870
+"GET /static/images/omu/omu_6.jpg HTTP/1.1" 200 109462
+"GET /static/images/omu/omu_3.jpg HTTP/1.1" 200 35429
+"GET /static/images/omu/omu_12.jpg HTTP/1.1" 200 61696
+"GET /static/images/omu/omu_13.jpg HTTP/1.1" 200 90289
+"GET /static/images/omu/omu_2.jpg HTTP/1.1" 200 108256
+"GET /static/images/omu/omu_7.jpg HTTP/1.1" 200 135276
+"GET /static/images/omu/omu_17.jpg HTTP/1.1" 200 67205
+"GET /static/images/omu/omu_38.jpg HTTP/1.1" 200 91153
+"GET /static/images/omu/omu_0.jpg HTTP/1.1" 200 72489
+"GET /static/images/omu/omu_39.jpg HTTP/1.1" 200 129377
+"GET /static/images/omu/omu_11.jpg HTTP/1.1" 200 121722
+"GET /static/images/omu/omu_10.jpg HTTP/1.1" 200 292360
+"GET /static/images/omu/omu_1.jpg HTTP/1.1" 200 59238
+"GET /static/images/omu/omu_48.jpg HTTP/1.1" 200 106198
+"GET /static/images/omu/omu_49.jpg HTTP/1.1" 200 111921
+"GET /static/images/omu/omu_40.jpg HTTP/1.1" 200 59763
+"GET /static/images/omu/omu_41.jpg HTTP/1.1" 200 113327
+"GET /static/images/omu/omu_43.jpg HTTP/1.1" 200 109957
+"GET /static/images/omu/omu_42.jpg HTTP/1.1" 200 333044
+"GET /static/images/omu/omu_44.jpg HTTP/1.1" 200 75624
+"GET /static/images/omu/omu_46.jpg HTTP/1.1" 200 118148
+"GET /static/images/omu/omu_45.jpg HTTP/1.1" 200 124306
+"GET /static/images/omu/omu_34.jpg HTTP/1.1" 200 74680
+"GET /static/images/omu/omu_20.jpg HTTP/1.1" 200 135226
+"GET /static/images/omu/omu_47.jpg HTTP/1.1" 200 135172
+"GET /static/images/omu/omu_35.jpg HTTP/1.1" 200 65500
+"GET /static/images/omu/omu_23.jpg HTTP/1.1" 200 61835
+"GET /static/images/omu/omu_21.jpg HTTP/1.1" 200 76308
+"GET /static/images/omu/omu_26.jpg HTTP/1.1" 200 72240
+"GET /static/images/omu/omu_33.jpg HTTP/1.1" 200 61010
+"GET /static/images/omu/omu_22.jpg HTTP/1.1" 200 107833
+"GET /static/images/omu/omu_37.jpg HTTP/1.1" 200 75012
+"GET /static/images/omu/omu_32.jpg HTTP/1.1" 200 87114
+"GET /static/images/omu/omu_36.jpg HTTP/1.1" 200 78835
+"GET /static/images/omu/omu_31.jpg HTTP/1.1" 200 74847
+"GET /static/images/omu/omu_19.jpg HTTP/1.1" 200 73020
+"GET /static/images/omu/omu_27.jpg HTTP/1.1" 200 129446
+"GET /static/images/omu/omu_9.jpg HTTP/1.1" 200 247106
+"GET /static/images/omu/omu_8.jpg HTTP/1.1" 200 83125
+"GET /static/images/omu/omu_24.jpg HTTP/1.1" 200 52094
+"GET /static/images/omu/omu_18.jpg HTTP/1.1" 200 76374
+"GET /static/images/omu/omu_30.jpg HTTP/1.1" 200 78529
+"GET /static/images/omu/omu_25.jpg HTTP/1.1" 200 1354863
+"GET /static/images/favicon/favicon-32x32.png HTTP/1.1" 200 2856
+(0.002) SELECT "desktop_clicks"."id", "desktop_clicks"."clicker_id", "desktop_clicks"."clicks", "desktop_clicks"."datetime_logged", COUNT("desktop_clicks"."clicks") AS "score" FROM "desktop_clicks" GROUP BY "desktop_clicks"."id"; args=()
+(0.000) SELECT "mobile_clicks"."clicker_id" FROM "mobile_clicks"; args=()
+"GET / HTTP/1.1" 200 9570
+"GET /static/css/main.min.css HTTP/1.1" 200 1155
+"GET /static/images/omu/omu_15.jpg HTTP/1.1" 200 105944
+"GET /static/js/app.min.js HTTP/1.1" 200 5686
+"GET /static/images/omu/omu_29.jpg HTTP/1.1" 200 107484
+"GET /static/js/crypto-js.js HTTP/1.1" 200 161782
+"GET /static/images/omu/omu_4.jpg HTTP/1.1" 200 85385
+"GET /static/images/omu/omu_5.jpg HTTP/1.1" 200 93808
+"GET /static/images/omu/omu_28.jpg HTTP/1.1" 200 79485
+"GET /static/images/omu/omu_14.jpg HTTP/1.1" 200 115791
+"GET /static/images/omu/omu_16.jpg HTTP/1.1" 200 74870
+"GET /static/images/omu/omu_6.jpg HTTP/1.1" 200 109462
+"GET /static/images/omu/omu_3.jpg HTTP/1.1" 200 35429
+"GET /static/images/omu/omu_17.jpg HTTP/1.1" 200 67205
+"GET /static/images/omu/omu_12.jpg HTTP/1.1" 200 61696
+"GET /static/images/omu/omu_2.jpg HTTP/1.1" 200 108256
+"GET /static/images/omu/omu_13.jpg HTTP/1.1" 200 90289
+"GET /static/images/omu/omu_7.jpg HTTP/1.1" 200 135276
+"GET /static/images/omu/omu_1.jpg HTTP/1.1" 200 59238
+"GET /static/images/omu/omu_0.jpg HTTP/1.1" 200 72489
+"GET /static/images/omu/omu_38.jpg HTTP/1.1" 200 91153
+"GET /static/images/omu/omu_39.jpg HTTP/1.1" 200 129377
+"GET /static/images/omu/omu_11.jpg HTTP/1.1" 200 121722
+"GET /static/images/omu/omu_10.jpg HTTP/1.1" 200 292360
+"GET /static/images/omu/omu_40.jpg HTTP/1.1" 200 59763
+"GET /static/images/omu/omu_41.jpg HTTP/1.1" 200 113327
+"GET /static/images/omu/omu_48.jpg HTTP/1.1" 200 106198
+"GET /static/images/omu/omu_43.jpg HTTP/1.1" 200 109957
+"GET /static/images/omu/omu_49.jpg HTTP/1.1" 200 111921
+"GET /static/images/omu/omu_42.jpg HTTP/1.1" 200 333044
+"GET /static/images/omu/omu_34.jpg HTTP/1.1" 200 74680
+"GET /static/images/omu/omu_45.jpg HTTP/1.1" 200 124306
+"GET /static/images/omu/omu_44.jpg HTTP/1.1" 200 75624
+"GET /static/images/omu/omu_46.jpg HTTP/1.1" 200 118148
+"GET /static/images/omu/omu_47.jpg HTTP/1.1" 200 135172
+"GET /static/images/omu/omu_20.jpg HTTP/1.1" 200 135226
+"GET /static/images/omu/omu_21.jpg HTTP/1.1" 200 76308
+"GET /static/images/omu/omu_26.jpg HTTP/1.1" 200 72240
+"GET /static/images/omu/omu_36.jpg HTTP/1.1" 200 78835
+"GET /static/images/omu/omu_35.jpg HTTP/1.1" 200 65500
+"GET /static/images/omu/omu_23.jpg HTTP/1.1" 200 61835
+"GET /static/images/omu/omu_37.jpg HTTP/1.1" 200 75012
+"GET /static/images/omu/omu_22.jpg HTTP/1.1" 200 107833
+"GET /static/images/omu/omu_33.jpg HTTP/1.1" 200 61010
+"GET /static/images/omu/omu_32.jpg HTTP/1.1" 200 87114
+"GET /static/images/omu/omu_31.jpg HTTP/1.1" 200 74847
+"GET /static/images/omu/omu_19.jpg HTTP/1.1" 200 73020
+"GET /static/images/omu/omu_27.jpg HTTP/1.1" 200 129446
+"GET /static/images/omu/omu_24.jpg HTTP/1.1" 200 52094
+"GET /static/images/omu/omu_30.jpg HTTP/1.1" 200 78529
+"GET /static/images/omu/omu_9.jpg HTTP/1.1" 200 247106
+"GET /static/images/omu/omu_8.jpg HTTP/1.1" 200 83125
+"GET /static/images/omu/omu_18.jpg HTTP/1.1" 200 76374
+"GET /static/images/omu/omu_25.jpg HTTP/1.1" 200 1354863
+"GET /static/images/favicon/favicon-32x32.png HTTP/1.1" 200 2856
+(0.001) SELECT "desktop_clicks"."id", "desktop_clicks"."clicker_id", "desktop_clicks"."clicks", "desktop_clicks"."datetime_logged", COUNT("desktop_clicks"."clicks") AS "score" FROM "desktop_clicks" GROUP BY "desktop_clicks"."id"; args=()
+(0.000) SELECT "mobile_clicks"."clicker_id" FROM "mobile_clicks"; args=()
+"GET / HTTP/1.1" 200 9570
+"GET /static/css/main.min.css HTTP/1.1" 200 1155
+"GET /static/js/crypto-js.js HTTP/1.1" 200 161782
+"GET /static/images/omu/omu_15.jpg HTTP/1.1" 200 105944
+"GET /static/js/app.min.js HTTP/1.1" 200 5686
+"GET /static/images/omu/omu_29.jpg HTTP/1.1" 200 107484
+"GET /static/images/omu/omu_5.jpg HTTP/1.1" 200 93808
+"GET /static/images/omu/omu_4.jpg HTTP/1.1" 200 85385
+"GET /static/images/omu/omu_28.jpg HTTP/1.1" 200 79485
+"GET /static/images/omu/omu_14.jpg HTTP/1.1" 200 115791
+"GET /static/images/omu/omu_16.jpg HTTP/1.1" 200 74870
+"GET /static/images/omu/omu_6.jpg HTTP/1.1" 200 109462
+"GET /static/images/omu/omu_3.jpg HTTP/1.1" 200 35429
+"GET /static/images/omu/omu_17.jpg HTTP/1.1" 200 67205
+"GET /static/images/omu/omu_12.jpg HTTP/1.1" 200 61696
+"GET /static/images/omu/omu_13.jpg HTTP/1.1" 200 90289
+"GET /static/images/omu/omu_2.jpg HTTP/1.1" 200 108256
+"GET /static/images/omu/omu_7.jpg HTTP/1.1" 200 135276
+"GET /static/images/omu/omu_38.jpg HTTP/1.1" 200 91153
+"GET /static/images/omu/omu_1.jpg HTTP/1.1" 200 59238
+"GET /static/images/omu/omu_39.jpg HTTP/1.1" 200 129377
+"GET /static/images/omu/omu_0.jpg HTTP/1.1" 200 72489
+"GET /static/images/omu/omu_11.jpg HTTP/1.1" 200 121722
+"GET /static/images/omu/omu_10.jpg HTTP/1.1" 200 292360
+"GET /static/images/omu/omu_40.jpg HTTP/1.1" 200 59763
+"GET /static/images/omu/omu_48.jpg HTTP/1.1" 200 106198
+"GET /static/images/omu/omu_41.jpg HTTP/1.1" 200 113327
+"GET /static/images/omu/omu_49.jpg HTTP/1.1" 200 111921
+"GET /static/images/omu/omu_43.jpg HTTP/1.1" 200 109957
+"GET /static/images/omu/omu_42.jpg HTTP/1.1" 200 333044
+"GET /static/images/omu/omu_44.jpg HTTP/1.1" 200 75624
+"GET /static/images/omu/omu_34.jpg HTTP/1.1" 200 74680
+"GET /static/images/omu/omu_45.jpg HTTP/1.1" 200 124306
+"GET /static/images/omu/omu_46.jpg HTTP/1.1" 200 118148
+"GET /static/images/omu/omu_47.jpg HTTP/1.1" 200 135172
+"GET /static/images/omu/omu_20.jpg HTTP/1.1" 200 135226
+"GET /static/images/omu/omu_35.jpg HTTP/1.1" 200 65500
+"GET /static/images/omu/omu_23.jpg HTTP/1.1" 200 61835
+"GET /static/images/omu/omu_21.jpg HTTP/1.1" 200 76308
+"GET /static/images/omu/omu_37.jpg HTTP/1.1" 200 75012
+"GET /static/images/omu/omu_36.jpg HTTP/1.1" 200 78835
+"GET /static/images/omu/omu_22.jpg HTTP/1.1" 200 107833
+"GET /static/images/omu/omu_26.jpg HTTP/1.1" 200 72240
+"GET /static/images/omu/omu_33.jpg HTTP/1.1" 200 61010
+"GET /static/images/omu/omu_32.jpg HTTP/1.1" 200 87114
+"GET /static/images/omu/omu_19.jpg HTTP/1.1" 200 73020
+"GET /static/images/omu/omu_31.jpg HTTP/1.1" 200 74847
+"GET /static/images/omu/omu_27.jpg HTTP/1.1" 200 129446
+"GET /static/images/omu/omu_8.jpg HTTP/1.1" 200 83125
+"GET /static/images/omu/omu_9.jpg HTTP/1.1" 200 247106
+"GET /static/images/omu/omu_30.jpg HTTP/1.1" 200 78529
+"GET /static/images/omu/omu_24.jpg HTTP/1.1" 200 52094
+"GET /static/images/omu/omu_18.jpg HTTP/1.1" 200 76374
+"GET /static/images/omu/omu_25.jpg HTTP/1.1" 200 1354863
+"GET /static/images/favicon/favicon-32x32.png HTTP/1.1" 200 2856
+(0.002) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.002) SELECT "desktop_clicks"."id", "desktop_clicks"."clicker_id", "desktop_clicks"."clicks", "desktop_clicks"."datetime_logged" FROM "desktop_clicks" WHERE "desktop_clicks"."clicker_id" = 'U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4'; args=('U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4',)
+(0.001) UPDATE "desktop_clicks" SET "clicker_id" = 'U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4', "clicks" = 26, "datetime_logged" = '2019-03-18T03:41:47.461653+00:00'::timestamptz WHERE "desktop_clicks"."id" = 173; args=('U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4', 26, datetime.datetime(2019, 3, 18, 3, 41, 47, 461653, tzinfo=<UTC>), 173)
+"POST /post_clicks HTTP/1.1" 200 10
+(0.001) SELECT "desktop_clicks"."id", "desktop_clicks"."clicker_id", "desktop_clicks"."clicks", "desktop_clicks"."datetime_logged", COUNT("desktop_clicks"."clicks") AS "score" FROM "desktop_clicks" GROUP BY "desktop_clicks"."id"; args=()
+(0.000) SELECT "mobile_clicks"."clicker_id" FROM "mobile_clicks"; args=()
+"GET / HTTP/1.1" 200 9570
+"GET /static/js/crypto-js.js HTTP/1.1" 200 161782
+"GET /static/js/app.min.js HTTP/1.1" 200 5686
+"GET /static/images/omu/omu_29.jpg HTTP/1.1" 200 107484
+"GET /static/images/omu/omu_15.jpg HTTP/1.1" 200 105944
+"GET /static/css/main.min.css HTTP/1.1" 200 1168
+"GET /static/images/omu/omu_4.jpg HTTP/1.1" 200 85385
+"GET /static/images/omu/omu_5.jpg HTTP/1.1" 200 93808
+"GET /static/images/omu/omu_14.jpg HTTP/1.1" 200 115791
+"GET /static/images/omu/omu_28.jpg HTTP/1.1" 200 79485
+"GET /static/images/omu/omu_3.jpg HTTP/1.1" 200 35429
+"GET /static/images/omu/omu_17.jpg HTTP/1.1" 200 67205
+"GET /static/images/omu/omu_13.jpg HTTP/1.1" 200 90289
+"GET /static/images/omu/omu_6.jpg HTTP/1.1" 200 109462
+"GET /static/images/omu/omu_7.jpg HTTP/1.1" 200 135276
+"GET /static/images/omu/omu_16.jpg HTTP/1.1" 200 74870
+"GET /static/images/omu/omu_12.jpg HTTP/1.1" 200 61696
+"GET /static/images/omu/omu_1.jpg HTTP/1.1" 200 59238
+"GET /static/images/omu/omu_2.jpg HTTP/1.1" 200 108256
+"GET /static/images/omu/omu_38.jpg HTTP/1.1" 200 91153
+"GET /static/images/omu/omu_10.jpg HTTP/1.1" 200 292360
+"GET /static/images/omu/omu_0.jpg HTTP/1.1" 200 72489
+"GET /static/images/omu/omu_48.jpg HTTP/1.1" 200 106198
+"GET /static/images/omu/omu_43.jpg HTTP/1.1" 200 109957
+"GET /static/images/omu/omu_49.jpg HTTP/1.1" 200 111921
+"GET /static/images/omu/omu_11.jpg HTTP/1.1" 200 121722
+"GET /static/images/omu/omu_42.jpg HTTP/1.1" 200 333044
+"GET /static/images/omu/omu_39.jpg HTTP/1.1" 200 129377
+"GET /static/images/omu/omu_44.jpg HTTP/1.1" 200 75624
+"GET /static/images/omu/omu_46.jpg HTTP/1.1" 200 118148
+"GET /static/images/omu/omu_45.jpg HTTP/1.1" 200 124306
+"GET /static/images/omu/omu_41.jpg HTTP/1.1" 200 113327
+"GET /static/images/omu/omu_47.jpg HTTP/1.1" 200 135172
+"GET /static/images/omu/omu_40.jpg HTTP/1.1" 200 59763
+"GET /static/images/omu/omu_23.jpg HTTP/1.1" 200 61835
+"GET /static/images/omu/omu_37.jpg HTTP/1.1" 200 75012
+"GET /static/images/omu/omu_34.jpg HTTP/1.1" 200 74680
+"GET /static/images/omu/omu_20.jpg HTTP/1.1" 200 135226
+"GET /static/images/omu/omu_21.jpg HTTP/1.1" 200 76308
+"GET /static/images/omu/omu_35.jpg HTTP/1.1" 200 65500
+"GET /static/images/omu/omu_33.jpg HTTP/1.1" 200 61010
+"GET /static/images/omu/omu_26.jpg HTTP/1.1" 200 72240
+"GET /static/images/omu/omu_22.jpg HTTP/1.1" 200 107833
+"GET /static/images/omu/omu_36.jpg HTTP/1.1" 200 78835
+"GET /static/images/omu/omu_27.jpg HTTP/1.1" 200 129446
+"GET /static/images/omu/omu_32.jpg HTTP/1.1" 200 87114
+"GET /static/images/omu/omu_24.jpg HTTP/1.1" 200 52094
+"GET /static/images/omu/omu_31.jpg HTTP/1.1" 200 74847
+"GET /static/images/omu/omu_8.jpg HTTP/1.1" 200 83125
+"GET /static/images/omu/omu_9.jpg HTTP/1.1" 200 247106
+"GET /static/images/omu/omu_19.jpg HTTP/1.1" 200 73020
+"GET /static/images/omu/omu_18.jpg HTTP/1.1" 200 76374
+"GET /static/images/omu/omu_25.jpg HTTP/1.1" 200 1354863
+"GET /static/images/omu/omu_30.jpg HTTP/1.1" 200 78529
+"GET /static/images/favicon/favicon-32x32.png HTTP/1.1" 200 2856
+(0.002) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.002) SELECT "desktop_clicks"."id", "desktop_clicks"."clicker_id", "desktop_clicks"."clicks", "desktop_clicks"."datetime_logged" FROM "desktop_clicks" WHERE "desktop_clicks"."clicker_id" = 'U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4'; args=('U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4',)
+(0.001) UPDATE "desktop_clicks" SET "clicker_id" = 'U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4', "clicks" = 83, "datetime_logged" = '2019-03-18T03:41:47.461653+00:00'::timestamptz WHERE "desktop_clicks"."id" = 173; args=('U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4', 83, datetime.datetime(2019, 3, 18, 3, 41, 47, 461653, tzinfo=<UTC>), 173)
+"POST /post_clicks HTTP/1.1" 200 10
+(0.003) SELECT "desktop_clicks"."id", "desktop_clicks"."clicker_id", "desktop_clicks"."clicks", "desktop_clicks"."datetime_logged", COUNT("desktop_clicks"."clicks") AS "score" FROM "desktop_clicks" GROUP BY "desktop_clicks"."id"; args=()
+(0.001) SELECT "mobile_clicks"."clicker_id" FROM "mobile_clicks"; args=()
+"GET / HTTP/1.1" 200 9570
+"GET /static/js/crypto-js.js HTTP/1.1" 200 161782
+"GET /static/js/app.min.js HTTP/1.1" 200 5686
+"GET /static/images/omu/omu_15.jpg HTTP/1.1" 200 105944
+"GET /static/images/omu/omu_29.jpg HTTP/1.1" 200 107484
+"GET /static/css/main.min.css HTTP/1.1" 200 1168
+"GET /static/images/omu/omu_4.jpg HTTP/1.1" 200 85385
+"GET /static/images/omu/omu_5.jpg HTTP/1.1" 200 93808
+"GET /static/images/omu/omu_28.jpg HTTP/1.1" 200 79485
+"GET /static/images/omu/omu_14.jpg HTTP/1.1" 200 115791
+"GET /static/images/omu/omu_3.jpg HTTP/1.1" 200 35429
+"GET /static/images/omu/omu_17.jpg HTTP/1.1" 200 67205
+"GET /static/images/omu/omu_6.jpg HTTP/1.1" 200 109462
+"GET /static/images/omu/omu_7.jpg HTTP/1.1" 200 135276
+"GET /static/images/omu/omu_13.jpg HTTP/1.1" 200 90289
+"GET /static/images/omu/omu_16.jpg HTTP/1.1" 200 74870
+"GET /static/images/omu/omu_12.jpg HTTP/1.1" 200 61696
+"GET /static/images/omu/omu_2.jpg HTTP/1.1" 200 108256
+"GET /static/images/omu/omu_1.jpg HTTP/1.1" 200 59238
+"GET /static/images/omu/omu_38.jpg HTTP/1.1" 200 91153
+"GET /static/images/omu/omu_10.jpg HTTP/1.1" 200 292360
+"GET /static/images/omu/omu_0.jpg HTTP/1.1" 200 72489
+"GET /static/images/omu/omu_43.jpg HTTP/1.1" 200 109957
+"GET /static/images/omu/omu_49.jpg HTTP/1.1" 200 111921
+"GET /static/images/omu/omu_48.jpg HTTP/1.1" 200 106198
+"GET /static/images/omu/omu_39.jpg HTTP/1.1" 200 129377
+"GET /static/images/omu/omu_42.jpg HTTP/1.1" 200 333044
+"GET /static/images/omu/omu_11.jpg HTTP/1.1" 200 121722
+"GET /static/images/omu/omu_47.jpg HTTP/1.1" 200 135172
+"GET /static/images/omu/omu_46.jpg HTTP/1.1" 200 118148
+"GET /static/images/omu/omu_45.jpg HTTP/1.1" 200 124306
+"GET /static/images/omu/omu_41.jpg HTTP/1.1" 200 113327
+"GET /static/images/omu/omu_44.jpg HTTP/1.1" 200 75624
+"GET /static/images/omu/omu_40.jpg HTTP/1.1" 200 59763
+"GET /static/images/omu/omu_34.jpg HTTP/1.1" 200 74680
+"GET /static/images/omu/omu_37.jpg HTTP/1.1" 200 75012
+"GET /static/images/omu/omu_36.jpg HTTP/1.1" 200 78835
+"GET /static/images/omu/omu_23.jpg HTTP/1.1" 200 61835
+"GET /static/images/omu/omu_35.jpg HTTP/1.1" 200 65500
+"GET /static/images/omu/omu_21.jpg HTTP/1.1" 200 76308
+"GET /static/images/omu/omu_20.jpg HTTP/1.1" 200 135226
+"GET /static/images/omu/omu_22.jpg HTTP/1.1" 200 107833
+"GET /static/images/omu/omu_32.jpg HTTP/1.1" 200 87114
+"GET /static/images/omu/omu_26.jpg HTTP/1.1" 200 72240
+"GET /static/images/omu/omu_33.jpg HTTP/1.1" 200 61010
+"GET /static/images/omu/omu_9.jpg HTTP/1.1" 200 247106
+"GET /static/images/omu/omu_19.jpg HTTP/1.1" 200 73020
+"GET /static/images/omu/omu_31.jpg HTTP/1.1" 200 74847
+"GET /static/images/omu/omu_27.jpg HTTP/1.1" 200 129446
+"GET /static/images/omu/omu_8.jpg HTTP/1.1" 200 83125
+"GET /static/images/omu/omu_30.jpg HTTP/1.1" 200 78529
+"GET /static/images/omu/omu_18.jpg HTTP/1.1" 200 76374
+"GET /static/images/omu/omu_24.jpg HTTP/1.1" 200 52094
+"GET /static/images/omu/omu_25.jpg HTTP/1.1" 200 1354863
+"GET /static/images/favicon/favicon-32x32.png HTTP/1.1" 200 2856
+"GET /static/css/main.min.css HTTP/1.1" 304 0
+(0.003) SELECT "desktop_clicks"."id", "desktop_clicks"."clicker_id", "desktop_clicks"."clicks", "desktop_clicks"."datetime_logged" FROM "desktop_clicks" WHERE "desktop_clicks"."clicker_id" = 'U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4'; args=('U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4',)
+(0.001) UPDATE "desktop_clicks" SET "clicker_id" = 'U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4', "clicks" = 96, "datetime_logged" = '2019-03-18T03:41:47.461653+00:00'::timestamptz WHERE "desktop_clicks"."id" = 173; args=('U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4', 96, datetime.datetime(2019, 3, 18, 3, 41, 47, 461653, tzinfo=<UTC>), 173)
+"POST /post_clicks HTTP/1.1" 200 10
+(0.002) SELECT "desktop_clicks"."id", "desktop_clicks"."clicker_id", "desktop_clicks"."clicks", "desktop_clicks"."datetime_logged", COUNT("desktop_clicks"."clicks") AS "score" FROM "desktop_clicks" GROUP BY "desktop_clicks"."id"; args=()
+(0.000) SELECT "mobile_clicks"."clicker_id" FROM "mobile_clicks"; args=()
+"GET / HTTP/1.1" 200 9578
+"GET /static/css/main.min.css HTTP/1.1" 200 1168
+"GET /static/js/app.min.js HTTP/1.1" 200 5686
+"GET /static/images/omu/omu_29.jpg HTTP/1.1" 200 107484
+"GET /static/images/omu/omu_15.jpg HTTP/1.1" 200 105944
+"GET /static/js/crypto-js.js HTTP/1.1" 200 161782
+"GET /static/images/omu/omu_5.jpg HTTP/1.1" 200 93808
+"GET /static/images/omu/omu_4.jpg HTTP/1.1" 200 85385
+"GET /static/images/omu/omu_14.jpg HTTP/1.1" 200 115791
+"GET /static/images/omu/omu_28.jpg HTTP/1.1" 200 79485
+"GET /static/images/omu/omu_3.jpg HTTP/1.1" 200 35429
+"GET /static/images/omu/omu_17.jpg HTTP/1.1" 200 67205
+"GET /static/images/omu/omu_16.jpg HTTP/1.1" 200 74870
+"GET /static/images/omu/omu_13.jpg HTTP/1.1" 200 90289
+"GET /static/images/omu/omu_7.jpg HTTP/1.1" 200 135276
+"GET /static/images/omu/omu_6.jpg HTTP/1.1" 200 109462
+"GET /static/images/omu/omu_12.jpg HTTP/1.1" 200 61696
+"GET /static/images/omu/omu_2.jpg HTTP/1.1" 200 108256
+"GET /static/images/omu/omu_1.jpg HTTP/1.1" 200 59238
+"GET /static/images/omu/omu_38.jpg HTTP/1.1" 200 91153
+"GET /static/images/omu/omu_0.jpg HTTP/1.1" 200 72489
+"GET /static/images/omu/omu_10.jpg HTTP/1.1" 200 292360
+"GET /static/images/omu/omu_11.jpg HTTP/1.1" 200 121722
+"GET /static/images/omu/omu_49.jpg HTTP/1.1" 200 111921
+"GET /static/images/omu/omu_39.jpg HTTP/1.1" 200 129377
+"GET /static/images/omu/omu_48.jpg HTTP/1.1" 200 106198
+"GET /static/images/omu/omu_43.jpg HTTP/1.1" 200 109957
+"GET /static/images/omu/omu_42.jpg HTTP/1.1" 200 333044
+"GET /static/images/omu/omu_24.jpg HTTP/1.1" 200 52094
+"GET /static/images/omu/omu_40.jpg HTTP/1.1" 200 59763
+"GET /static/images/omu/omu_44.jpg HTTP/1.1" 200 75624
+"GET /static/images/omu/omu_41.jpg HTTP/1.1" 200 113327
+"GET /static/images/omu/omu_45.jpg HTTP/1.1" 200 124306
+"GET /static/images/omu/omu_46.jpg HTTP/1.1" 200 118148
+"GET /static/images/omu/omu_47.jpg HTTP/1.1" 200 135172
+"GET /static/images/omu/omu_21.jpg HTTP/1.1" 200 76308
+"GET /static/images/omu/omu_34.jpg HTTP/1.1" 200 74680
+"GET /static/images/omu/omu_23.jpg HTTP/1.1" 200 61835
+"GET /static/images/omu/omu_35.jpg HTTP/1.1" 200 65500
+"GET /static/images/omu/omu_20.jpg HTTP/1.1" 200 135226
+"GET /static/images/omu/omu_37.jpg HTTP/1.1" 200 75012
+"GET /static/images/omu/omu_26.jpg HTTP/1.1" 200 72240
+"GET /static/images/omu/omu_33.jpg HTTP/1.1" 200 61010
+"GET /static/images/omu/omu_36.jpg HTTP/1.1" 200 78835
+"GET /static/images/omu/omu_22.jpg HTTP/1.1" 200 107833
+"GET /static/images/omu/omu_32.jpg HTTP/1.1" 200 87114
+"GET /static/images/omu/omu_27.jpg HTTP/1.1" 200 129446
+"GET /static/images/omu/omu_19.jpg HTTP/1.1" 200 73020
+"GET /static/images/omu/omu_8.jpg HTTP/1.1" 200 83125
+"GET /static/images/omu/omu_31.jpg HTTP/1.1" 200 74847
+"GET /static/images/omu/omu_30.jpg HTTP/1.1" 200 78529
+"GET /static/images/omu/omu_9.jpg HTTP/1.1" 200 247106
+"GET /static/images/omu/omu_18.jpg HTTP/1.1" 200 76374
+"GET /static/images/omu/omu_25.jpg HTTP/1.1" 200 1354863
+"GET /static/images/favicon/favicon-32x32.png HTTP/1.1" 200 2856
+(0.002) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.003) SELECT "desktop_clicks"."id", "desktop_clicks"."clicker_id", "desktop_clicks"."clicks", "desktop_clicks"."datetime_logged" FROM "desktop_clicks" WHERE "desktop_clicks"."clicker_id" = 'U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4'; args=('U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4',)
+(0.001) UPDATE "desktop_clicks" SET "clicker_id" = 'U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4', "clicks" = 101, "datetime_logged" = '2019-03-18T03:41:47.461653+00:00'::timestamptz WHERE "desktop_clicks"."id" = 173; args=('U2FsdGVkX19v7XedWyY0iWphqLJZVzjVV2OSkRNeIr4', 101, datetime.datetime(2019, 3, 18, 3, 41, 47, 461653, tzinfo=<UTC>), 173)
+"POST /post_clicks HTTP/1.1" 200 10
+(0.003) SELECT "desktop_clicks"."id", "desktop_clicks"."clicker_id", "desktop_clicks"."clicks", "desktop_clicks"."datetime_logged", COUNT("desktop_clicks"."clicks") AS "score" FROM "desktop_clicks" GROUP BY "desktop_clicks"."id"; args=()
+(0.000) SELECT "mobile_clicks"."clicker_id" FROM "mobile_clicks"; args=()
+"GET / HTTP/1.1" 200 9578
+"GET /static/js/crypto-js.js HTTP/1.1" 200 161782
+"GET /static/images/omu/omu_15.jpg HTTP/1.1" 200 105944
+"GET /static/images/omu/omu_29.jpg HTTP/1.1" 200 107484
+"GET /static/js/app.min.js HTTP/1.1" 200 5686
+"GET /static/css/main.min.css HTTP/1.1" 200 1147
+"GET /static/images/omu/omu_4.jpg HTTP/1.1" 200 85385
+"GET /static/images/omu/omu_5.jpg HTTP/1.1" 200 93808
+"GET /static/images/omu/omu_14.jpg HTTP/1.1" 200 115791
+"GET /static/images/omu/omu_28.jpg HTTP/1.1" 200 79485
+"GET /static/images/omu/omu_6.jpg HTTP/1.1" 200 109462
+"GET /static/images/omu/omu_16.jpg HTTP/1.1" 200 74870
+"GET /static/images/omu/omu_13.jpg HTTP/1.1" 200 90289
+"GET /static/images/omu/omu_3.jpg HTTP/1.1" 200 35429
+"GET /static/images/omu/omu_2.jpg HTTP/1.1" 200 108256
+"GET /static/images/omu/omu_17.jpg HTTP/1.1" 200 67205
+"GET /static/images/omu/omu_12.jpg HTTP/1.1" 200 61696
+"GET /static/images/omu/omu_7.jpg HTTP/1.1" 200 135276
+"GET /static/images/omu/omu_1.jpg HTTP/1.1" 200 59238
+"GET /static/images/omu/omu_0.jpg HTTP/1.1" 200 72489
+"GET /static/images/omu/omu_39.jpg HTTP/1.1" 200 129377
+"GET /static/images/omu/omu_11.jpg HTTP/1.1" 200 121722
+"GET /static/images/omu/omu_10.jpg HTTP/1.1" 200 292360
+"GET /static/images/omu/omu_38.jpg HTTP/1.1" 200 91153
+"GET /static/images/omu/omu_40.jpg HTTP/1.1" 200 59763
+"GET /static/images/omu/omu_48.jpg HTTP/1.1" 200 106198
+"GET /static/images/omu/omu_41.jpg HTTP/1.1" 200 113327
+"GET /static/images/omu/omu_42.jpg HTTP/1.1" 200 333044
+"GET /static/images/omu/omu_49.jpg HTTP/1.1" 200 111921
+"GET /static/images/omu/omu_43.jpg HTTP/1.1" 200 109957
+"GET /static/images/omu/omu_44.jpg HTTP/1.1" 200 75624
+"GET /static/images/omu/omu_46.jpg HTTP/1.1" 200 118148
+"GET /static/images/omu/omu_34.jpg HTTP/1.1" 200 74680
+"GET /static/images/omu/omu_45.jpg HTTP/1.1" 200 124306
+"GET /static/images/omu/omu_47.jpg HTTP/1.1" 200 135172
+"GET /static/images/omu/omu_20.jpg HTTP/1.1" 200 135226
+"GET /static/images/omu/omu_21.jpg HTTP/1.1" 200 76308
+"GET /static/images/omu/omu_35.jpg HTTP/1.1" 200 65500
+"GET /static/images/omu/omu_36.jpg HTTP/1.1" 200 78835
+"GET /static/images/omu/omu_22.jpg HTTP/1.1" 200 107833
+"GET /static/images/omu/omu_37.jpg HTTP/1.1" 200 75012
+"GET /static/images/omu/omu_23.jpg HTTP/1.1" 200 61835
+"GET /static/images/omu/omu_26.jpg HTTP/1.1" 200 72240
+"GET /static/images/omu/omu_32.jpg HTTP/1.1" 200 87114
+"GET /static/images/omu/omu_27.jpg HTTP/1.1" 200 129446
+"GET /static/images/omu/omu_33.jpg HTTP/1.1" 200 61010
+"GET /static/images/omu/omu_19.jpg HTTP/1.1" 200 73020
+"GET /static/images/omu/omu_31.jpg HTTP/1.1" 200 74847
+"GET /static/images/omu/omu_8.jpg HTTP/1.1" 200 83125
+"GET /static/images/omu/omu_24.jpg HTTP/1.1" 200 52094
+"GET /static/images/omu/omu_9.jpg HTTP/1.1" 200 247106
+"GET /static/images/omu/omu_18.jpg HTTP/1.1" 200 76374
+"GET /static/images/omu/omu_30.jpg HTTP/1.1" 200 78529
+"GET /static/images/omu/omu_25.jpg HTTP/1.1" 200 1354863
+"GET /static/images/favicon/favicon-32x32.png HTTP/1.1" 200 2856
+"GET /static/css/main.min.css HTTP/1.1" 304 0

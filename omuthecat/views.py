@@ -19,11 +19,18 @@ def render_home(request):
     filename = get_random_image(image_folder)
     filenames = listdir('static/images/{}'.format(image_folder))
 
-    # get highest click score and number of clickers
-    all_entries = get_all_entries(request)
-    highest_scoring_entry = get_highest_scoring_entry(all_entries)
-    number_of_entries = get_number_of_entries(all_entries)
-    number_of_clicks = get_number_of_clicks(all_entries)
+    try:
+        # get highest click score and number of clickers
+        all_entries = get_all_entries(request)
+        highest_scoring_entry = get_highest_scoring_entry(all_entries)
+        number_of_entries = get_number_of_entries(all_entries)
+        number_of_clicks = get_number_of_clicks(all_entries)
+    except Exception as e:
+        print("\nAn exception occurred.")
+        print("Exception type: {}".format(type(e)))
+        print(str(e))
+        logger.error(str(e))
+
 
     # replace click score with message if nobody has clicked yet
     if highest_scoring_entry['clicker_id'] == 'null' or highest_scoring_entry['clicks'] == 0:
@@ -58,13 +65,11 @@ def get_highest_scoring_entry(entries):
         entries - { clicker_id : clicks, ... }
         return value - { clicker_id : clicks } with highest clicks value
     """
-    print(len(entries))
     if len(entries) >= 1:
         highest_scoring_entry = {
             'clicker_id': max( entries.items(), key=itemgetter(1) )[0],
             'clicks': entries[ max( entries.items(), key=itemgetter( 1 ) )[ 0 ] ]
         }
-        print(highest_scoring_entry)
     else:
         # note - handle case of 0 clicks in rendering view
         highest_scoring_entry = { 'clicker_id': 'null', 'clicks': 0 }

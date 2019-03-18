@@ -188,9 +188,22 @@ PIPELINE = {
     },
 }
 
-# configure django-npm (serves node modules as static files)
-# NPM_ROOT_PATH = BASE_DIR
-# NPM_FILE_PATTERNS = {
-#     'module_name': ['filename.js', 'filename2.js'],
-# }
-# NPM_STATIC_FILES_PREFIX = os.path.join('js', 'lib')
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'class': 'logging.FileHandler',
+            'level': 'DEBUG',
+            'filename': 'logs/debug.log',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
