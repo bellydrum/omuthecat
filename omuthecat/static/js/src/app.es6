@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         /** APPLICATION FUNCTIONS **/
 
-        /** desktop -- post clicker_id with total number of clicks to DesktopClickLog **/
+        /** enter batch of desktop clicks to DesktopClickLog **/
         postDesktopClicks: async (clickerId, clicks) => {
 
             /* get clicker_id AND clicks from cookie */
@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         },
 
-        /** mobile -- post clicker_id with single click to MobileClickLog **/
+        /** enter single mobile click to MobileClickLog **/
         postMobileClicks: debounce(async () => {
 
             /* get only clicker_id from cookie */
@@ -89,7 +89,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 'csrf': app.csrftoken,
                 'clicker_id': app.cookie.getValueByKey('clickerid')
             }
-
             await ajaxCall( 'post_clicks', 'POST', data )
 
         }, 15),
@@ -141,7 +140,10 @@ document.addEventListener("DOMContentLoaded", () => {
             document.querySelector('#alert').setAttribute(
                 'style', 'font-size: 3em; text-align: center; padding: 30px;'
             )
-            document.querySelector('#alert').textContent="Omu doesn't like bots :3"
+            document.querySelector('#alert').textContent="Omu is scare of bots :("
+            document.querySelector('.text-display').setAttribute(
+                'style', 'top: auto;'
+            )
 
             /* destroy current click data */
             app.currentSessionScore = 0
