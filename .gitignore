@@ -5,4 +5,5 @@ oenv/*
 static/*
 build
 compile
+logs/debug.log
 omu/settings.py
