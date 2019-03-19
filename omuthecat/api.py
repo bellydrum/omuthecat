@@ -1,5 +1,6 @@
 from django.db.models import Count
 from django.http import HttpResponse
+from django.shortcuts import redirect
 from django.views.decorators.csrf import csrf_protect
 
 from collections import Counter
@@ -109,3 +110,16 @@ def post_clicks(request):
             logger.error('Error with the POST request given to api.post_clicks.')
 
             return HttpResponse( { 'status': 'Error parsing request.POST in api.post_clicks.' } )
+
+def submit_guestbook_entry(request):
+
+    if request.method == 'POST':
+
+        print(request.POST)
+        username = request.POST['username']
+        message = request.POST['message']
+
+        print(username)
+        print(message)
+
+    return redirect('home')
