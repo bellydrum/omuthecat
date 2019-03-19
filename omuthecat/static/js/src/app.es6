@@ -69,15 +69,15 @@ document.addEventListener("DOMContentLoaded", () => {
         /** APPLICATION FUNCTIONS **/
 
         /** enter batch of desktop clicks to DesktopClickLog **/
-        postDesktopClicks: async (clickerId, clicks) => {
+        postDesktopClicks: async (clickerId, clickCount) => {
 
-            /* get clicker_id AND clicks from cookie */
             const data = {
-                'csrf': app.csrftoken,
-                'clicker_id': clickerId,
-                'clicks': clicks,
+                csrf: app.csrftoken,
+                clicker_id: clickerId,
+                clicks: clickCount
             }
-            await ajaxCall( 'post_clicks', 'POST', data, async=false )
+
+            await fetchWrapper( 'post_clicks', 'POST', data, async=false )
 
         },
 
@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 'csrf': app.csrftoken,
                 'clicker_id': app.cookie.getValueByKey('clickerid')
             }
-            await ajaxCall( 'post_clicks', 'POST', data )
+            await fetchWrapper( 'post_clicks', 'POST', data )
 
         }, 15),
 

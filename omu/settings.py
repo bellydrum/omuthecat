@@ -48,10 +48,10 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -139,14 +139,6 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
-# automatically take care of compressing static files on deploy
-
-# whitenoise
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-# WHITENOISE_KEEP_ONLY_HASHED_FILES = True  # does not collect uncompressed files
-
-# django-pipeline
 STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
@@ -154,6 +146,9 @@ STATICFILES_FINDERS = (
     # 'npm.finders.NpmFinder',  # unused at the moment -- for including npm modules in /static/
     'pipeline.finders.PipelineFinder',
 )
+
+
+# django-pipeline configuration
 
 PIPELINE = {
     'PIPELINE_ENABLED': True,

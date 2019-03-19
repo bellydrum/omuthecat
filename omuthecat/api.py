@@ -4,6 +4,7 @@ from django.shortcuts import redirect
 from django.views.decorators.csrf import csrf_protect
 
 from collections import Counter
+from json import dumps, loads
 import logging
 
 from .models import DesktopClickLog, GuestbookEntry, MobileClickLog
@@ -58,14 +59,17 @@ def get_all_entries(request):
 
 @csrf_protect
 def post_clicks(request):
+
     if request.method == 'POST':
 
+        data = loads(request.body)
+
         # log desktop clicks
-        if 'clicker_id' in request.POST.keys() and 'clicks' in request.POST.keys():
+        if 'clicker_id' in data.keys() and 'clicks' in data.keys():
 
             # get or create user
             try:
-                existing_user = DesktopClickLog.objects.get(clicker_id=request.POST['clicker_id'])
+                existing_user = DesktopClickLog.objects.get(clicker_id=data['clicker_id'])
             except DesktopClickLog.DoesNotExist:
                 existing_user = None
             except Exception as e:
@@ -76,26 +80,28 @@ def post_clicks(request):
             # if the clicker_id already exists in DesktopMobileLog
             try:
                 if existing_user is not None:
-                    existing_user.clicks += int(request.POST['clicks'])
+                    existing_user.clicks += int(data['clicks'])
                 else:
                     existing_user = DesktopClickLog(
-                        clicker_id=request.POST['clicker_id'],
-                        clicks=request.POST['clicks']
+                        clicker_id=data['clicker_id'],
+                        clicks=data['clicks']
                     )
                 existing_user.save()
+
             except Exception as e:
                 print('An exception occurred in api.post_clicks trying to increment existing_user clicks in db.')
                 print(str(e))
                 logger.error(str(e))
 
-            return HttpResponse( { 'status': 'OK', 'type': 'desktop' } )
+            # IMPORTANT -- make sure the given value of dumps() is JSON
+            return HttpResponse( dumps( [{ 'status': 'OK', 'type': 'desktop' }] ) )
 
         # log mobile clicks
-        elif 'clicker_id' in request.POST.keys() and 'clicks' not in request.POST.keys():
+        elif 'clicker_id' in data.keys() and 'clicks' not in data.keys():
 
             try:
                 log = MobileClickLog(
-                    clicker_id=request.POST['clicker_id']
+                    clicker_id=data['clicker_id']
                 )
                 log.save()
             except Exception as e:
@@ -103,20 +109,20 @@ def post_clicks(request):
                 print(str(e))
                 logger.error(str(e))
 
-            return HttpResponse( { 'status': 'OK', 'type': 'mobile' })
+            # IMPORTANT -- make sure the given value of dumps() is JSON
+            return HttpResponse( dumps( [{ 'status': 'OK', 'type': 'mobile' }] ) )
 
         else:
             print('Error with the POST request given to api.post_clicks.')
             logger.error('Error with the POST request given to api.post_clicks.')
 
-            return HttpResponse( { 'status': 'Error parsing request.POST in api.post_clicks.' } )
+            # IMPORTANT -- make sure the given value of dumps() is JSON
+            return HttpResponse( dumps( [{ 'status': 'Error parsing request.POST in api.post_clicks.' }] ) )
 
 @csrf_protect
 def submit_guestbook_entry(request):
 
     if request.method == 'POST':
-
-        print(request.COOKIES)
 
         username = request.POST['username']
         message = request.POST['message']
@@ -132,6 +138,6 @@ def submit_guestbook_entry(request):
             )
             guestbook_log.save()
         else:
-            print('No message included!')
+            print('Error: No message included in GuestbookEntry.')
 
         return redirect('home')

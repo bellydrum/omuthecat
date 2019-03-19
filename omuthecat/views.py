@@ -37,9 +37,6 @@ def render_home(request, submitted=False):
         highest_scoring_entry['clicks'] ='Start clicking!'
         number_of_entries = 'No'
 
-    if submitted:
-        print('AYYYYYYYYY')
-
     context = {
         'csrftoken': get_token(request),
         'highest_scoring_entry': highest_scoring_entry['clicks'],
