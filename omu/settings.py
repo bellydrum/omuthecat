@@ -168,8 +168,6 @@ PIPELINE = {
         'crypto-js': {
             'source_filenames': (
                 'js/lib/crypto-js/crypto-js.es6',
-                'js/lib/crypto-js/aes.es6',
-                'js/lib/crypto-js/sha256.es6',
             ),
             'output_filename': 'js/crypto-js.js'
         },
