@@ -116,10 +116,12 @@ def submit_guestbook_entry(request):
 
     if request.method == 'POST':
 
+        print(request.COOKIES)
+
         username = request.POST['username']
         message = request.POST['message']
         clicker_id = request.COOKIES['clickerid']
-        clicks = request.COOKIES['clicks']
+        clicks = request.COOKIES['currentTotalClicks']
 
         if message:
             guestbook_log = GuestbookEntry(
