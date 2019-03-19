@@ -46,15 +46,7 @@ div {
     /*background-color: #999900;*/
 }
 
-.info-text {
-    height: 25%;
-    /*background-color: #fefefe;*/
-}
-.info-text > span {
-    vertical-align: middle;
-}
 .guestbook {
-
 }
 
 .omu-image {
@@ -62,6 +54,13 @@ div {
     max-height: 100%;
     max-width: 100%;
 }
+
+/** bootstrap overrides **/
+.input-group {
+    margin: 0px;
+}
+
+
 
 /* ONLY on desktop */
 @media (min-width: 1201px) {
@@ -108,7 +107,6 @@ div {
     }
     .text-display {
         top: 100vh;
-        /*height: 30vh;*/
     }
     /* image */
     .omu-image {

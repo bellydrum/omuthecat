@@ -12,24 +12,23 @@
 <div class="info-section">
 
     <div class="text-display">
+
         <div class="info-text number-of-entries">
             <span>{{ number_of_entries }} people have pet Omu.</span>
         </div>
+
         <div class="info-text number-of-clicks">
             <span>Omu has been pet a total of {{ number_of_clicks }} times.</span>
         </div>
+
         <div class="info-text" id="current-score">
             <span>Your current score: 0.</span>
         </div>
+
         <div class="info-text high-score">
             <span>Highest score: {{ highest_scoring_entry }}{% if number_of_entries > 0 %} pets!{% endif %}</span>
         </div>
-        <div class="guestbook input-group mb-3">
-            <input type="text" class="form-control" placeholder="Guestbook coming soon!" aria-label="Guestbook coming soon!" aria-describedby="basic-addon2">
-            <div class="input-group-append">
-                <span class="input-group-text" id="basic-addon2">Submit</span>
-            </div>
-        </div>
+
     </div>
 
 </div>
