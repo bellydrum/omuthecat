@@ -29,6 +29,27 @@
             <span>Highest score: {{ highest_scoring_entry }}{% if number_of_entries > 0 %} pets!{% endif %}</span>
         </div>
 
+        <div class="guestbook mt-2">
+
+            <form action="submit_guestbook_entry" method="post">
+                {% csrf_token %}
+
+                <div class="form-row">
+                    <div class="col-md-3">
+                        <input type="text" class="form-control mt-1 mb-1" name="username" placeholder="Your name">
+                    </div>
+                    <div class="col-md-7">
+                        <input type="text" class="form-control mt-1 mb-1" name="message" placeholder="Your message for Omu">
+                    </div>
+                    <div class="col-md-2">
+                        <button type="submit" class="guestbook-submit btn btn-primary mt-1 mb-1">Submit</button>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+
     </div>
 
 </div>

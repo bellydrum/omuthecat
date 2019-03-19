@@ -12,7 +12,7 @@ from .api import get_all_entries
 ################## page views
 
 @csrf_protect
-def render_home(request):
+def render_home(request, submitted=False):
 
     # initialize constants
     image_folder = 'omu/'
@@ -37,13 +37,16 @@ def render_home(request):
         highest_scoring_entry['clicks'] ='Start clicking!'
         number_of_entries = 'No'
 
+    if submitted:
+        print('AYYYYYYYYY')
+
     context = {
         'csrftoken': get_token(request),
         'highest_scoring_entry': highest_scoring_entry['clicks'],
         'number_of_entries': number_of_entries,
         'number_of_clicks': number_of_clicks,
         'filename': filename,
-        'filenames': filenames
+        'filenames': filenames,
     }
 
     return render(request, 'home.html', context)

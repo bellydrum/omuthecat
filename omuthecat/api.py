@@ -6,7 +6,7 @@ from django.views.decorators.csrf import csrf_protect
 from collections import Counter
 import logging
 
-from .models import DesktopClickLog, MobileClickLog
+from .models import DesktopClickLog, GuestbookEntry, MobileClickLog
 
 
 # create logger for homepage
@@ -111,15 +111,25 @@ def post_clicks(request):
 
             return HttpResponse( { 'status': 'Error parsing request.POST in api.post_clicks.' } )
 
+@csrf_protect
 def submit_guestbook_entry(request):
 
     if request.method == 'POST':
 
-        print(request.POST)
         username = request.POST['username']
         message = request.POST['message']
+        clicker_id = request.COOKIES['clickerid']
+        clicks = request.COOKIES['clicks']
 
-        print(username)
-        print(message)
+        if message:
+            guestbook_log = GuestbookEntry(
+                username=username,
+                message=message,
+                clicker_id = clicker_id,
+                clicks = clicks
+            )
+            guestbook_log.save()
+        else:
+            print('No message included!')
 
-    return redirect('home')
+        return redirect('home')

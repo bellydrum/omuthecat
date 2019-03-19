@@ -61,6 +61,16 @@ class GuestbookEntry(models.Model):
         blank=False,
         null=False
     )
+    clicker_id = models.CharField(
+        max_length=512,
+        blank=False,
+        null=False
+    )
+    clicks = models.PositiveSmallIntegerField(
+        blank=False,
+        null=False,
+        default=0
+    )
     datetime_logged = models.DateTimeField(
         editable=False
     )
@@ -72,4 +82,4 @@ class GuestbookEntry(models.Model):
         return super(GuestbookEntry, self).save(*args, **kwargs)
 
     class Meta:
-        db_table = 'guestbook_entries'
+        db_table = 'guestbook'
