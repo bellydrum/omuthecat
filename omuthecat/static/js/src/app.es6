@@ -64,10 +64,13 @@ document.addEventListener("DOMContentLoaded", () => {
             document.querySelector(
                 '#current-score'
             ).textContent='Your current score: ' + `${ app.cookie.getValueByKey('currentTotalClicks') }.`
+            
+            /** TODO - fix this
             document.querySelector('#number-of-clicks').textContent=(
                 parseInt(app.cookie.getValueByKey('totalSumOfClicks')) +
                 parseInt(app.cookie.getValueByKey('currentTotalClicks'))
             )
+            **/
 
             /** Step 7. update current high score if user is setting it. **/
             if ( parseInt( app.cookie.getValueByKey('currentTotalClicks') ) >=
