@@ -10,15 +10,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
         /** initialize constants **/
 
-        csrftoken: window.csrftoken,
-        onDesktop: !( mobileBrowser() ),
-        imageFilenames: image_filenames,       // defined in home.html
-        imageFilepath: 'static/images/omu/',  // find another way that isn't hardcoding
-        nextIndex: getRandomIndex( image_filenames.length ),
-        currentSessionScore: 0,
-        cookie: new CookieHelper(),
+        csrftoken: window.csrftoken,                            // set in requestHelper.es6
+        cookie: new CookieHelper(),                             // defined in cookieHelper.es6
+        nextIndex: getRandomIndex( image_filenames.length ),    // defined in utils.es6
+        onDesktop: !( mobileBrowser() ),                        // defined in utils.es6
+        imageFilenames: image_filenames,                        // defined in home.html
+        imageFilepath: 'static/images/omu/',                    // hardcoded -- find better way
         timeSinceLastCheck: Date.now(),
         timeGapsBetweenChecks: [],
+        currentSessionScore: 0,                                 // every page load
 
         /** APPLICATION LISTENERS **/
 
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
              *  Step 3. determine the next image randomly.
              *  Step 4. hide the current image from the page.
              *  Step 5. display the randomly chosen image.
-             *  Step 6. update the current score on the page.
+             *  Step 6. update the current scores on the page.
              *  Step 7. update current high score if user is setting it.
              */
 
@@ -189,7 +189,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         const clicks = parseInt( app.currentSessionScore )
 
                         /** Step 2. POST the current session sum of clicks to the database if more than zero. **/
-                        if (clicks) {
+                        if (clicks > 0) {
                             app.postDesktopClicks( app.cookie.getValueByKey('clickerid'), app.currentSessionScore )
                         }
 
