@@ -96,9 +96,10 @@ document.addEventListener("DOMContentLoaded", () => {
         userIsBot: (e) => {
 
             /** check if click event isTrusted **/
-            if ( !(e.isTrusted) ) {
-                return true
-            }
+            /** currently disabled because it doesn't play well with the zoom-cancelling script **/
+            // if ( !(e.isTrusted) ) {
+            //     return true
+            // }
 
             /** do a click frequency check every 10 clicks. **/
             if ( ( app.currentSessionScore > 10 ) && ( app.currentSessionScore % 5 === 0 ) ) {
