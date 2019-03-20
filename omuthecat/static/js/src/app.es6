@@ -165,8 +165,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     The sum of total desktop and mobile clicks are reformatted and counted in api.get_all_entries().
                  **/
 
-                /** ON IMAGE SECTION CLICK -- change image and increment counter **/
-                document.querySelector('.image-section').addEventListener('click', app.imageClickListener, false)
+                /** ON IMAGE SECTION CLICK -- change image and increment counter; prevent double-tap zoom on iOS **/
+                document.querySelector('.image-section')
+                    .addEventListener('click', app.imageClickListener, false)
+                    .addEventListener('touchstart', preventZoom)
 
                 /** ON DESKTOP PAGE UNLOAD -- post clicker_id and clicks to DesktopClickLog **/
                 if ( app.onDesktop ) {

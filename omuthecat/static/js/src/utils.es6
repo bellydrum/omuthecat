@@ -31,3 +31,20 @@ const debounce = (func, wait, immediate) => {
         if (callNow) func.apply(context, args)
     }
 }
+
+/** remove ability to double-tap zoom on iOS Safari **/
+//https://stackoverflow.com/a/39778831/4896692
+function preventZoom(e) {
+
+    let t2 = e.timeStamp
+    let t1 = e.currentTarget.dataset.lastTouch || t2
+    let dt = t2 - t1
+    let fingers = e.touches.length
+    e.currentTarget.dataset.lastTouch = t2
+
+    if ( !dt || dt > 500 || fingers > 1 ) return  // not double-tap
+
+    e.preventDefault()
+    e.target.click()
+
+}
