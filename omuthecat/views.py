@@ -1,5 +1,6 @@
 from django.middleware.csrf import get_token
 from django.shortcuts import render
+from django.views.decorators.cache import cache_control
 from django.views.decorators.csrf import csrf_protect
 
 from operator import itemgetter
@@ -11,6 +12,7 @@ from .api import get_all_entries
 
 ################## page views
 
+@cache_control(private=True)
 @csrf_protect
 def render_home(request, submitted=False):
 
