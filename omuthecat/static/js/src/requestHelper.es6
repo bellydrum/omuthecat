@@ -50,7 +50,7 @@ async function fetchWrapper( url, requestType, data={}, async=true) {
         request.open(requestType, url, true)
         request.setRequestHeader('Content-Type', 'text/plain; charset="utf-8"')
         request.setRequestHeader( 'X-CSRFToken', window.csrftoken )
-        xhr.setRequestHeader( 'cache-control', 'max-age=31536000' )
+        request.setRequestHeader( 'cache-control', 'max-age=31536000' )
         request.onload = (e) => {
             if ( request.readyState === 4 ) {
                 if ( request.status !== 200 ) {
