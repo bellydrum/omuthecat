@@ -14,7 +14,7 @@ from .api import get_all_entries
 
 @cache_control(private=True)
 @csrf_protect
-def render_home(request, submitted=False):
+def render_home(request):
 
     # initialize constants
     image_folder = 'omu/'
