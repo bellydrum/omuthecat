@@ -129,7 +129,9 @@ def submit_guestbook_entry(request):
         clicker_id = request.COOKIES['clickerid']
         clicks = request.COOKIES['currentTotalClicks']
 
-        if message:
+        # TODO - send message back to /home/ if no username/message supplied
+
+        if username and message:
             guestbook_log = GuestbookEntry(
                 username=username,
                 message=message,
