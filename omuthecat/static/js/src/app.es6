@@ -166,9 +166,8 @@ document.addEventListener("DOMContentLoaded", () => {
                  **/
 
                 /** ON IMAGE SECTION CLICK -- change image and increment counter; prevent double-tap zoom on iOS **/
-                document.querySelector('.image-section')
-                    .addEventListener('click', app.imageClickListener, false)
-                    .addEventListener('touchstart', preventZoom)
+                document.querySelector('.image-section').addEventListener('touchstart', preventZoom)
+                document.querySelector('.image-section').addEventListener('click', app.imageClickListener, false)
 
                 /** ON DESKTOP PAGE UNLOAD -- post clicker_id and clicks to DesktopClickLog **/
                 if ( app.onDesktop ) {
