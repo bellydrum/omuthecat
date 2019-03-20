@@ -101,23 +101,6 @@ div, form {
     .info-section {
         display: none;
     }
-    /*.text-display {*/
-        /*height: auto;*/
-    /*}*/
-    /*.info-text {*/
-        /*position: relative;*/
-        /*display: table;*/
-        /*text-align: center;*/
-        /*height: 25%;*/
-        /*width: 100%;*/
-    /*}*/
-    /*.info-text > span {*/
-        /*height: 100%;*/
-    /*}*/
-    /*.text-display {*/
-        /*top: 100vh;*/
-    /*}*/
-    /* image */
     .omu-image {
         max-height: 100%;
         max-width: 100%;
@@ -128,8 +111,9 @@ div, form {
 @media (max-width: 500px) {
 
     .image-section {
-        height: 60vh;
-        max-height: 60vh;
+        height: 40vh;
+        max-height: 40vh;
+        width: auto;
     }
 
     /* image */
