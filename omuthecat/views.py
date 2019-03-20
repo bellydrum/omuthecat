@@ -28,6 +28,9 @@ def render_home(request):
         number_of_entries = get_number_of_entries(all_entries)
         number_of_clicks = get_number_of_clicks(all_entries)
     except Exception as e:
+        highest_scoring_entry = 'Error'
+        number_of_entries = 'Error'
+        number_of_clicks = 'Error'
         print("\nAn exception occurred.")
         print("Exception type: {}".format(type(e)))
         print(str(e))
