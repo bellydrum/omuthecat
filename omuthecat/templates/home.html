@@ -18,7 +18,7 @@
         </div>
 
         <div class="info-text number-of-clicks">
-            <span>Omu has been pet a total of {{ number_of_clicks }} times.</span>
+            <span>Omu has been pet a total of <span id="number-of-clicks">{{ number_of_clicks }}</span> times.</span>
         </div>
 
         <div class="info-text" id="current-score">
@@ -26,7 +26,8 @@
         </div>
 
         <div class="info-text high-score">
-            <span>Highest score: {{ highest_scoring_entry }}{% if number_of_entries > 0 %} pets!{% endif %}</span>
+            <span>Highest score:
+                <span id="high-score">{{ highest_scoring_entry }}</span>{% if number_of_entries > 0 %} pets!{% else %}. Start clicking!{% endif %}</span>
         </div>
 
         <div class="guestbook mt-2">

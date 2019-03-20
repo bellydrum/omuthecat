@@ -36,7 +36,7 @@ def render_home(request):
 
     # replace click score with message if nobody has clicked yet
     if highest_scoring_entry['clicker_id'] == 'null' or highest_scoring_entry['clicks'] == 0:
-        highest_scoring_entry['clicks'] ='Start clicking!'
+        highest_scoring_entry['clicks'] = 0
         number_of_entries = 'No'
 
     context = {

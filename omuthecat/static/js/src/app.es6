@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
              *  Step 4. hide the current image from the page.
              *  Step 5. display the randomly chosen image.
              *  Step 6. update the current score on the page.
+             *  Step 7. update current high score if user is setting it.
              */
 
             /** Step 0. check for bot usage. **/
@@ -59,10 +60,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 `img[src='${ app.imageFilepath }` + `${ app.imageFilenames[app.nextIndex] }']`
             ).setAttribute('style', `display:inline-block;`)
 
-            /** Step 6. update the current score on the page. **/
+            /** Step 6. update the current scores on the page. **/
             document.querySelector(
                 '#current-score'
             ).textContent='Your current score: ' + `${ app.cookie.getValueByKey('currentTotalClicks') }.`
+            document.querySelector('#number-of-clicks').textContent=(
+                parseInt(app.cookie.getValueByKey('totalSumOfClicks')) +
+                parseInt(app.cookie.getValueByKey('currentTotalClicks'))
+            )
+
+            /** Step 7. update current high score if user is setting it. **/
+            if ( parseInt( app.cookie.getValueByKey('currentTotalClicks') ) >=
+                parseInt( document.querySelector('#high-score').textContent ) ) {
+                document.querySelector('#high-score').textContent = app.cookie.getValueByKey( 'currentTotalClicks' )
+            }
 
         },
 
@@ -94,12 +105,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 15),
 
         userIsBot: (e) => {
-
-            /** check if click event isTrusted **/
-            /** currently disabled because it doesn't play well with the zoom-cancelling script **/
-            // if ( !(e.isTrusted) ) {
-            //     return true
-            // }
 
             /** do a click frequency check every 10 clicks. **/
             if ( ( app.currentSessionScore > 10 ) && ( app.currentSessionScore % 5 === 0 ) ) {
@@ -159,10 +164,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 /**
                     NOTE on saving clicks to the database -
                     Saving clicks to the database works differently on desktop vs mobile.
-                    On desktop, clicks are accrued in a counter and the sum is posted on page unload.
-                    On mobile, each individual click is posted to the database one at a time.
+                    - On desktop, clicks are counted in a cookie and the sum is saved when user exits the page.
+                    - On mobile, each individual click is saved to the database.
                     Desktop and mobile clicks are stored in separate tables due to this measure.
-                    Due to the high load of server calls on mobile, a "debouncer" is put in place.
+                    Due to the high load of server calls on mobile, a "debouncer" is put in place on mobile clicks.
                     The sum of total desktop and mobile clicks are reformatted and counted in api.get_all_entries().
                  **/
 
@@ -216,6 +221,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.querySelector(
                     '#current-score'
                 ).textContent='Your current score: ' + `${ app.cookie.getValueByKey('currentTotalClicks') }.`
+            }
+
+            if ( !(app.cookie.getValueByKey('totalSumOfClicks')) ) {
+                app.cookie.addObject( {
+                    'totalSumOfClicks': parseInt(document.querySelector('#number-of-clicks').textContent),
+                })
             }
 
             app.addListeners()
