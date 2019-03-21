@@ -41,7 +41,7 @@ window.csrftoken = getCookie('csrftoken')
  *
  * @about - standardized wrapper for asynchronous fetch requests
  */
-async function fetchWrapper( url, requestType, data={}, async=true) {
+async function requestHelper(url, requestType, data={}, async=true) {
 
     /* ASYNCHRONOUS */
     if (async) {

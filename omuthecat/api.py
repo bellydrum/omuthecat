@@ -127,7 +127,7 @@ def submit_guestbook_entry(request):
         username = request.POST['username']
         message = request.POST['message']
         clicker_id = request.COOKIES['clickerid']
-        clicks = request.COOKIES['currentTotalClicks']
+        clicks = request.COOKIES['currentUserTotalClicks']
 
         # TODO - send message back to /home/ if no username/message supplied
 

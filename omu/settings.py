@@ -147,6 +147,9 @@ STATICFILES_FINDERS = (
     'pipeline.finders.PipelineFinder',
 )
 
+# AWS S3 CDN settings
+AWS_STORAGE_BUCKET_NAME = os.environ['omuthecat']
+
 
 # django-pipeline configuration
 
