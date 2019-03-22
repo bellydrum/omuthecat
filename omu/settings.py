@@ -25,7 +25,7 @@ SECRET_KEY = 'zzxkcc&udj83ztpd5#!&z&uaq)45mgr3bz*yenpvs5(r1zl!2%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     '*',
@@ -148,7 +148,7 @@ STATICFILES_FINDERS = (
 )
 
 # AWS S3 CDN settings
-AWS_STORAGE_BUCKET_NAME = os.environ['omuthecat']
+# AWS_STORAGE_BUCKET_NAME = os.environ['omuthecat']
 
 
 # django-pipeline configuration

@@ -27,6 +27,7 @@ def get_all_entries(request):
             for i in DesktopClickLog.objects.annotate(score=Count('clicks'))
         ]
     except Exception as e:
+        desktop_entries = []
         print('An exception occurred in api.get_all_entries trying to get all desktop entries.')
         print(str(e))
         logger.error(str(e))
@@ -37,6 +38,7 @@ def get_all_entries(request):
             for i in Counter([i['clicker_id'] for i in MobileClickLog.objects.values('clicker_id')]).items()
         ]
     except Exception as e:
+        mobile_entries = []
         print('An exception occurred in api.get_all_entries trying to get all mobile entries.')
         print(str(e))
         logger.error(str(e))
@@ -76,6 +78,8 @@ def post_clicks(request):
                 print('An exception occurred in api.post_clicks trying to get or create existing_user.')
                 print(str(e))
                 logger.error(str(e))
+                # NOTE -- make sure the given value of dumps() is JSON
+                return HttpResponse( dumps( [{ 'status': 'ERROR', 'type': 'mobile' }] ) )
 
             # if the clicker_id already exists in DesktopMobileLog
             try:
@@ -93,7 +97,7 @@ def post_clicks(request):
                 print(str(e))
                 logger.error(str(e))
 
-            # IMPORTANT -- make sure the given value of dumps() is JSON
+            # NOTE -- make sure the given value of dumps() is JSON
             return HttpResponse( dumps( [{ 'status': 'OK', 'type': 'desktop' }] ) )
 
         # log mobile clicks
@@ -109,15 +113,30 @@ def post_clicks(request):
                 print(str(e))
                 logger.error(str(e))
 
-            # IMPORTANT -- make sure the given value of dumps() is JSON
+            # NOTE -- make sure the given value of dumps() is JSON
             return HttpResponse( dumps( [{ 'status': 'OK', 'type': 'mobile' }] ) )
 
         else:
             print('Error with the POST request given to api.post_clicks.')
             logger.error('Error with the POST request given to api.post_clicks.')
 
-            # IMPORTANT -- make sure the given value of dumps() is JSON
+            # NOTE -- make sure the given value of dumps() is JSON
             return HttpResponse( dumps( [{ 'status': 'Error parsing request.POST in api.post_clicks.' }] ) )
+
+
+@csrf_protect
+def get_guestbook_entries(request):
+
+    guestbook_entries = GuestbookEntry.objects.all()
+
+    # define list of unwanted words
+    unwanted_words = []
+
+    # define list of guestbook entries that do NOT contain words from unwanted_words
+    entries = [ entry for entry in guestbook_entries if not len([ word for word in unwanted_words if word in entry ]) ]
+
+    return entries
+
 
 @csrf_protect
 def submit_guestbook_entry(request):
@@ -127,11 +146,9 @@ def submit_guestbook_entry(request):
         username = request.POST['username']
         message = request.POST['message']
         clicker_id = request.COOKIES['clickerid']
-        clicks = request.COOKIES['currentUserTotalClicks']
+        clicks = request.COOKIES['currentTotalClicks']
 
-        # TODO - send message back to /home/ if no username/message supplied
-
-        if username and message:
+        if message:
             guestbook_log = GuestbookEntry(
                 username=username,
                 message=message,
@@ -143,3 +160,4 @@ def submit_guestbook_entry(request):
             print('Error: No message included in GuestbookEntry.')
 
         return redirect('home')
+

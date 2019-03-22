@@ -1,5 +1,10 @@
 # omuthecat
-Pictures of Omu, the cat
+a fun clicking game with pictures of omu, the cat.
+
+### dependencies
+
+- Python3.6
+- pip3.6
 
 ### build.py
 Usage:

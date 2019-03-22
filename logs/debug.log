@@ -6640,3 +6640,23 @@ Forbidden (CSRF cookie not set.): /post_clicks
 "GET /static/images/omu/omu_30.jpg HTTP/1.1" 200 78529
 "GET /static/images/omu/omu_18.jpg HTTP/1.1" 200 76374
 "GET /static/images/favicon/favicon-32x32.png HTTP/1.1" 200 2856
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/dmaness/development/personal/omu/oenv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/dmaness/development/personal/omu/oenv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/dmaness/development/personal/omu/oenv/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/dmaness/development/personal/omu/oenv/lib/python3.6/site-packages/django/views/decorators/cache.py", line 31, in _cache_controlled
+    response = viewfunc(request, *args, **kw)
+  File "/home/dmaness/development/personal/omu/oenv/lib/python3.6/site-packages/django/utils/decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/dmaness/development/personal/omu/omuthecat/views.py", line 20, in render_home
+    filename = get_random_image(image_folder)
+  File "/home/dmaness/development/personal/omu/omuthecat/utils.py", line 13, in get_random_image
+    filenames = listdir(path)
+NameError: name 'listdir' is not defined
+"GET / HTTP/1.1" 500 27
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 77
