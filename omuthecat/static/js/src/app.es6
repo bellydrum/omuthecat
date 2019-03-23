@@ -41,8 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
             //     return
             // }
 
-            console.log(app.imageFilenames)
-
             /** Step 1. increment the click counters. **/
             app.cookie.addObject({ 'currentUserTotalClicks': parseInt( app.cookie.getValueByKey('currentUserTotalClicks') ) + 1 })
             app.currentSessionClicks += 1

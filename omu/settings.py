@@ -25,7 +25,8 @@ SECRET_KEY = 'zzxkcc&udj83ztpd5#!&z&uaq)45mgr3bz*yenpvs5(r1zl!2%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = True
+# DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     '*',
@@ -139,9 +140,15 @@ USE_TZ = True
 if DEBUG:
     STATIC_URL = 'static/'
     STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
+
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+    STATICFILES_FINDERS = (
+        'django.contrib.staticfiles.finders.FileSystemFinder',
+        'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+        'pipeline.finders.PipelineFinder',
+    )
 else:
     # s3 configuration
-    STATIC_URL = 'https://{}/{}/'.format( AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION )
 
     STATICFILES_LOCATION = 'static'
     STATICFILES_STORAGE = 'custom_storages.StaticStorage'
@@ -155,16 +162,10 @@ else:
     AWS_STORAGE_BUCKET_NAME = 'omuassetsd4d3db84-93ec-4c32-99d3-4fd9a318c2aa'
     AWS_S3_CUSTOM_DOMAIN = '{}.s3.amazonaws.com'.format(AWS_BUCKET_NAME)
     AWS_LOCATION = 'static'
+    STATIC_URL = 'https://{}/{}/'.format( AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION )
+    STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'static'), ]
     AWS_S3_OBJECT_PARAMETERS = { 'CacheControl': 'max-age=86400', }
     AWS_IS_GZIPPED = True
-    STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'static'), ]
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'pipeline.finders.PipelineFinder',
-)
 
 # django-pipeline configuration
 
