@@ -1,5 +1,5 @@
 beautifulsoup4==4.7.1
-boto==2.49.0
+boto3==1.9.120
 css-html-js-minify==2.5.5
 Django==2.1.7
 django-appconf==1.0.3
