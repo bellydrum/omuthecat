@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'omuthecat',
     'pipeline',
+    'storages'
 ]
 
 MIDDLEWARE = [
@@ -137,6 +138,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
+# s3 configuration
+AWS_USER = os.environ.get('S3_USER')
+AWS_ACCESS_KEY_ID = os.environ.get('S3_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('S3_SECRET_ACCESS_KEY')
+AWS_BUCKET_NAME = 'omuthecat-assets'
+AWS_S3_OBJECT_PARAMETERS = { 'CacheControl': 'max-age=86400', }
+AWS_LOCATION = 'static'
+
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
@@ -146,10 +155,6 @@ STATICFILES_FINDERS = (
     # 'npm.finders.NpmFinder',  # unused at the moment -- for including npm modules in /static/
     'pipeline.finders.PipelineFinder',
 )
-
-# AWS S3 CDN settings
-# AWS_STORAGE_BUCKET_NAME = os.environ['omuthecat']
-
 
 # django-pipeline configuration
 
