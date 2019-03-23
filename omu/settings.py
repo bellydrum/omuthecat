@@ -25,7 +25,7 @@ SECRET_KEY = 'zzxkcc&udj83ztpd5#!&z&uaq)45mgr3bz*yenpvs5(r1zl!2%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     '*',
@@ -84,16 +84,13 @@ WSGI_APPLICATION = 'omu.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 if DEBUG:
-
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
             'NAME': 'omu',
         }
     }
-
 else:
-
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
@@ -138,30 +135,29 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
-# s3 configuration
-
-AWS_USER = os.environ.get('S3_USER')
-AWS_ACCESS_KEY_ID = os.environ.get('S3_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = os.environ.get('S3_SECRET_ACCESS_KEY')
-AWS_BUCKET_NAME = 'omuassetsd4d3db84-93ec-4c32-99d3-4fd9a318c2aa'
-AWS_STORAGE_BUCKET_NAME = 'omuassetsd4d3db84-93ec-4c32-99d3-4fd9a318c2aa'
-AWS_S3_CUSTOM_DOMAIN = '{}.s3.amazonaws.com'.format(AWS_BUCKET_NAME)
-AWS_LOCATION = 'static'
-AWS_S3_OBJECT_PARAMETERS = { 'CacheControl': 'max-age=86400', }
-AWS_IS_GZIPPED = True
-STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'static'), ]
-
-STATICFILES_LOCATION = 'static'
-STATICFILES_STORAGE = 'custom_storages.StaticStorage'
-MEDIAFILES_LOCATION = 'media'
-DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 
 if DEBUG:
     STATIC_URL = 'static/'
     STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
 else:
+    # s3 configuration
     STATIC_URL = 'https://{}/{}/'.format( AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION )
-    STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+    STATICFILES_LOCATION = 'static'
+    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+    MEDIAFILES_LOCATION = 'media'
+    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+
+    AWS_USER = os.environ.get('S3_USER')
+    AWS_ACCESS_KEY_ID = os.environ.get('S3_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = os.environ.get('S3_SECRET_ACCESS_KEY')
+    AWS_BUCKET_NAME = 'omuassetsd4d3db84-93ec-4c32-99d3-4fd9a318c2aa'
+    AWS_STORAGE_BUCKET_NAME = 'omuassetsd4d3db84-93ec-4c32-99d3-4fd9a318c2aa'
+    AWS_S3_CUSTOM_DOMAIN = '{}.s3.amazonaws.com'.format(AWS_BUCKET_NAME)
+    AWS_LOCATION = 'static'
+    AWS_S3_OBJECT_PARAMETERS = { 'CacheControl': 'max-age=86400', }
+    AWS_IS_GZIPPED = True
+    STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'static'), ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_FINDERS = (

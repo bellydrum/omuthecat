@@ -12,9 +12,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         csrftoken: window.csrftoken,                            // set in requestHelper.es6
         cookie: new CookieHelper(),                             // defined in cookieHelper.es6
-        nextIndex: getRandomIndex( image_filenames.length ),    // defined in utils.es6
         onDesktop: !( mobileBrowser() ),                        // defined in utils.es6
-        imageFilenames: image_filenames,                        // defined in home.html
+        imageFilenames: null,                                   // defined in app.init()
+        nextIndex: null,                                        // defined in app.init()
         imageFilepath: 'static/images/omu/',                    // hardcoded -- find better way
         timeSinceLastCheck: Date.now(),
         timeGapsBetweenChecks: [],
@@ -36,10 +36,12 @@ document.addEventListener("DOMContentLoaded", () => {
              */
 
             /** Step 0. check for bot usage. **/
-            if ( app.userIsBot() ) {
-                app.blockBot()
-                return
-            }
+            // if ( app.userIsBot() ) {
+            //     app.blockBot()
+            //     return
+            // }
+
+            console.log(app.imageFilenames)
 
             /** Step 1. increment the click counters. **/
             app.cookie.addObject({ 'currentUserTotalClicks': parseInt( app.cookie.getValueByKey('currentUserTotalClicks') ) + 1 })
@@ -201,14 +203,25 @@ document.addEventListener("DOMContentLoaded", () => {
         /** start the app */
         init: () => {
 
-            /** add new clickerid cookie if clickerid cookie doesn't exist **/
+            /** store filenames and next filename index in global variables **/
+            app.imageFilenames = [
+                ...document.querySelectorAll('.omu-image')
+            ].map( e => e.attributes.src.textContent.slice( app.imageFilepath.length ) )
+            app.nextIndex = getRandomIndex( app.imageFilenames.length )
+
+            /** add cookies if not already there **/
             if ( !(app.cookie.getValueByKey('clickerid')) ) {
                 app.cookie.addObject({
                     'clickerid': CryptoJS.AES.encrypt( Date.now().toString(), 'iloveomu' ).toString()
                 })
             }
+            if ( !(app.cookie.getValueByKey('totalClicks')) ) {
+                app.cookie.addObject( {
+                    'totalClicks': parseInt(document.querySelector('#number-of-clicks').textContent),
+                })
+            }
 
-            /** initialize click counter cookie to 0 if click counter cookie doesn't exist */
+            /** initialize scores on page */
             if ( !(app.cookie.getValueByKey('currentUserTotalClicks')) ) {
                 app.cookie.addObject({
                     'currentUserTotalClicks': 0,
@@ -218,12 +231,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.querySelector(
                     '#current-score'
                 ).textContent='Your current score: ' + `${ app.cookie.getValueByKey('currentUserTotalClicks') }.`
-            }
-
-            if ( !(app.cookie.getValueByKey('totalClicks')) ) {
-                app.cookie.addObject( {
-                    'totalClicks': parseInt(document.querySelector('#number-of-clicks').textContent),
-                })
             }
 
             app.addListeners()
