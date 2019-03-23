@@ -140,9 +140,7 @@ USE_TZ = True
 
 
 STATIC_URL = 'static/'
-STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
@@ -150,7 +148,6 @@ STATICFILES_FINDERS = (
 )
 
 # s3 configuration
-
 STATICFILES_LOCATION = 'static'
 STATICFILES_STORAGE = 'custom_storages.StaticStorage'
 MEDIAFILES_LOCATION = 'media'
@@ -164,7 +161,7 @@ AWS_STORAGE_BUCKET_NAME = 'omuassetsd4d3db84-93ec-4c32-99d3-4fd9a318c2aa'
 AWS_S3_CUSTOM_DOMAIN = '{}.s3.amazonaws.com'.format(AWS_BUCKET_NAME)
 AWS_LOCATION = 'static'
 STATIC_URL = 'https://{}/{}/'.format( AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION )
-# STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'static'), ]
+STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'static'), ]
 AWS_S3_OBJECT_PARAMETERS = { 'CacheControl': 'max-age=86400', }
 AWS_IS_GZIPPED = True
 
