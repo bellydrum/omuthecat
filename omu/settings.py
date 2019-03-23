@@ -139,20 +139,23 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 # s3 configuration
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
 AWS_USER = os.environ.get('S3_USER')
 AWS_ACCESS_KEY_ID = os.environ.get('S3_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('S3_SECRET_ACCESS_KEY')
 AWS_BUCKET_NAME = 'omuthecat-assets'
 AWS_S3_OBJECT_PARAMETERS = { 'CacheControl': 'max-age=86400', }
-AWS_LOCATION = 'static'
+AWS_IS_GZIPPED = True
+
 
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
+# STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    # 'npm.finders.NpmFinder',  # unused at the moment -- for including npm modules in /static/
     'pipeline.finders.PipelineFinder',
 )
 
