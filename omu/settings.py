@@ -145,11 +145,13 @@ AWS_USER = os.environ.get('S3_USER')
 AWS_ACCESS_KEY_ID = os.environ.get('S3_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('S3_SECRET_ACCESS_KEY')
 AWS_BUCKET_NAME = 'omuthecat-assets'
+AWS_S3_CUSTOM_DOMAIN = '{}.s3.amazonaws.com'.format(AWS_BUCKET_NAME)
+AWS_LOCATION = 'static'
 AWS_S3_OBJECT_PARAMETERS = { 'CacheControl': 'max-age=86400', }
 AWS_IS_GZIPPED = True
 
-
-STATIC_URL = 'static/'
+# STATIC_URL = 'static/'
+STATIC_URL = 'https://{}/{}/'.format( AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION )
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
