@@ -31,6 +31,7 @@ DEBUG = False
 ALLOWED_HOSTS = [
     '*',
     '24.171.99.166',
+    'www.omuthecat.com'
 ] if not DEBUG else ['*']
 
 
