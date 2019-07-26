@@ -25,8 +25,11 @@ SECRET_KEY = 'zzxkcc&udj83ztpd5#!&z&uaq)45mgr3bz*yenpvs5(r1zl!2%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-# DEBUG = True
-DEBUG = False
+# debug is an environment variable set by debug.py
+DEBUG = os.environ['DEBUG'].lower() == 'true'
+# DEBUG = False
+
+print('DEBUG is {}'.format(DEBUG))
 
 ALLOWED_HOSTS = [
     '*',
@@ -138,9 +141,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 
-
-STATIC_URL = 'static/'
-
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
@@ -148,10 +148,14 @@ STATICFILES_FINDERS = (
 )
 
 # s3 configuration
-STATICFILES_LOCATION = 'static'
-STATICFILES_STORAGE = 'custom_storages.StaticStorage'
-MEDIAFILES_LOCATION = 'media'
-DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+if DEBUG:
+    STATICFILES_LOCATION = 'static/'
+    STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
+else:
+    STATICFILES_LOCATION = 'static'
+    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+    MEDIAFILES_LOCATION = 'media'
+    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 
 AWS_USER = os.environ.get('S3_USER')
 AWS_ACCESS_KEY_ID = os.environ.get('S3_ACCESS_KEY_ID')
@@ -160,7 +164,11 @@ AWS_BUCKET_NAME = 'omuassetsd4d3db84-93ec-4c32-99d3-4fd9a318c2aa'
 AWS_STORAGE_BUCKET_NAME = 'omuassetsd4d3db84-93ec-4c32-99d3-4fd9a318c2aa'
 AWS_S3_CUSTOM_DOMAIN = '{}.s3.amazonaws.com'.format(AWS_BUCKET_NAME)
 AWS_LOCATION = 'static'
-STATIC_URL = 'https://{}/{}/'.format( AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION )
+if DEBUG:
+    STATIC_URL = 'static/'
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+else:
+    STATIC_URL = 'https://{}/{}/'.format( AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION )
 STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'static'), ]
 AWS_S3_OBJECT_PARAMETERS = { 'CacheControl': 'max-age=86400', }
 AWS_IS_GZIPPED = True
