@@ -31,6 +31,10 @@ DEBUG = os.environ['DEBUG'].lower() == 'true'
 
 print('DEBUG is {}'.format(DEBUG))
 
+# make AWS stop bitching at me
+AWS_DEFAULT_ACL = None
+
+
 ALLOWED_HOSTS = [
     '*',
     '24.171.99.166',
@@ -169,7 +173,7 @@ if DEBUG:
     STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 else:
     STATIC_URL = 'https://{}/{}/'.format( AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION )
-STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'static'), ]
+    STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'static'), ]
 AWS_S3_OBJECT_PARAMETERS = { 'CacheControl': 'max-age=86400', }
 AWS_IS_GZIPPED = True
 
