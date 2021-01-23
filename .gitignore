@@ -7,3 +7,4 @@ build
 compile
 logs/debug.log
 omu/settings.py
+node_modules/

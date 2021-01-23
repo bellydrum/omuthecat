@@ -6660,3 +6660,393 @@ NameError: name 'listdir' is not defined
 "GET / HTTP/1.1" 500 27
 Not Found: /favicon.ico
 "GET /favicon.ico HTTP/1.1" 404 77
+CREATE TABLE "django_migrations" ("id" serial NOT NULL PRIMARY KEY, "app" varchar(255) NOT NULL, "name" varchar(255) NOT NULL, "applied" timestamp with time zone NOT NULL); (params None)
+CREATE TABLE "django_content_type" ("id" serial NOT NULL PRIMARY KEY, "name" varchar(100) NOT NULL, "app_label" varchar(100) NOT NULL, "model" varchar(100) NOT NULL); (params None)
+ALTER TABLE "django_content_type" ADD CONSTRAINT "django_content_type_app_label_model_76bd3d3b_uniq" UNIQUE ("app_label", "model"); (params ())
+CREATE TABLE "auth_permission" ("id" serial NOT NULL PRIMARY KEY, "name" varchar(50) NOT NULL, "content_type_id" integer NOT NULL, "codename" varchar(100) NOT NULL); (params None)
+CREATE TABLE "auth_group" ("id" serial NOT NULL PRIMARY KEY, "name" varchar(80) NOT NULL UNIQUE); (params None)
+CREATE TABLE "auth_group_permissions" ("id" serial NOT NULL PRIMARY KEY, "group_id" integer NOT NULL, "permission_id" integer NOT NULL); (params None)
+CREATE TABLE "auth_user" ("id" serial NOT NULL PRIMARY KEY, "password" varchar(128) NOT NULL, "last_login" timestamp with time zone NOT NULL, "is_superuser" boolean NOT NULL, "username" varchar(30) NOT NULL UNIQUE, "first_name" varchar(30) NOT NULL, "last_name" varchar(30) NOT NULL, "email" varchar(75) NOT NULL, "is_staff" boolean NOT NULL, "is_active" boolean NOT NULL, "date_joined" timestamp with time zone NOT NULL); (params None)
+CREATE TABLE "auth_user_groups" ("id" serial NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "group_id" integer NOT NULL); (params None)
+CREATE TABLE "auth_user_user_permissions" ("id" serial NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "permission_id" integer NOT NULL); (params None)
+ALTER TABLE "auth_permission" ADD CONSTRAINT "auth_permission_content_type_id_2f476e4b_fk_django_co" FOREIGN KEY ("content_type_id") REFERENCES "django_content_type" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+ALTER TABLE "auth_permission" ADD CONSTRAINT "auth_permission_content_type_id_codename_01ab375a_uniq" UNIQUE ("content_type_id", "codename"); (params ())
+CREATE INDEX "auth_permission_content_type_id_2f476e4b" ON "auth_permission" ("content_type_id"); (params ())
+CREATE INDEX "auth_group_name_a6ea08ec_like" ON "auth_group" ("name" varchar_pattern_ops); (params ())
+ALTER TABLE "auth_group_permissions" ADD CONSTRAINT "auth_group_permissions_group_id_b120cbf9_fk_auth_group_id" FOREIGN KEY ("group_id") REFERENCES "auth_group" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+ALTER TABLE "auth_group_permissions" ADD CONSTRAINT "auth_group_permissio_permission_id_84c5c92e_fk_auth_perm" FOREIGN KEY ("permission_id") REFERENCES "auth_permission" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+ALTER TABLE "auth_group_permissions" ADD CONSTRAINT "auth_group_permissions_group_id_permission_id_0cd325b0_uniq" UNIQUE ("group_id", "permission_id"); (params ())
+CREATE INDEX "auth_group_permissions_group_id_b120cbf9" ON "auth_group_permissions" ("group_id"); (params ())
+CREATE INDEX "auth_group_permissions_permission_id_84c5c92e" ON "auth_group_permissions" ("permission_id"); (params ())
+CREATE INDEX "auth_user_username_6821ab7c_like" ON "auth_user" ("username" varchar_pattern_ops); (params ())
+ALTER TABLE "auth_user_groups" ADD CONSTRAINT "auth_user_groups_user_id_6a12ed8b_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+ALTER TABLE "auth_user_groups" ADD CONSTRAINT "auth_user_groups_group_id_97559544_fk_auth_group_id" FOREIGN KEY ("group_id") REFERENCES "auth_group" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+ALTER TABLE "auth_user_groups" ADD CONSTRAINT "auth_user_groups_user_id_group_id_94350c0c_uniq" UNIQUE ("user_id", "group_id"); (params ())
+CREATE INDEX "auth_user_groups_user_id_6a12ed8b" ON "auth_user_groups" ("user_id"); (params ())
+CREATE INDEX "auth_user_groups_group_id_97559544" ON "auth_user_groups" ("group_id"); (params ())
+ALTER TABLE "auth_user_user_permissions" ADD CONSTRAINT "auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+ALTER TABLE "auth_user_user_permissions" ADD CONSTRAINT "auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm" FOREIGN KEY ("permission_id") REFERENCES "auth_permission" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+ALTER TABLE "auth_user_user_permissions" ADD CONSTRAINT "auth_user_user_permissions_user_id_permission_id_14a6b632_uniq" UNIQUE ("user_id", "permission_id"); (params ())
+CREATE INDEX "auth_user_user_permissions_user_id_a95ead1b" ON "auth_user_user_permissions" ("user_id"); (params ())
+CREATE INDEX "auth_user_user_permissions_permission_id_1fbb5f2c" ON "auth_user_user_permissions" ("permission_id"); (params ())
+CREATE TABLE "django_admin_log" ("id" serial NOT NULL PRIMARY KEY, "action_time" timestamp with time zone NOT NULL, "object_id" text NULL, "object_repr" varchar(200) NOT NULL, "action_flag" smallint NOT NULL CHECK ("action_flag" >= 0), "change_message" text NOT NULL, "content_type_id" integer NULL, "user_id" integer NOT NULL); (params None)
+ALTER TABLE "django_admin_log" ADD CONSTRAINT "django_admin_log_content_type_id_c4bce8eb_fk_django_co" FOREIGN KEY ("content_type_id") REFERENCES "django_content_type" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+ALTER TABLE "django_admin_log" ADD CONSTRAINT "django_admin_log_user_id_c564eba6_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; (params ())
+CREATE INDEX "django_admin_log_content_type_id_c4bce8eb" ON "django_admin_log" ("content_type_id"); (params ())
+CREATE INDEX "django_admin_log_user_id_c564eba6" ON "django_admin_log" ("user_id"); (params ())
+ALTER TABLE "django_content_type" ALTER COLUMN "name" DROP NOT NULL; (params [])
+ALTER TABLE "django_content_type" DROP COLUMN "name" CASCADE; (params ())
+ALTER TABLE "auth_permission" ALTER COLUMN "name" TYPE varchar(255) USING "name"::varchar(255); (params [])
+ALTER TABLE "auth_user" ALTER COLUMN "email" TYPE varchar(254) USING "email"::varchar(254); (params [])
+ALTER TABLE "auth_user" ALTER COLUMN "last_login" DROP NOT NULL; (params [])
+ALTER TABLE "auth_user" ALTER COLUMN "username" TYPE varchar(150) USING "username"::varchar(150); (params [])
+ALTER TABLE "auth_user" ALTER COLUMN "last_name" TYPE varchar(150) USING "last_name"::varchar(150); (params [])
+CREATE TABLE "click_log" ("id" serial NOT NULL PRIMARY KEY, "number_of_clicks" smallint NOT NULL CHECK ("number_of_clicks" >= 0), "datetime_logged" timestamp with time zone NOT NULL); (params None)
+ALTER TABLE "click_log" DROP COLUMN "number_of_clicks" CASCADE; (params ())
+ALTER TABLE "click_log" ADD COLUMN "clicker_id" varchar(512) NOT NULL; (params [])
+CREATE TABLE "desktop_clicks" ("id" serial NOT NULL PRIMARY KEY, "clicker_id" varchar(512) NOT NULL, "clicks" smallint NOT NULL CHECK ("clicks" >= 0), "datetime_logged" timestamp with time zone NOT NULL); (params None)
+ALTER TABLE "click_log" RENAME TO "mobile_clicks"; (params ())
+CREATE TABLE "guestbook_logs" ("id" serial NOT NULL PRIMARY KEY, "username" varchar(128) NULL, "message" text NOT NULL, "datetime_logged" timestamp with time zone NOT NULL); (params None)
+CREATE TABLE "guestbook" ("id" serial NOT NULL PRIMARY KEY, "username" varchar(128) NULL, "message" text NOT NULL, "clicker_id" varchar(512) NOT NULL, "clicks" smallint NOT NULL CHECK ("clicks" >= 0), "datetime_logged" timestamp with time zone NOT NULL); (params None)
+DROP TABLE "guestbook_logs" CASCADE; (params ())
+CREATE TABLE "django_session" ("session_key" varchar(40) NOT NULL PRIMARY KEY, "session_data" text NOT NULL, "expire_date" timestamp with time zone NOT NULL); (params None)
+CREATE INDEX "django_session_session_key_c0390e0f_like" ON "django_session" ("session_key" varchar_pattern_ops); (params ())
+CREATE INDEX "django_session_expire_date_a5c62663" ON "django_session" ("expire_date"); (params ())
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/views/decorators/cache.py", line 31, in _cache_controlled
+    response = viewfunc(request, *args, **kw)
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/utils/decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/david/development/node/omuthecat/omuthecat/views.py", line 20, in render_home
+    filename = get_random_image(image_folder)
+  File "/home/david/development/node/omuthecat/omuthecat/utils.py", line 14, in get_random_image
+    filenames = listdir(path)
+FileNotFoundError: [Errno 2] No such file or directory: 'static/images/omu/'
+"GET / HTTP/1.1" 500 27
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/views/decorators/cache.py", line 31, in _cache_controlled
+    response = viewfunc(request, *args, **kw)
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/utils/decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/david/development/node/omuthecat/omuthecat/views.py", line 20, in render_home
+    filename = get_random_image(image_folder)
+  File "/home/david/development/node/omuthecat/omuthecat/utils.py", line 14, in get_random_image
+    filenames = listdir(path)
+FileNotFoundError: [Errno 2] No such file or directory: 'static/images/omu/'
+"GET / HTTP/1.1" 500 27
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/views/decorators/cache.py", line 31, in _cache_controlled
+    response = viewfunc(request, *args, **kw)
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/utils/decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/david/development/node/omuthecat/omuthecat/views.py", line 20, in render_home
+    filename = get_random_image(image_folder)
+  File "/home/david/development/node/omuthecat/omuthecat/utils.py", line 14, in get_random_image
+    filenames = listdir(path)
+FileNotFoundError: [Errno 2] No such file or directory: 'static/images/omu/'
+"GET / HTTP/1.1" 500 27
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/views/decorators/cache.py", line 31, in _cache_controlled
+    response = viewfunc(request, *args, **kw)
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/utils/decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/david/development/node/omuthecat/omuthecat/views.py", line 20, in render_home
+    filename = get_random_image(image_folder)
+  File "/home/david/development/node/omuthecat/omuthecat/utils.py", line 14, in get_random_image
+    filenames = listdir(path)
+FileNotFoundError: [Errno 2] No such file or directory: 'static/images/omu/'
+"GET / HTTP/1.1" 500 27
+(0.014) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.002) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/views/decorators/cache.py", line 31, in _cache_controlled
+    response = viewfunc(request, *args, **kw)
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/utils/decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/david/development/node/omuthecat/omuthecat/views.py", line 20, in render_home
+    filename = get_random_image(image_folder)
+  File "/home/david/development/node/omuthecat/omuthecat/utils.py", line 14, in get_random_image
+    filenames = listdir(path)
+FileNotFoundError: [Errno 2] No such file or directory: 'static/images/omu/'
+"GET / HTTP/1.1" 500 78079
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/core/handlers/base.py", line 111, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/urls/resolvers.py", line 520, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<URLResolver <URLPattern list> (admin:admin) '^admin/'>], [<URLResolver <module 'omuthecat.urls' from '/home/david/development/node/omuthecat/omuthecat/urls.py'> (None:None) ''>, <URLPattern '^$' [name='home']>], [<URLResolver <module 'omuthecat.urls' from '/home/david/development/node/omuthecat/omuthecat/urls.py'> (None:None) ''>, <URLPattern '^post_clicks$' [name='post_clicks']>], [<URLResolver <module 'omuthecat.urls' from '/home/david/development/node/omuthecat/omuthecat/urls.py'> (None:None) ''>, <URLPattern '^get_guestbook_entries$' [name='get_guestbook_entries']>], [<URLResolver <module 'omuthecat.urls' from '/home/david/development/node/omuthecat/omuthecat/urls.py'> (None:None) ''>, <URLPattern '^submit_guestbook_entry$' [name='submit_guestbook_entry']>], [<URLResolver <module 'django.contrib.auth.urls' from '/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/contrib/auth/urls.py'> (None:None) ''>, <URLPattern 'login/' [name='login']>], [<URLResolver <module 'django.contrib.auth.urls' from '/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/contrib/auth/urls.py'> (None:None) ''>, <URLPattern 'logout/' [name='logout']>], [<URLResolver <module 'django.contrib.auth.urls' from '/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/contrib/auth/urls.py'> (None:None) ''>, <URLPattern 'password_change/' [name='password_change']>], [<URLResolver <module 'django.contrib.auth.urls' from '/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/contrib/auth/urls.py'> (None:None) ''>, <URLPattern 'password_change/done/' [name='password_change_done']>], [<URLResolver <module 'django.contrib.auth.urls' from '/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/contrib/auth/urls.py'> (None:None) ''>, <URLPattern 'password_reset/' [name='password_reset']>], [<URLResolver <module 'django.contrib.auth.urls' from '/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/contrib/auth/urls.py'> (None:None) ''>, <URLPattern 'password_reset/done/' [name='password_reset_done']>], [<URLResolver <module 'django.contrib.auth.urls' from '/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/contrib/auth/urls.py'> (None:None) ''>, <URLPattern 'reset/<uidb64>/<token>/' [name='password_reset_confirm']>], [<URLResolver <module 'django.contrib.auth.urls' from '/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/contrib/auth/urls.py'> (None:None) ''>, <URLPattern 'reset/done/' [name='password_reset_complete']>]], 'path': 'favicon.ico'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/template/base.py", line 829, in _resolve_lookup
+    current = current[bit]
+TypeError: 'URLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/template/base.py", line 837, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'URLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/template/base.py", line 850, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in <URLResolver <URLPattern list> (admin:admin) '^admin/'>
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 4216
+(0.012) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.003) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.011) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.002) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.009) SELECT "desktop_clicks"."id", "desktop_clicks"."clicker_id", "desktop_clicks"."clicks", "desktop_clicks"."datetime_logged", COUNT("desktop_clicks"."clicks") AS "score" FROM "desktop_clicks" GROUP BY "desktop_clicks"."id"; args=()
+(0.001) SELECT "mobile_clicks"."clicker_id" FROM "mobile_clicks"; args=()
+"GET / HTTP/1.1" 200 10556
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/core/handlers/base.py", line 111, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/urls/resolvers.py", line 520, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<URLResolver <URLPattern list> (admin:admin) '^admin/'>], [<URLResolver <module 'omuthecat.urls' from '/home/david/development/node/omuthecat/omuthecat/urls.py'> (None:None) ''>, <URLPattern '^$' [name='home']>], [<URLResolver <module 'omuthecat.urls' from '/home/david/development/node/omuthecat/omuthecat/urls.py'> (None:None) ''>, <URLPattern '^post_clicks$' [name='post_clicks']>], [<URLResolver <module 'omuthecat.urls' from '/home/david/development/node/omuthecat/omuthecat/urls.py'> (None:None) ''>, <URLPattern '^get_guestbook_entries$' [name='get_guestbook_entries']>], [<URLResolver <module 'omuthecat.urls' from '/home/david/development/node/omuthecat/omuthecat/urls.py'> (None:None) ''>, <URLPattern '^submit_guestbook_entry$' [name='submit_guestbook_entry']>], [<URLResolver <module 'django.contrib.auth.urls' from '/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/contrib/auth/urls.py'> (None:None) ''>, <URLPattern 'login/' [name='login']>], [<URLResolver <module 'django.contrib.auth.urls' from '/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/contrib/auth/urls.py'> (None:None) ''>, <URLPattern 'logout/' [name='logout']>], [<URLResolver <module 'django.contrib.auth.urls' from '/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/contrib/auth/urls.py'> (None:None) ''>, <URLPattern 'password_change/' [name='password_change']>], [<URLResolver <module 'django.contrib.auth.urls' from '/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/contrib/auth/urls.py'> (None:None) ''>, <URLPattern 'password_change/done/' [name='password_change_done']>], [<URLResolver <module 'django.contrib.auth.urls' from '/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/contrib/auth/urls.py'> (None:None) ''>, <URLPattern 'password_reset/' [name='password_reset']>], [<URLResolver <module 'django.contrib.auth.urls' from '/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/contrib/auth/urls.py'> (None:None) ''>, <URLPattern 'password_reset/done/' [name='password_reset_done']>], [<URLResolver <module 'django.contrib.auth.urls' from '/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/contrib/auth/urls.py'> (None:None) ''>, <URLPattern 'reset/<uidb64>/<token>/' [name='password_reset_confirm']>], [<URLResolver <module 'django.contrib.auth.urls' from '/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/contrib/auth/urls.py'> (None:None) ''>, <URLPattern 'reset/done/' [name='password_reset_complete']>]], 'path': 'static/css/main.min.css'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/template/base.py", line 829, in _resolve_lookup
+    current = current[bit]
+TypeError: 'URLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/template/base.py", line 837, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'URLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/template/base.py", line 850, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in <URLResolver <URLPattern list> (admin:admin) '^admin/'>
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/core/handlers/base.py", line 111, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/urls/resolvers.py", line 520, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<URLResolver <URLPattern list> (admin:admin) '^admin/'>], [<URLResolver <module 'omuthecat.urls' from '/home/david/development/node/omuthecat/omuthecat/urls.py'> (None:None) ''>, <URLPattern '^$' [name='home']>], [<URLResolver <module 'omuthecat.urls' from '/home/david/development/node/omuthecat/omuthecat/urls.py'> (None:None) ''>, <URLPattern '^post_clicks$' [name='post_clicks']>], [<URLResolver <module 'omuthecat.urls' from '/home/david/development/node/omuthecat/omuthecat/urls.py'> (None:None) ''>, <URLPattern '^get_guestbook_entries$' [name='get_guestbook_entries']>], [<URLResolver <module 'omuthecat.urls' from '/home/david/development/node/omuthecat/omuthecat/urls.py'> (None:None) ''>, <URLPattern '^submit_guestbook_entry$' [name='submit_guestbook_entry']>], [<URLResolver <module 'django.contrib.auth.urls' from '/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/contrib/auth/urls.py'> (None:None) ''>, <URLPattern 'login/' [name='login']>], [<URLResolver <module 'django.contrib.auth.urls' from '/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/contrib/auth/urls.py'> (None:None) ''>, <URLPattern 'logout/' [name='logout']>], [<URLResolver <module 'django.contrib.auth.urls' from '/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/contrib/auth/urls.py'> (None:None) ''>, <URLPattern 'password_change/' [name='password_change']>], [<URLResolver <module 'django.contrib.auth.urls' from '/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/contrib/auth/urls.py'> (None:None) ''>, <URLPattern 'password_change/done/' [name='password_change_done']>], [<URLResolver <module 'django.contrib.auth.urls' from '/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/contrib/auth/urls.py'> (None:None) ''>, <URLPattern 'password_reset/' [name='password_reset']>], [<URLResolver <module 'django.contrib.auth.urls' from '/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/contrib/auth/urls.py'> (None:None) ''>, <URLPattern 'password_reset/done/' [name='password_reset_done']>], [<URLResolver <module 'django.contrib.auth.urls' from '/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/contrib/auth/urls.py'> (None:None) ''>, <URLPattern 'reset/<uidb64>/<token>/' [name='password_reset_confirm']>], [<URLResolver <module 'django.contrib.auth.urls' from '/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/contrib/auth/urls.py'> (None:None) ''>, <URLPattern 'reset/done/' [name='password_reset_complete']>]], 'path': 'static/js/crypto-js.min.js'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/template/base.py", line 829, in _resolve_lookup
+    current = current[bit]
+TypeError: 'URLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/template/base.py", line 837, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'URLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/template/base.py", line 850, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in <URLResolver <URLPattern list> (admin:admin) '^admin/'>
+Not Found: /static/css/main.min.css
+Not Found: /static/js/crypto-js.min.js
+"GET /static/css/main.min.css HTTP/1.1" 404 4252
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/core/handlers/base.py", line 111, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/urls/resolvers.py", line 520, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<URLResolver <URLPattern list> (admin:admin) '^admin/'>], [<URLResolver <module 'omuthecat.urls' from '/home/david/development/node/omuthecat/omuthecat/urls.py'> (None:None) ''>, <URLPattern '^$' [name='home']>], [<URLResolver <module 'omuthecat.urls' from '/home/david/development/node/omuthecat/omuthecat/urls.py'> (None:None) ''>, <URLPattern '^post_clicks$' [name='post_clicks']>], [<URLResolver <module 'omuthecat.urls' from '/home/david/development/node/omuthecat/omuthecat/urls.py'> (None:None) ''>, <URLPattern '^get_guestbook_entries$' [name='get_guestbook_entries']>], [<URLResolver <module 'omuthecat.urls' from '/home/david/development/node/omuthecat/omuthecat/urls.py'> (None:None) ''>, <URLPattern '^submit_guestbook_entry$' [name='submit_guestbook_entry']>], [<URLResolver <module 'django.contrib.auth.urls' from '/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/contrib/auth/urls.py'> (None:None) ''>, <URLPattern 'login/' [name='login']>], [<URLResolver <module 'django.contrib.auth.urls' from '/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/contrib/auth/urls.py'> (None:None) ''>, <URLPattern 'logout/' [name='logout']>], [<URLResolver <module 'django.contrib.auth.urls' from '/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/contrib/auth/urls.py'> (None:None) ''>, <URLPattern 'password_change/' [name='password_change']>], [<URLResolver <module 'django.contrib.auth.urls' from '/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/contrib/auth/urls.py'> (None:None) ''>, <URLPattern 'password_change/done/' [name='password_change_done']>], [<URLResolver <module 'django.contrib.auth.urls' from '/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/contrib/auth/urls.py'> (None:None) ''>, <URLPattern 'password_reset/' [name='password_reset']>], [<URLResolver <module 'django.contrib.auth.urls' from '/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/contrib/auth/urls.py'> (None:None) ''>, <URLPattern 'password_reset/done/' [name='password_reset_done']>], [<URLResolver <module 'django.contrib.auth.urls' from '/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/contrib/auth/urls.py'> (None:None) ''>, <URLPattern 'reset/<uidb64>/<token>/' [name='password_reset_confirm']>], [<URLResolver <module 'django.contrib.auth.urls' from '/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/contrib/auth/urls.py'> (None:None) ''>, <URLPattern 'reset/done/' [name='password_reset_complete']>]], 'path': 'static/js/app.min.js'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/template/base.py", line 829, in _resolve_lookup
+    current = current[bit]
+TypeError: 'URLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/template/base.py", line 837, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'URLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/template/base.py", line 850, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in <URLResolver <URLPattern list> (admin:admin) '^admin/'>
+"GET /static/js/crypto-js.min.js HTTP/1.1" 404 4261
+Not Found: /static/js/app.min.js
+"GET /static/js/app.min.js HTTP/1.1" 404 4243
+"GET /static/images/omu/a78ec8omu_39.jpg HTTP/1.1" 200 129377
+"GET /static/images/omu/62688comu_40.jpg HTTP/1.1" 200 59763
+"GET /static/images/omu/2419ecomu_24.jpg HTTP/1.1" 200 52094
+"GET /static/images/omu/01ea4fomu_7.jpg HTTP/1.1" 200 135276
+"GET /static/images/omu/129344omu_32.jpg HTTP/1.1" 200 87114
+"GET /static/images/omu/bc636domu_1.jpg HTTP/1.1" 200 59238
+"GET /static/images/omu/eb6cc6omu_34.jpg HTTP/1.1" 200 74680
+"GET /static/images/omu/a9ea36omu_35.jpg HTTP/1.1" 200 65500
+"GET /static/images/omu/7e0a73omu_41.jpg HTTP/1.1" 200 113327
+"GET /static/images/omu/461cc7omu_14.jpg HTTP/1.1" 200 115791
+"GET /static/images/omu/8fcd03omu_44.jpg HTTP/1.1" 200 75624
+"GET /static/images/omu/823523omu_26.jpg HTTP/1.1" 200 72240
+"GET /static/images/omu/d40ba4omu_9.jpg HTTP/1.1" 200 247106
+"GET /static/images/omu/c18455omu_29.jpg HTTP/1.1" 200 107484
+"GET /static/images/omu/b08a67omu_6.jpg HTTP/1.1" 200 109462
+"GET /static/images/omu/ec62b5omu_2.jpg HTTP/1.1" 200 108256
+"GET /static/images/omu/73a76aomu_13.jpg HTTP/1.1" 200 90289
+"GET /static/images/omu/59ebbfomu_25.jpg HTTP/1.1" 200 1354863
+"GET /static/images/omu/b8ac30omu_19.jpg HTTP/1.1" 200 73020
+"GET /static/images/omu/7d6048omu_45.jpg HTTP/1.1" 200 124306
+"GET /static/images/omu/05d241omu_48.jpg HTTP/1.1" 200 106198
+"GET /static/images/omu/fc9e48omu_0.jpg HTTP/1.1" 200 72489
+"GET /static/images/omu/ea8da8omu_16.jpg HTTP/1.1" 200 74870
+"GET /static/images/omu/e33230omu_30.jpg HTTP/1.1" 200 78529
+"GET /static/images/omu/4bf4eaomu_33.jpg HTTP/1.1" 200 61010
+"GET /static/images/omu/a39dc8omu_4.jpg HTTP/1.1" 200 85385
+"GET /static/images/omu/ff89e2omu_20.jpg HTTP/1.1" 200 135226
+"GET /static/images/omu/7a31b1omu_8.jpg HTTP/1.1" 200 83125
+"GET /static/images/omu/967f30omu_11.jpg HTTP/1.1" 200 121722
+"GET /static/images/omu/540fa8omu_10.jpg HTTP/1.1" 200 292360
+"GET /static/images/omu/9ade29omu_46.jpg HTTP/1.1" 200 118148
+"GET /static/images/omu/124d04omu_5.jpg HTTP/1.1" 200 93808
+"GET /static/images/omu/1ba79bomu_49.jpg HTTP/1.1" 200 111921
+"GET /static/images/omu/df3cabomu_18.jpg HTTP/1.1" 200 76374
+"GET /static/images/omu/ee6c54omu_17.jpg HTTP/1.1" 200 67205
+"GET /static/images/omu/14337domu_37.jpg HTTP/1.1" 200 75012
+"GET /static/images/omu/84abf9omu_23.jpg HTTP/1.1" 200 61835
+"GET /static/images/omu/5f2818omu_42.jpg HTTP/1.1" 200 333044
+"GET /static/images/omu/9c4909omu_12.jpg HTTP/1.1" 200 61696
+"GET /static/images/omu/eb78d1omu_27.jpg HTTP/1.1" 200 129446
+"GET /static/images/omu/d61f69omu_43.jpg HTTP/1.1" 200 109957
+"GET /static/images/omu/cfd343omu_28.jpg HTTP/1.1" 200 79485
+"GET /static/images/omu/5cd99domu_3.jpg HTTP/1.1" 200 35429
+"GET /static/images/omu/f8b1f4omu_31.jpg HTTP/1.1" 200 74847
+"GET /static/images/omu/2df13aomu_36.jpg HTTP/1.1" 200 78835
+"GET /static/images/omu/4d8194omu_21.jpg HTTP/1.1" 200 76308
+"GET /static/images/omu/9e021aomu_47.jpg HTTP/1.1" 200 135172
+"GET /static/images/omu/0a218eomu_38.jpg HTTP/1.1" 200 91153
+"GET /static/images/omu/df85abomu_15.jpg HTTP/1.1" 200 105944
+"GET /static/images/omu/d8637eomu_22.jpg HTTP/1.1" 200 107833
+"GET /static/images/favicon/favicon-32x32.png HTTP/1.1" 200 2856
+Internal Server Error: /submit_guestbook_entry
+Traceback (most recent call last):
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/david/development/node/omuthecat/env/lib/python3.7/site-packages/django/utils/decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/david/development/node/omuthecat/omuthecat/api.py", line 148, in submit_guestbook_entry
+    clicker_id = request.COOKIES['clickerid']
+KeyError: 'clickerid'
+"POST /submit_guestbook_entry HTTP/1.1" 500 72300

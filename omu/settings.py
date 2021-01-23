@@ -25,19 +25,23 @@ SECRET_KEY = 'zzxkcc&udj83ztpd5#!&z&uaq)45mgr3bz*yenpvs5(r1zl!2%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
+DEBUG = True
 # debug is an environment variable set by debug.py
-DEBUG = os.environ['DEBUG'].lower() == 'true'
-# DEBUG = False
+if 'DEBUG' in os.environ.values():
+    DEBUG = os.environ['DEBUG'].lower() == 'true'
+    print('DEBUG is {}'.format(DEBUG))
+else:
+    DEBUG = True
 
-print('DEBUG is {}'.format(DEBUG))
+print(f'DEBUG is {DEBUG}')
 
 # make AWS stop bitching at me
 AWS_DEFAULT_ACL = None
 
 
 ALLOWED_HOSTS = [
-    '*',
-    '24.171.99.166',
+    '24.207.217.162',
+    'omuthecat.com',
     'www.omuthecat.com'
 ] if not DEBUG else ['*']
 
@@ -96,14 +100,14 @@ if DEBUG:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'omu',
+            'NAME': 'omuthecat',
         }
     }
 else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'omu',
+            'NAME': 'omuthecat',
         }
     }
 
