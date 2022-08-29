@@ -8,4 +8,5 @@ else
     echo "No process needed to be interrupted."
 fi
 
-uwsgi --http :3001 --module omu.wsgi --chmod-socket=664 > /dev/null&1
+#uwsgi --http :3001 --module omu.wsgi --chmod-socket=664 > /dev/null&1
+echo "run script is temporarily disabled."

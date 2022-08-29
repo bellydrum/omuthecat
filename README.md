@@ -3,14 +3,13 @@ a fun clicking game with pictures of omu, the cat.
 
 ### dependencies
 
-- Python3.6
-- pip3.6
+- Python3.8.9
+- pip3
 
 ### build.py
 Usage:
-  - make sure you have Python3.6 and pip3.6 installed. Pip3.6 should come with Python3.6.
-  - from the project root, run `./build.py`.
-  - this is a shorthand for the following:
+  - make sure you have Python3.8.9 installed, as well as pip3.
+  - from the project root, run the following commands.
     - `virtualenv .oenv`
     - `. .oenv/bin/activate`
     - `pip install -r requirements.txt`
