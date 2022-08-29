@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "ansi-regex": "^2.1.1",
+    "babel": "^6.23.0",
     "wrappy": "^1.0.2"
   },
   "devDependencies": {
