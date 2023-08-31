@@ -1,0 +1,47 @@
+System check identified some issues:
+
+WARNINGS:
+omuthecat.DesktopClickLog: (models.W042) Auto-created primary key used when not defining a primary key type, by default 'django.db.models.AutoField'.
+	HINT: Configure the DEFAULT_AUTO_FIELD setting or the OmuthecatConfig.default_auto_field attribute to point to a subclass of AutoField, e.g. 'django.db.models.BigAutoField'.
+omuthecat.GuestbookEntry: (models.W042) Auto-created primary key used when not defining a primary key type, by default 'django.db.models.AutoField'.
+	HINT: Configure the DEFAULT_AUTO_FIELD setting or the OmuthecatConfig.default_auto_field attribute to point to a subclass of AutoField, e.g. 'django.db.models.BigAutoField'.
+omuthecat.MobileClickLog: (models.W042) Auto-created primary key used when not defining a primary key type, by default 'django.db.models.AutoField'.
+	HINT: Configure the DEFAULT_AUTO_FIELD setting or the OmuthecatConfig.default_auto_field attribute to point to a subclass of AutoField, e.g. 'django.db.models.BigAutoField'.
+
+System check identified 3 issues (0 silenced).
+DEBUG is True
+Performing system checks...
+
+August 30, 2023 - 19:34:46
+Django version 4.1, using settings 'omu.settings'
+Starting development server at http://127.0.0.1:8002/
+Quit the server with CONTROL-C.
+System check identified some issues:
+
+WARNINGS:
+omuthecat.DesktopClickLog: (models.W042) Auto-created primary key used when not defining a primary key type, by default 'django.db.models.AutoField'.
+	HINT: Configure the DEFAULT_AUTO_FIELD setting or the OmuthecatConfig.default_auto_field attribute to point to a subclass of AutoField, e.g. 'django.db.models.BigAutoField'.
+omuthecat.GuestbookEntry: (models.W042) Auto-created primary key used when not defining a primary key type, by default 'django.db.models.AutoField'.
+	HINT: Configure the DEFAULT_AUTO_FIELD setting or the OmuthecatConfig.default_auto_field attribute to point to a subclass of AutoField, e.g. 'django.db.models.BigAutoField'.
+omuthecat.MobileClickLog: (models.W042) Auto-created primary key used when not defining a primary key type, by default 'django.db.models.AutoField'.
+	HINT: Configure the DEFAULT_AUTO_FIELD setting or the OmuthecatConfig.default_auto_field attribute to point to a subclass of AutoField, e.g. 'django.db.models.BigAutoField'.
+
+System check identified 3 issues (0 silenced).
+DEBUG is True
+Performing system checks...
+
+August 30, 2023 - 19:37:37
+Django version 4.1, using settings 'omu.settings'
+Starting development server at http://127.0.0.1:8002/
+Quit the server with CONTROL-C.
+System check identified some issues:
+
+WARNINGS:
+omuthecat.DesktopClickLog: (models.W042) Auto-created primary key used when not defining a primary key type, by default 'django.db.models.AutoField'.
+	HINT: Configure the DEFAULT_AUTO_FIELD setting or the OmuthecatConfig.default_auto_field attribute to point to a subclass of AutoField, e.g. 'django.db.models.BigAutoField'.
+omuthecat.GuestbookEntry: (models.W042) Auto-created primary key used when not defining a primary key type, by default 'django.db.models.AutoField'.
+	HINT: Configure the DEFAULT_AUTO_FIELD setting or the OmuthecatConfig.default_auto_field attribute to point to a subclass of AutoField, e.g. 'django.db.models.BigAutoField'.
+omuthecat.MobileClickLog: (models.W042) Auto-created primary key used when not defining a primary key type, by default 'django.db.models.AutoField'.
+	HINT: Configure the DEFAULT_AUTO_FIELD setting or the OmuthecatConfig.default_auto_field attribute to point to a subclass of AutoField, e.g. 'django.db.models.BigAutoField'.
+
+System check identified 3 issues (0 silenced).

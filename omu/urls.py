@@ -15,9 +15,12 @@ Including another URLconf
 """
 from django.urls import include, re_path
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     re_path(r'^admin/', admin.site.urls),
     re_path(r'', include('omuthecat.urls')),
     re_path(r'', include('django.contrib.auth.urls')),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

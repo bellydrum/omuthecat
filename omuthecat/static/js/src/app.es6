@@ -56,9 +56,12 @@ document.addEventListener("DOMContentLoaded", () => {
             currentImage.setAttribute('style', 'display:none;')
 
             /** Step 5. display the randomly chosen image. **/
-            document.querySelector(
-                `img[src='${ app.imageFilepath }` + `${ app.imageFilenames[app.nextIndex] }']`
-            ).setAttribute('style', `display:inline-block;`)
+
+            const imageFilepath = `/${app.imageFilepath.slice(0, -1)}`
+            const imageFilename = app.imageFilenames[app.nextIndex]
+            const selector = `img[src='${ imageFilepath }` + `${ imageFilename }']`
+
+            document.querySelector(selector).setAttribute('style', `display:inline-block;`)
 
             /** Step 6. update the current scores on the page. **/
             document.querySelector(
@@ -173,7 +176,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.querySelector('.image-section').addEventListener('click', app.imageSectionClickListener, false)
 
                 /** ON DESKTOP PAGE UNLOAD -- post clicker_id and clicks to DesktopClickLog **/
-                if ( app.onDesktop ) {
+                if ( false ) {
+                //if ( app.onDesktop ) {
 
                     window.addEventListener('beforeunload', () => {
                         /**
@@ -213,11 +217,14 @@ document.addEventListener("DOMContentLoaded", () => {
                     'clickerid': CryptoJS.AES.encrypt( Date.now().toString(), 'iloveomu' ).toString()
                 })
             }
+
+            /**
             if ( !(app.cookie.getValueByKey('totalClicks')) ) {
                 app.cookie.addObject( {
                     'totalClicks': parseInt(document.querySelector('#number-of-clicks').textContent),
                 })
             }
+            **/
 
             /** initialize scores on page */
             if ( !(app.cookie.getValueByKey('currentUserTotalClicks')) ) {

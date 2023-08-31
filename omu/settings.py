@@ -10,7 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
+import mimetypes
 import os
+
+
+mimetypes.add_type("text/css", ".css", True)
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,8 +29,8 @@ SECRET_KEY = 'zzxkcc&udj83ztpd5#!&z&uaq)45mgr3bz*yenpvs5(r1zl!2%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = True
 # debug is an environment variable set by debug.py
+"""
 if 'DEBUG' in os.environ.values():
     DEBUG = os.environ['DEBUG'].lower() == 'true'
     print('DEBUG is {}'.format(DEBUG))
@@ -34,15 +38,18 @@ else:
     DEBUG = True
 
 print(f'DEBUG is {DEBUG}')
+"""
+DEBUG = False
+
 
 # make AWS stop bitching at me
 AWS_DEFAULT_ACL = None
 
 
 ALLOWED_HOSTS = [
-    '24.207.217.162',
-    'omuthecat.com',
-    'www.omuthecat.com'
+    '*',
+    #'omuthecat.com',
+    #'www.omuthecat.com'
 ] if not DEBUG else ['*']
 
 
@@ -155,7 +162,14 @@ STATICFILES_FINDERS = (
     'pipeline.finders.PipelineFinder',
 )
 
-# s3 configuration
+# staticfiles configuration
+
+STATICFILES_LOCATION = 'static/'
+STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
+STATIC_ROOT = 'static/'
+STATIC_URL = 'static/'
+
+"""
 if DEBUG:
     STATICFILES_LOCATION = 'static/'
     STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
@@ -180,6 +194,7 @@ else:
     STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'static'), ]
 AWS_S3_OBJECT_PARAMETERS = { 'CacheControl': 'max-age=86400', }
 AWS_IS_GZIPPED = True
+"""
 
 # django-pipeline configuration
 
